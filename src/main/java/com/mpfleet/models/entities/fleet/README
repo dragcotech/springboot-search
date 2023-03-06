@@ -1,0 +1,10 @@
+MAIN MODELS OF THIS APPLICATION
+
+Vehicles - list of vehicles the company owns & offers
+Vehicle Models
+Vehicle Makes
+Vehicle Status
+Vehicle Types - Ambulance, Police, VIP, Security, Personal etc.
+Vehicle Hire - Vehicles can be hired by companies and individuals
+Vehicle Movement - Track the gps coordinates of the vehicles (not sure if this will be done since i'm not familiar with gps libraries)
+Vehicle Maintenance - Records, what has been done, dates etc.

@@ -11,8 +11,33 @@ public class ApplicationController {
         return "index";
     }
 
-    @GetMapping("/index2")
+    @GetMapping("/hr") // HUMAN RESOURCES (HR)
+    public String hr(){
+        return "/hr/index";
+    }
+
+    @GetMapping("/accounts") // ACCOUNTS
+    public String accounts(){
+        return "/accounts/index";
+    }
+
+    @GetMapping("/admin") // ADMIN
     public String test(){
-        return "index2";
+        return "/admin/index";
+    }
+
+    @GetMapping("/fleet") // FLEET
+    public String fleet(){
+        return "/fleet/index";
+    }
+
+    @GetMapping("/payroll") // PAYROLL
+    public String payroll(){
+        return "/payroll/index";
+    }
+
+    @GetMapping("/tickets") // TICKETS
+    public String tickets(){
+        return "/tickets/index";
     }
 }

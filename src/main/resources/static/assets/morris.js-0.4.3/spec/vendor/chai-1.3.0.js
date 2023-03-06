@@ -870,7 +870,7 @@
           , 'expected #{this} to be an instance of ' + name
           , 'expected #{this} to not be an instance of ' + name
         );
-      };
+      }
 
       Assertion.addMethod('instanceof', assertInstanceOf);
       Assertion.addMethod('instanceOf', assertInstanceOf);
@@ -1277,7 +1277,7 @@
           , 'expected #{this} to throw ' + expectedThrown + actuallyGot
           , 'expected #{this} to not throw ' + expectedThrown + actuallyGot
         );
-      };
+      }
 
       Assertion.addMethod('throw', assertThrows);
       Assertion.addMethod('throws', assertThrows);
@@ -2466,7 +2466,7 @@
         should.not['throw'] = should.not['Throw'];
 
         return should;
-      };
+      }
 
       chai.should = loadShould;
       chai.Should = loadShould;
@@ -2944,7 +2944,7 @@
         if (mArr) return { i: parseFloat(mArr[1]) };
         else return { p: value };
       });
-    };
+    }
 
     /*!
      * ## _getPathValue(parsed, obj)
@@ -2976,7 +2976,7 @@
         }
       }
       return res;
-    };
+    }
 
   }); // module: chai/utils/getPathValue.js
 

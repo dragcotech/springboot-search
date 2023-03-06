@@ -1,0 +1,2 @@
+Ticket - if there is a problem a person should be able to contact the company
+TicketStatus - when submitting a ticket a person should be able to see the status of the ticket (ACTIVE, ANSWERED, PENDING) etc.
