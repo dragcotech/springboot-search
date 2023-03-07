@@ -20,7 +20,7 @@ public class CountryController {
     }
 
     @GetMapping("/countries")
-    public String getAll(Model model){
+    public String getAll(Model model){ // MAIN
 
         List<Country> countries = countryService.getAll();
         model.addAttribute("countries", countries);
@@ -29,19 +29,32 @@ public class CountryController {
     }
 
     @GetMapping("/addcountry")
-    public String addCountry(){
+    public String addCountry(){ // ADD COUNTRY
         return "admin/addCountry";
     }
 
+    @GetMapping("/editcountry/{id}")
+    public String editCountry(@PathVariable Long id, Model model){ // EDIT COUNTRY
+        Country country = countryService.getById(id);
+        model.addAttribute("country", country);
+        return "admin/editCountry";
+    }
+
     @PostMapping("/countries")
-    public String save(Country country){
+    public String save(Country country){ // SAVE COUNTRY AND REDIRECT TO TABLE
         countryService.save(country);
         return "redirect:/countries";
     }
 
     @RequestMapping(value = "/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
-    public String delete(@PathVariable Long id){
+    public String delete(@PathVariable Long id){ // DELETE COUNTRY AND REDIRECT TO TABLE
         countryService.delete(id);
+        return "redirect:/countries";
+    }
+
+    @RequestMapping(value = "/countries/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String update(Country country){ // UPDATE THE OBJECT AND PUT IT BACK IN THE DATABASE
+        countryService.save(country);
         return "redirect:/countries";
     }
 }

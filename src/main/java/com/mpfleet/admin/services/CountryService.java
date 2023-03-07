@@ -28,4 +28,8 @@ public class CountryService {
     public void delete(Long id){
         countryRepository.deleteById(id);
     }
+
+    public Country getById(Long id) {
+        return countryRepository.findById(id).orElse(null);
+    }
 }
