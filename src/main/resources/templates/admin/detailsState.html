@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-laptop"></i> ADMIN </h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-home"></i><a href="/admin">Admin Home</a></li>
+                    <li><i class="fa fa-home"></i><a href="/states">State Details</a></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" style="width: 70%">
+    <div class="row">
+        <form class="form-horizontal" method="put">
+
+        <div class="col-lg-12">
+
+            <section class="panel">
+                <header class="panel-heading">
+                    Details State record
+                </header>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Id</label>
+                        <div class="col-sm-6">
+                            <label>
+                                <input name="id" th:value="${state.id}" type="text" size="16" readonly class="form-control">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Country: </label>
+                        <div class="col-sm-6">
+                            <label>
+                                <select class="form-control" name="country_id" readonly>
+                                    <option>-SELECT-</option>
+                                    <option th:each="country : ${countries}"
+                                            th:value="${country.id}"
+                                            th:selected="${country.id}==${state.getCountry()} ? True: False"
+                                            th:text="${country.name}">
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Capital</label>
+                        <div class="col-sm-6">
+                            <label>
+                                <input name="capital" th:value="${state.capital}" class="form-control" size="16" type="text" readonly>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4"> Code</label>
+                        <div class="col-sm-6">
+                            <label>
+                                <input name="code" type="text" th:value="${state.code}" class=" form-control" readonly/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Details</label>
+                        <div class="col-sm-5">
+                            <label>
+                                <input name="details" th:value="${state.details}" type="text" class="form-control" readonly>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-body">
+                    <button type="submit"  class="btn btn-success" disabled>Save</button>
+                    <a href="/states" class="btn btn-warning">Exit</a>
+                </div>
+            </section>
+        </div>
+
+        </form>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

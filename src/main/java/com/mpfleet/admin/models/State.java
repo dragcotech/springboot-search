@@ -12,7 +12,6 @@ import lombok.*;
 @AllArgsConstructor
 public class State extends BaseEntity{
 
-	private String name;
 	private String capital;
     private String code;
 

@@ -15,7 +15,7 @@ import java.util.List;
 public class Country extends BaseEntity{
 
 	private String code;
-	private String capital;
+	private String name;
 	private String description;
 	private String nationality;
 	private String continent;
