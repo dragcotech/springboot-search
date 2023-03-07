@@ -39,7 +39,9 @@
                         <td th:text="${country.continent}"></td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                <!-- DETAILS COUNTRY -->
+                                <a class="btn btn-primary"
+                                   th:href="@{'/detailscountry/' +  ${country.id}}"><i class="icon_plus_alt2"></i></a>
 
                                 <!-- EDIT COUNTRY -->
                                 <a class="btn btn-success"

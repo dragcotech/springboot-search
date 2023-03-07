@@ -40,6 +40,13 @@ public class CountryController {
         return "admin/editCountry";
     }
 
+    @GetMapping("/detailscountry/{id}")
+    public String detailsCountry(@PathVariable Long id, Model model){ // DETAILS COUNTRY
+        Country country = countryService.getById(id);
+        model.addAttribute("country", country);
+        return "admin/detailsCountry";
+    }
+
     @PostMapping("/countries")
     public String save(Country country){ // SAVE COUNTRY AND REDIRECT TO TABLE
         countryService.save(country);
