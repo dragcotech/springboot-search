@@ -16,7 +16,6 @@ public class State extends BaseEntity{
     private String code;
 
 	@ManyToOne
-	@JoinColumn(name="country_id", insertable=false, updatable=false)
 	private Country country;
 
 	private String details;

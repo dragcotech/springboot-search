@@ -2,6 +2,7 @@
 package com.mpfleet.admin.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
@@ -20,6 +21,6 @@ public class Country extends BaseEntity{
 	private String nationality;
 	private String continent;
 	
-	@OneToMany(mappedBy="country")
+	@OneToMany(mappedBy="country", fetch = FetchType.EAGER)
 	private List<State> states;
 }
