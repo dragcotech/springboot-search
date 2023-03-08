@@ -1,7 +1,7 @@
 package com.mpfleet.admin.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
 
@@ -15,14 +15,11 @@ public class Location extends BaseEntity{
 	private String description;
 	private String details;
 	
-	@ManyToOne
-	@JoinColumn(name="country_id", insertable=false, updatable=false)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Country country;
-	
-	@ManyToOne
-	@JoinColumn(name="state_id", insertable=false, updatable=false)
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	private State state;
-		
-	private String city;
+
 	private String address;
 }

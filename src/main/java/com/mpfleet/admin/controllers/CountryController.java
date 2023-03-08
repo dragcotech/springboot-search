@@ -1,6 +1,8 @@
 package com.mpfleet.admin.controllers;
 
 import com.mpfleet.admin.models.Country;
+import com.mpfleet.admin.models.State;
+import com.mpfleet.admin.repositories.CountryRepository;
 import com.mpfleet.admin.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +53,12 @@ public class CountryController {
     public String save(Country country){ // SAVE COUNTRY AND REDIRECT TO TABLE
         countryService.save(country);
         return "redirect:/countries";
+    }
+
+    @GetMapping("/countries/{id}")
+    @ResponseBody
+    public Country getCountry(@PathVariable Long id){ // GET COUNTRY BY ID
+        return countryService.getById(id);
     }
 
     @RequestMapping(value = "/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})

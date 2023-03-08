@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+<body>
+
+<div layout:fragment="content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa fa-bars"></i> ADMIN </h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="/admin">Admin Home</a></li>
+          <li><i class="fa fa-bars"></i><a href="/locations">All Locations</a></li>
+          <li><i class="fa fa-bars"></i><a href="/locations">Add Location</a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="container" style="width: 70%">
+      <div class="row justify-content-center" >
+        <form class="form-horizontal" th:action="@{/locations}" method="post">
+          <section class="panel">
+            <header class="panel-heading">
+              Add New Location Record
+            </header>
+            <div class="panel-body">
+              <div style="padding:10px">
+                <div class="form-group row">
+                  <label for="idAdd" class="col-form-label col-sm-4">Id:</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="idAdd" name="id" disabled>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-form-label col-sm-4">Description</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="descriptionAdd" name="description">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="detailsAdd" class="col-form-label col-sm-4">Address:</label>
+                  <div class="col-sm-6">
+                    <textarea type="text" class="form-control" id="addressAdd" name="address"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="ddlCountryAdd" class="col-form-label col-sm-4">Country</label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlCountryAdd" name="country">
+                      <option th:value="${null}">-SELECT-</option>
+                      <option th:each="country : ${countries}"
+                              th:value="${country.id}"
+                              th:text="${country.name}">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="ddlStateAdd" class="col-form-label col-sm-4">State</label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlStateAdd" name="state">
+                      <option th:value="${null}">-SELECT-</option>
+                      <option th:each="st : ${state}"
+                              th:value="${st.id}"
+                              th:text="${st.capital}">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="detailsAdd" class="col-form-label col-sm-4">Details</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="detailsAdd" name="details">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-body">
+              <button type="submit" class="btn btn-primary">
+                Save
+              </button>
+              <a href="/locations" class="btn  btn-warning">
+                Exit
+              </a>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
