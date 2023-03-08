@@ -1,5 +1,6 @@
 package com.mpfleet.admin.controllers;
 
+import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.models.Location;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.LocationService;
@@ -7,8 +8,7 @@ import com.mpfleet.admin.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LocationController {
@@ -35,16 +35,37 @@ public class LocationController {
         return "admin/allLocations";
     }
 
-    @GetMapping("/addLocation")
+    @GetMapping("/addlocation")
     public String addLocation(Model model){
-        model.addAttribute("countries", countryService.getAll());
-        model.addAttribute("state", stateService.getAll());
+        addModelAttributes(model);
         return "admin/addLocation";
     }
 
     @PostMapping("/locations")
     public String save(Location location) {
         locationService.save(location);
+        return "redirect:/locations";
+    }
+
+    @GetMapping("/detailslocation/{id}")
+    public String detailsLocation(@PathVariable Long id, Model model){ // DETAILS COUNTRY
+        Location location = locationService.findById(id);
+        model.addAttribute("location", location);
+        addModelAttributes(model);
+        return "admin/detailsLocation";
+    }
+
+    @GetMapping("/editlocation/{id}")
+    public String editLocation(@PathVariable Long id, Model model){ // EDIT COUNTRY
+        Location location = locationService.findById(id);
+        model.addAttribute("location", location);
+        addModelAttributes(model);
+        return "admin/editLocation";
+    }
+
+    @RequestMapping(value="/deletelocation/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String deleteById(@PathVariable Long id) {
+        locationService.deleteById(id);
         return "redirect:/locations";
     }
 }
