@@ -27,26 +27,26 @@ public class CountryController {
         List<Country> countries = countryService.getAll();
         model.addAttribute("countries", countries);
 
-        return "admin/allCountries";
+        return "admin/country/allCountries";
     }
 
     @GetMapping("/addcountry")
     public String addCountry(){ // ADD COUNTRY
-        return "admin/addCountry";
+        return "admin/country/addCountry";
     }
 
     @GetMapping("/editcountry/{id}")
     public String editCountry(@PathVariable Long id, Model model){ // EDIT COUNTRY
         Country country = countryService.getById(id);
         model.addAttribute("country", country);
-        return "admin/editCountry";
+        return "admin/country/editCountry";
     }
 
     @GetMapping("/detailscountry/{id}")
     public String detailsCountry(@PathVariable Long id, Model model){ // DETAILS COUNTRY
         Country country = countryService.getById(id);
         model.addAttribute("country", country);
-        return "admin/detailsCountry";
+        return "admin/country/detailsCountry";
     }
 
     @PostMapping("/countries")

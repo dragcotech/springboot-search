@@ -31,4 +31,15 @@ insert into location values (6,'Museumstraat 1', 'The Rijksmuseum is the nationa
 insert into location values (7,'Athens 105 58', 'The Parthenon is a former temple on the Athenian Acropolis, Greece, that was dedicated to the goddess Athena during the fifth century BC.', 'Its decorative sculptures are considered some of the high points of Greek art', 7, 7);
 insert into location values (8,'Bim Zytglogge 1', 'The Zytglogge is a landmark medieval tower in Bern, Switzerland.', 'Built in the early 13th century, it has served the city as guard tower, prison, clock tower, centre of urban life and civic memorial.', 8, 8);
 insert into location values (9,'Stephansplatz 3', 'St. Stephen''s Cathedral is the mother church of the Roman Catholic Archdiocese of Vienna', 'Seat of the Archbishop of Vienna, Christoph Cardinal Schönborn, OP.', 9, 9);
-insert into location values (10,'St Patrick''s Close', 'Saint Patrick''s Cathedral in Dublin, Ireland, founded in 1191 as a Roman Catholic cathedral, is currently the national cathedral of the Church of Ireland.', 'Designated as the local cathedral of the Diocese of Dublin and Glendalough', 10, 10)
+insert into location values (10,'St Patrick''s Close', 'Saint Patrick''s Cathedral in Dublin, Ireland, founded in 1191 as a Roman Catholic cathedral, is currently the national cathedral of the Church of Ireland.', 'Designated as the local cathedral of the Diocese of Dublin and Glendalough', 10, 10);
+
+insert into contact values (1,'ameliathompson@email.com','Amelia', 'Thompson', '(310) 555-0169', '(310) 555-2875','Always strives to deliver high-quality work');
+insert into contact values (2,'noahrodriguez@email.com', 'Noah', 'Rodriguez', '(415) 555-6210', '(415) 555-9932', 'Highly creative individual with a keen eye for detail.');
+insert into contact values (3,'oliviapatel@email.com', 'Olivia', 'Patel', '(202) 555-0126', '(202) 555-3479', 'Natural leader and great communication skills');
+insert into contact values (4,'ethankim@gmail.com', 'Ethan', 'Kim', '(213) 555-7384', '(213) 555-8973', 'Hard-working and reliable team player');
+insert into contact values (5,'charlottesingh@gmail.com', 'Charlotte', 'Singh', '(312) 555-2810', '(312) 555-6374', 'Organized individual with excellent time-management skills');
+insert into contact values (6,'liamchen@gmail.com', 'Liam', 'Chen', '(212) 555-7129', '(212) 555-9847', 'Analytical thinker with a talent for strategic planning');
+insert into contact values (7,'avagupta@yahoo.com', 'Ava', 'Gupta', '(718) 555-9305', '(718) 555-1958', 'Motivated and ambitious individual with a strong work ethic');
+insert into contact values (8,'williamlee@yahoo.com', 'William', 'Lee', '(404) 555-6298', '(404) 555-3271', ' Detail-oriented individual with a passion for accuracy and precision');
+insert into contact values (9,'sophianguyen@yahoo.com', 'Sophia', 'Nguyen', '(206) 555-0153', '(206) 555-4829', 'Creative individual with a passion for innovation');
+insert into contact values (10,'parunev@gmail.com', 'Martin', 'Parunev', '(02) 356-02', '(359) 888-223344', 'The developer')

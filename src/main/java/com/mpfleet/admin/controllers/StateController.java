@@ -29,13 +29,13 @@ public class StateController {
     @GetMapping("/states")
     public String getAll(Model model){ // ALL STATES
         addModelAttribute(model);
-        return "admin/allStates";
+        return "admin/state/allStates";
     }
 
     @GetMapping("/addstate")
     public String addCountry(Model model){ // ADD STATE
         addModelAttribute(model);
-        return "admin/addState";
+        return "admin/state/addState";
     }
 
     @GetMapping("/editstate/{id}")
@@ -44,7 +44,7 @@ public class StateController {
         Country country = countryService.getById(id);
         model.addAttribute("state", state);
         model.addAttribute("countries", country);
-        return "admin/editState";
+        return "admin/state/editState";
     }
 
     @GetMapping("/detailsstate/{id}")
@@ -53,7 +53,7 @@ public class StateController {
         Country country = countryService.getById(id);
         model.addAttribute("state", state);
         model.addAttribute("countries", country);
-        return "admin/detailsState";
+        return "admin/state/detailsState";
     }
 
     @PostMapping("/states")

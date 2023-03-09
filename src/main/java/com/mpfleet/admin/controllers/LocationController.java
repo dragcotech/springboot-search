@@ -1,6 +1,5 @@
 package com.mpfleet.admin.controllers;
 
-import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.models.Location;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.LocationService;
@@ -32,13 +31,13 @@ public class LocationController {
     @GetMapping("/locations")
     public String findAll(Model model){
         addModelAttributes(model);
-        return "admin/allLocations";
+        return "admin/location/allLocations";
     }
 
     @GetMapping("/addlocation")
     public String addLocation(Model model){
         addModelAttributes(model);
-        return "admin/addLocation";
+        return "admin/location/addLocation";
     }
 
     @PostMapping("/locations")
@@ -52,7 +51,7 @@ public class LocationController {
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
         addModelAttributes(model);
-        return "admin/detailsLocation";
+        return "admin/location/detailsLocation";
     }
 
     @GetMapping("/editlocation/{id}")
@@ -60,7 +59,7 @@ public class LocationController {
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
         addModelAttributes(model);
-        return "admin/editLocation";
+        return "admin/location/editLocation";
     }
 
     @RequestMapping(value="/deletelocation/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
