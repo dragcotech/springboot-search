@@ -6,9 +6,8 @@
   <section class="wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="page-header"><i class="fa fa fa-bars"></i> Parameters</h3>
+        <h3 class="page-header"><i class="fa fa fa-bars"></i>ADMIN</h3>
         <ol class="breadcrumb">
-          <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
           <li><i class="fa fa-bars"></i><a href="/admin">Admin Home</a></li>
           <li><i class="fa fa-home"></i><a href="/locations">All Locations</a></li>
         </ol>
@@ -19,7 +18,7 @@
         <section class="panel" style="margin-bottom: 2px;">
           <div class="panel-body">
             <a href="/addlocation" class="btn btn-primary">
-              Add New Location
+              Add New Location Record
             </a>
           </div>
         </section>
@@ -33,16 +32,16 @@
             <tbody>
             <tr>
               <th></th>
-              <th><i class="icon_table"></i> Id</th>
-              <th><i class="icon_table"></i> Address</th>
-              <th><i class="icon_table"></i> Description</th>
-              <th><i class="icon_cogs"></i> Action</th>
+              <th><i class="icon_table"></i>Id</th>
+              <th><i class="icon_table"></i>Address</th>
+              <th><i class="icon_table"></i>Description</th>
+              <th><i class="icon_cogs"></i>Action</th>
             </tr>
             <tr th:each="location:${locations}">
               <td><i class="fa fa-location-arrow"></i></td>
-              <td th:text="${location.id}">Id</td>
-              <td th:text="${location.address}">address</td>
-              <td th:text="${location.description}">description</td>
+              <td th:text="${location.id}"></td>
+              <td th:text="${location.address}"></td>
+              <td th:text="${location.description}"></td>
               <td>
                 <div class="btn-group">
                   <a class="btn btn-primary" id="editButton"

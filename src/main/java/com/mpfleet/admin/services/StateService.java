@@ -17,7 +17,7 @@ public class StateService {
         this.stateRepository = stateRepository;
     }
 
-    public List<State> getAll(){
+    public List<State> findAll(){
         return this.stateRepository.findAll();
     }
 

@@ -1,8 +1,6 @@
 package com.mpfleet.admin.controllers;
 
 import com.mpfleet.admin.models.Country;
-import com.mpfleet.admin.models.State;
-import com.mpfleet.admin.repositories.CountryRepository;
 import com.mpfleet.admin.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +22,7 @@ public class CountryController {
     @GetMapping("/countries")
     public String getAll(Model model){ // MAIN
 
-        List<Country> countries = countryService.getAll();
+        List<Country> countries = countryService.findAll();
         model.addAttribute("countries", countries);
 
         return "admin/country/allCountries";

@@ -16,8 +16,8 @@ public class StateController {
     private final CountryService countryService;
 
     public void addModelAttribute(Model model){
-        model.addAttribute("states", stateService.getAll());
-        model.addAttribute("countries", countryService.getAll());
+        model.addAttribute("states", stateService.findAll());
+        model.addAttribute("countries", countryService.findAll());
     }
 
     @Autowired

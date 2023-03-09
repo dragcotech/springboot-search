@@ -24,8 +24,8 @@ public class LocationController {
 
     public void addModelAttributes(Model model){
         model.addAttribute("locations", locationService.getAll());
-        model.addAttribute("countries", countryService.getAll());
-        model.addAttribute("states", stateService.getAll());
+        model.addAttribute("countries", countryService.findAll());
+        model.addAttribute("states", stateService.findAll());
     }
 
     @GetMapping("/locations")

@@ -42,4 +42,10 @@ insert into contact values (6,'liamchen@gmail.com', 'Liam', 'Chen', '(212) 555-7
 insert into contact values (7,'avagupta@yahoo.com', 'Ava', 'Gupta', '(718) 555-9305', '(718) 555-1958', 'Motivated and ambitious individual with a strong work ethic');
 insert into contact values (8,'williamlee@yahoo.com', 'William', 'Lee', '(404) 555-6298', '(404) 555-3271', ' Detail-oriented individual with a passion for accuracy and precision');
 insert into contact values (9,'sophianguyen@yahoo.com', 'Sophia', 'Nguyen', '(206) 555-0153', '(206) 555-4829', 'Creative individual with a passion for innovation');
-insert into contact values (10,'parunev@gmail.com', 'Martin', 'Parunev', '(02) 356-02', '(359) 888-223344', 'The developer')
+insert into contact values (10,'parunev@gmail.com', 'Martin', 'Parunev', '(02) 356-02', '(359) 888-223344', 'The developer');
+
+insert into client values (1,'123 Main St','Acme Corporation is a global leader in industrial supplies and manufacturing.',' info@acmecorp.com', '555-987-6543','Acme Corporation','555-123-4567', 'www.acmecorp.com',1,1);
+insert into client values (2,'456 Park Ave, Suite 100','Stellar Designs is a high-end fashion and accessory retailer with a focus on sustainable materials and ethical production.','contact@stellardesigns.com','555-111-1111','Stellar Designs','555-555-5555','www.stellardesigns.com',2,2);
+insert into client values (3,'789 Oak St, Suite 200', 'Global Ventures is a private equity firm focused on investing in innovative technology startups.', 'contact@globalventures.net', '555-222-2222', 'Global Ventures', '555-444-4444', 'www.globalventures.net', 3, 3);
+insert into client values (4,'321 Elm St', 'Green Earth Co. is a leading provider of eco-friendly cleaning and household products.', 'info@greenearthco.com', '555-333-3333', 'Green Earth Co.', '555-888-8888', 'www.greenearthco.com', 4, 4);
+insert into client values (5,'555 Pine St, Suite 300', 'Summit Marketing is a full-service marketing agency specializing in digital marketing and branding.', ' info@summitmarketing.com', '555-777-7777', 'Summit Marketing', '555-444-4444', ' www.summitmarketing.com', 5, 5);
