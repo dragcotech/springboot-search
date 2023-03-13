@@ -55,3 +55,47 @@ insert into supplier values (2, '456 Oak St, Somewhere, State 8', 'XYZ Inc. offe
 insert into supplier values (3, '789 Maple Ave, Nowhere, State 5', '123 Manufacturing produces custom parts and components for industrial and commercial equipment.', 'info@123manufacturing.com', '+1-555-555-5555', '123 Manufacturing', '+1-555-555-5555', 'www.123manufacturing.com', 2, 5);
 insert into supplier values (4, '456 Pine St, Anytown, State 2', 'Acme Corp supplies building materials and construction supplies for contractors and builders.', 'info@acmecorp.com', '+1-555-555-5555', 'Acme Corp', '+1-555-555-5555', ' www.acmecorp.com', 4, 2);
 insert into supplier values (5, '789 Oak St, Nowhere, State 5', 'QRS Enterprises provides office equipment and supplies for businesses and organizations.', 'info@qrsenterprises.com', '+1-555-555-5555', 'QRS Enterprises', '+1-555-555-5555', 'www.qrsenterprises.com', 2, 5);
+
+insert into vehicle_type values (1, 'Sedan', 'Four-door car with a separate trunk compartment and seating for four or more people.');
+insert into vehicle_type values (2, 'SUV', 'Large, rugged vehicle with four-wheel drive, designed for off-road use and carrying a large number of passengers.');
+insert into vehicle_type values (3, 'Pickup Truck', 'A vehicle with an open bed for carrying cargo or equipment and seating for up to six passengers.');
+insert into vehicle_type values (4, 'Hatchback', 'A small car with a rear door that opens upwards to provide access to the cargo area.');
+insert into vehicle_type values (5, 'Coupe', 'A two-door car with a fixed roof and seating for two or four passengers.');
+insert into vehicle_type values (6, 'Minivan', 'A vehicle with a high roof and sliding side doors, designed to carry a large number of passengers.');
+insert into vehicle_type values (7, 'Convertible', 'A car with a roof that can be folded down or removed, allowing for an open-air driving experience.');
+insert into vehicle_type values (8, 'Sports Car', 'A high-performance vehicle designed for speed and agility, typically with two seats and a sleek, aerodynamic design.');
+insert into vehicle_type values (9, 'Station Wagon', 'A car with a long roof-line and a rear cargo area, designed for carrying large amounts of cargo or passengers.');
+insert into vehicle_type values (10, 'Motorcycle', 'A two-wheeled vehicle powered by an engine, with seating for one or two riders.');
+
+insert into vehicle_make values (1, 'Toyota', 'A Japanese car manufacturer known for producing reliable and efficient vehicles, ranging from compact cars to SUVs and pickup trucks.');
+insert into vehicle_make values (2, 'Ford', 'An American car manufacturer known for producing a wide range of vehicles, including trucks, SUVs, and sports cars.');
+insert into vehicle_make values (3, 'Honda', 'A Japanese car manufacturer known for producing reliable and high-quality vehicles, ranging from compact cars to luxury sedans.');
+insert into vehicle_make values (4, 'Chevrolet', 'An American car manufacturer known for producing a wide range of vehicles, including trucks, SUVs, and sports cars.');
+insert into vehicle_make values (5, 'BMW', 'A German luxury car manufacturer known for producing high-performance vehicles, ranging from compact cars to large luxury sedans.');
+insert into vehicle_make values (6, 'Mercedes-Benz', 'A German luxury car manufacturer known for producing high-quality and innovative vehicles, ranging from compact cars to luxury sedans and SUVs.');
+insert into vehicle_make values (7, 'Nissa', 'A Japanese car manufacturer known for producing reliable and affordable vehicles, ranging from compact cars to SUVs and pickup trucks.');
+insert into vehicle_make values (8, 'Jeep', 'An American car manufacturer known for producing rugged and capable off-road vehicles, including SUVs and pickup trucks.');
+insert into vehicle_make values (9, 'Audi', 'A German luxury car manufacturer known for producing high-quality vehicles with advanced technology and innovative designs.');
+insert into vehicle_make values (10, 'Subaru', 'A Japanese car manufacturer known for producing all-wheel-drive vehicles that are capable of handling rough terrain and inclement weather.');
+
+insert into vehicle_model values (1, 'Toyota Corolla', 'A reliable and affordable compact car that is popular worldwide, known for its fuel efficiency and practicality.');
+insert into vehicle_model values (2, 'Honda Civic', 'Another popular compact car known for its reliability, fuel efficiency, and sporty design.');
+insert into vehicle_model values (3, 'Ford F-150', 'A best-selling pickup truck that is known for its durability, towing capacity, and versatility.');
+insert into vehicle_model values (4, 'Chevrolet Silverado', 'A popular pickup truck known for its strength and durability, with various models designed for different purposes.');
+insert into vehicle_model values (5, 'BMW 3 Series', 'A luxury compact car that is known for its agile handling, advanced technology, and sleek design.');
+insert into vehicle_model values (6, 'Mercedes-Benz S-Class', 'A flagship luxury sedan that is known for its comfort, advanced technology, and elegant styling.');
+insert into vehicle_model values (7, 'Jeep Wrangler', 'A rugged and capable off-road SUV that is known for its iconic design, versatility, and customization options.');
+insert into vehicle_model values (8, 'Tesla Model S', 'An all-electric luxury sedan that is known for its advanced technology, performance, and eco-friendliness.');
+insert into vehicle_model values (9, 'Subaru Outback ', 'A versatile and capable crossover SUV that is known for its all-wheel-drive system, spacious interior, and off-road capabilities.');
+insert into vehicle_model values (10, 'Porsche 911', 'A high-performance sports car that is known for its iconic design, precision handling, and powerful engines.');
+
+insert into vehicle_status values (1, 'New', 'A vehicle that has never been owned or registered before, typically sold by a dealership with a manufacturer''s warranty.');
+insert into vehicle_status values (2, 'Used', 'A vehicle that has been previously owned and may have a history of wear and tear, accidents, or repairs.');
+insert into vehicle_status values (3, 'CPO', 'A used vehicle that has undergone a thorough inspection and meets certain manufacturer standards, often with an extended warranty.');
+insert into vehicle_status values (4, 'Salvage', 'A vehicle that has been damaged to the extent that it is deemed a total loss by an insurance company, often sold for parts or to be rebuilt.');
+insert into vehicle_status values (5, 'Rebuilt', 'A salvage vehicle that has been repaired and rebuilt to a drivable condition, typically with a rebuilt title.');
+insert into vehicle_status values (6, 'Leased', 'A vehicle that is owned by a leasing company and rented out to a driver for a set period of time, typically with mileage and wear-and-tear restrictions.');
+insert into vehicle_status values (7, 'Rental', 'A vehicle that is owned by a rental company and rented out to drivers on a short-term basis, often for travel or leisure purposes.');
+insert into vehicle_status values (8, 'Classic', 'A vehicle that is at least 20 years old and considered to be of historical or cultural significance, often kept as a collector''s item.');
+insert into vehicle_status values (9, 'Antique', 'A vehicle that is at least 25 years old and considered to be a rare or valuable collector''s item, often kept for display or show.');
+insert into vehicle_status values (10, 'Demo', 'A vehicle that has been used for display or test-driving purposes by a dealership or manufacturer, often with low mileage and a discounted price.');
