@@ -1,6 +1,7 @@
 package com.mpfleet.admin.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
@@ -8,6 +9,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "contacts")
 public class Contact extends BaseEntity{
 	private String firstname;
 	private String lastname;

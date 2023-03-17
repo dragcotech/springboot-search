@@ -11,9 +11,8 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -30,11 +29,9 @@ public class Vehicle extends BaseEntity{
 	private String fuelCapacity;
 	private String netWeight;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date registrationDate;
+	private LocalDate registrationDate;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date acquisitionDate;
+	private LocalDate acquisitionDate;
 
 	@ManyToOne
 	@JoinColumn(name="vehicle_type_id")

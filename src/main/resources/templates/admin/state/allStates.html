@@ -11,7 +11,7 @@
                 <h3 class="page-header"><i class="fa fa-laptop"></i>ADMIN</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/admin">Admin Home</a></li>
-                    <li><i class="fa fa-home"></i><a href="/states">All States</a></li>
+                    <li><i class="fa fa-home"></i>All States</li>
                 </ol>
             </div>
         </div>
@@ -37,7 +37,7 @@
                         <th><i class="icon_calendar"></i>Capital</th>
                         <th><i class="icon_mail_alt"></i>Code</th>
                         <th><i class="icon_mobile"></i>Details</th>
-                        <th><i class="icon_cogs"></i>Action</th>
+                        <th><i class="icon_cogs"></i>Details/Edit/Delete</th>
                     </tr>
                     <tr th:each="state: ${states}">
                         <td th:text="${state.capital}"></td>

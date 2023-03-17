@@ -23,7 +23,7 @@ public class LocationController {
     }
 
     public void addModelAttributes(Model model){
-        model.addAttribute("locations", locationService.getAll());
+        model.addAttribute("locations", locationService.findAll());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("states", stateService.findAll());
     }

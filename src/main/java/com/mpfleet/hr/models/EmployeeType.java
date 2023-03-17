@@ -1,17 +1,15 @@
 package com.mpfleet.hr.models;
 
-import com.mpfleet.admin.models.CommonObject;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.Table;
+import lombok.*;
 
+@Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Table(name = "employee_type")
 public class EmployeeType extends CommonObject {
 
 }

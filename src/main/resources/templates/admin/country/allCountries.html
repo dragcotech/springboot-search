@@ -11,7 +11,7 @@
                 <h3 class="page-header"><i class="fa fa-laptop"></i>ADMIN</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/admin">Admin Home</a></li>
-                    <li><i class="fa fa-home"></i><a href="/countries">All Countries</a></li>
+                    <li><i class="fa fa-home"></i>All Countries</li>
                 </ol>
             </div>
         </div>
@@ -39,7 +39,7 @@
                         <th><i class="icon_mail_alt"></i>Description</th>
                         <th><i class="icon_pin_alt"></i>Nationality</th>
                         <th><i class="icon_mobile"></i>Continent</th>
-                        <th><i class="icon_cogs"></i>Action</th>
+                        <th><i class="icon_cogs"></i>Details/Edit/Delete</th>
                     </tr>
                     <tr th:each="country: ${countries}">
                         <td th:text="${country.code}"></td>

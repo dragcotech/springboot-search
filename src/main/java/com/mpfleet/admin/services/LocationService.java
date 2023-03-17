@@ -17,7 +17,7 @@ public class LocationService {
         this.locationRepository = locationRepository;
     }
 
-    public List<Location> getAll() {
+    public List<Location> findAll() {
         return locationRepository.findAll();
     }
 
@@ -33,7 +33,4 @@ public class LocationService {
         locationRepository.deleteById(id);
     }
 
-    public List<Location> findByDescriptionContaining(String description) {
-        return null;
-    }
 }

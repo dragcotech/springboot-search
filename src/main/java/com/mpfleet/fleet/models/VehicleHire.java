@@ -9,9 +9,8 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -23,11 +22,9 @@ public class VehicleHire extends BaseEntity{
 	private String price;
 	private String remarks;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateIn;
+	private LocalDate dateIn;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateOut;
+	private LocalDate dateOut;
 
 	private String timeOut;
 	private String timeIn;

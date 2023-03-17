@@ -3,12 +3,15 @@ package com.mpfleet.hr.models;
 import com.mpfleet.admin.models.BaseEntity;
 import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.models.State;
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Formula;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,16 +33,14 @@ public abstract class Person extends BaseEntity {
 	private String maritalStatus;
 	
 	@ManyToOne
-	@JoinColumn(name="country_id", insertable=false, updatable=false)
+	@JoinColumn(name="country_id")
 	private Country country;
 	
 	@ManyToOne
-	@JoinColumn(name="state_id", insertable=false, updatable=false)
+	@JoinColumn(name="state_id")
 	private State state;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateOfBirth;
-	private String city;
+
+	private LocalDate dateOfBirth;
 	private String address;
 	private String phone;
 	private String mobile;

@@ -3,6 +3,7 @@ package com.mpfleet.admin.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
@@ -10,6 +11,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "locations")
 public class Location extends BaseEntity{
 	
 	private String description;

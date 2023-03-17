@@ -10,9 +10,8 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -22,11 +21,9 @@ import java.util.Date;
 @Table(name = "vehicle_movement")
 public class VehicleMovement extends BaseEntity{
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date firstDate;
+	private LocalDate firstDate;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date secondDate;
+	private LocalDate secondDate;
 
 	private String remarks;
 

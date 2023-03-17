@@ -11,7 +11,7 @@
                 <ol class="breadcrumb">
                     <li><i class="fa fa-bars"></i><a href="/admin">Admin Home</a></li>
                     <li><i class="fa fa-home"></i><a href="/suppliers">All Suppliers</a></li>
-                    <li><i class="fa fa-home"></i><a href="/suppliers">Edit Supplier</a></li>
+                    <li><i class="fa fa-home"></i>Edit Supplier Record</li>
                 </ol>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                                 <option>-SELECT-</option>
                                                 <option th:each="country : ${countries}"
                                                         th:value="${country.id}"
-                                                        th:selected="${country.id} == ${supplier.country}?True: False"
+                                                        th:selected="${country.id} == ${supplier.getCountry().getId()}?True: False"
                                                         th:text="${country.name}">
                                                 </option>
                                             </select>
@@ -77,7 +77,7 @@
                                                 <option>-SELECT-</option>
                                                 <option th:each="state : ${states}"
                                                         th:value="${state.id}"
-                                                        th:selected="${state.id} == ${supplier.country}?True: False"
+                                                        th:selected="${state.id} == ${supplier.getState().getId()}?True: False"
                                                         th:text="${state.capital}">
                                                 </option>
                                             </select>

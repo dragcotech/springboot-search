@@ -2,16 +2,12 @@ package com.mpfleet.hr.models;
 
 import com.mpfleet.admin.models.CommonObject;
 import jakarta.persistence.Entity;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.Table;
+import lombok.*;
 
+@Data
 @Entity
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Table(name = "job_title")
 public class JobTitle extends CommonObject {
 
 }

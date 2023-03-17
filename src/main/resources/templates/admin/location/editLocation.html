@@ -10,7 +10,7 @@
                 <ol class="breadcrumb">
                     <li><i class="fa fa-bars"></i><a href="/admin">Admin home</a></li>
                     <li><i class="fa fa-bars"></i><a href="/admin">All Locations</a></li>
-                    <li><i class="fa fa-bars"></i><a href="/admin">Edit Location</a></li>
+                    <li><i class="fa fa-home"></i>Edit Location Record</li>
                 </ol>
             </div>
         </div>
@@ -48,7 +48,7 @@
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="country : ${countries}"
                                                     th:value="${country.id}"
-                                                    th:selected="${country.id} == ${location.country}?True: False"
+                                                    th:selected="${country.id} == ${location.getCountry().getId()}?True: False"
                                                     th:text="${country.name}">
                                             </option>
                                         </select>
@@ -61,7 +61,7 @@
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="state : ${states}"
                                                     th:value="${state.id}"
-                                                    th:selected="${state.id} == ${location.state}?True: False"
+                                                    th:selected="${state.id} == ${location.getState().getId()}?True: False"
                                                     th:text="${state.capital}">
                                             </option>
                                         </select>

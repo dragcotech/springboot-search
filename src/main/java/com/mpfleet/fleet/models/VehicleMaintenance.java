@@ -3,16 +3,12 @@ package com.mpfleet.fleet.models;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mpfleet.admin.models.Supplier;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -24,19 +20,17 @@ public class VehicleMaintenance extends BaseEntity{
 
 	private String price;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date startDate;
+	private LocalDate startDate;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date endDate;
+	private LocalDate endDate;
 
 	private String remarks;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="vehicle_id")
 	private Vehicle vehicle;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="supplier_id")
 	private Supplier supplier;
 }
