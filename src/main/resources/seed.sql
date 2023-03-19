@@ -185,3 +185,53 @@ insert into vehicle_maintenance values (7,'2022-07-23', '$200.00', 'Brake Pad Re
 insert into vehicle_maintenance values (8,'2022-08-20', '$150.00', 'Transmission Fluid Change','2022-08-18',4,8);
 insert into vehicle_maintenance values (9,'2022-09-27', '$100.00', 'Spark Plug Replacement','2022-09-25',3,9);
 insert into vehicle_maintenance values (10,'2022-10-14', '$75.00', 'Wheel Alignment','2022-10-12',2, 10);
+
+insert into transaction_type values (1,'Cash Transaction','A cash transaction is a payment made with physical currency, such as bills or coins. This type of transaction is often used for small purchases, such as groceries or coffee.');
+insert into transaction_type values (2,'Credit Card Transaction','A credit card transaction is a payment made using a credit card. The cardholder charges the purchase to their account, and the credit card company pays the merchant. The cardholder is then responsible for paying back the credit card company.');
+insert into transaction_type values (3,'Debit Card Transaction','A debit card transaction is a payment made using a debit card. The funds are deducted directly from the cardholder''s bank account. This type of transaction is often used for everyday purchases, such as gas or groceries.');
+insert into transaction_type values (4,'Online Transaction','An online transaction is a payment made over the internet. This can include purchases made on e-commerce websites, online bill payments, or online money transfers.');
+insert into transaction_type values (5,'Bank Transfer','A bank transfer is a transaction in which funds are transferred from one bank account to another. This can be done online, in person, or through an ATM.');
+insert into transaction_type values (6,'Wire Transfer',' A wire transfer is a type of bank transfer that involves sending money electronically between two accounts. This type of transaction is often used for international payments.');
+insert into transaction_type values (7,'Direct Debit','A direct debit is a payment made on a regular basis, such as a monthly bill payment. The payment is automatically deducted from the customer''s bank account.');
+insert into transaction_type values (8,'Direct Deposit','A direct deposit is a payment made by an employer directly into an employee''s bank account. This is often used for payroll payments.');
+insert into transaction_type values (9,'Mobile Payment','A mobile payment is a payment made using a mobile device, such as a smartphone or tablet. This can include payments made through mobile apps or mobile wallets.');
+insert into transaction_type values (10,'Standing Order','A standing order is a payment made on a regular basis, similar to a direct debit. However, the payment is initiated by the customer rather than the payee, and the payment amount is usually fixed.');
+
+insert into transaction_status values (1, 'Pending', ' A transaction status of pending means that the payment has been initiated but is not yet complete.');
+insert into transaction_status values (2, 'Successful', 'A successful transaction status means that the payment has been processed and completed without any issues.');
+insert into transaction_status values (3, 'Failed', 'A failed transaction status means that the payment was unsuccessful and the funds were not transferred. ');
+insert into transaction_status values (4, 'Refunded', ' A refunded transaction status means that the payment has been reversed and the funds have been returned to the payer.');
+insert into transaction_status values (5, 'Chargeback', 'A chargeback transaction status means that the payer has disputed the payment with their bank or credit card company.');
+insert into transaction_status values (6, 'Void', 'A void transaction status means that the payment has been canceled before it was completed.');
+insert into transaction_status values (7, 'Hold', 'A hold transaction status means that the payment has been authorized but the funds have not yet been transferred.');
+insert into transaction_status values (8, 'Authorized', 'An authorized transaction status means that the payment has been approved and the funds have been reserved for the payment.');
+insert into transaction_status values (9, 'Settled', 'A settled transaction status means that the payment has been processed and the funds have been transferred to the payee''s account.');
+
+insert into transactions values (1,'200.50','Office Supplies','Order #12345','2023-03-10',1,5,4,1,1,1);
+insert into transactions values (2,'1000.00','Rent','Lease agreement for March','2023-03-01',2,5,3,1,2,2);
+insert into transactions values (3,'75.20','Lunch meeting','Meeting with potential client','2023-03-07',3,4,2,2,3,1);
+insert into transactions values (4,'500.00','Website development',' Invoice #7890','2023-03-11',4,3,1,3,4,2);
+insert into transactions values (5,'300.00','Advertising','Ad campaign for new product launch','2023-03-02',5,2,6,4,5,1);
+insert into transactions values (6,'150.00','Training','Employee training program','2023-03-15',6,1,7,5,6,2);
+
+insert into invoice_status values (1,'Draft','An invoice that has been created but has not yet been finalized or sent to the customer.');
+insert into invoice_status values (2,'Sent','An invoice that has been sent to the customer but has not yet been paid.');
+insert into invoice_status values (3,'Overdue','An invoice that has passed its due date and has not been paid by the customer.');
+insert into invoice_status values (4,'Partially paid','An invoice where the customer has made a payment, but the full amount is not yet paid.');
+insert into invoice_status values (5,'Paid','An invoice that has been paid in full by the customer.');
+insert into invoice_status values (6,'Disputed','An invoice that the customer has disputed, either due to a mistake or disagreement over the payment amount or terms.');
+insert into invoice_status values (7,'Void','An invoice that has been cancelled or made void for some reason, such as a mistake or change in agreement terms.');
+insert into invoice_status values (8,'Credit note:','A document issued by the seller to the customer, indicating that a credit has been applied to their account due to overpayment or a refund.');
+insert into invoice_status values (9,'Refunded','An invoice that has been fully refunded to the customer, either due to a mistake, product return, or customer dissatisfaction.');
+insert into invoice_status values (10,'Pending','An invoice where payment is expected, but there is some issue that needs to be resolved before payment can be made.');
+
+insert into invoices values (1,'2022-02-15','Payment received on time.',1,5);
+insert into invoices values (2,'2022-03-01','Please pay the amount due as soon as possible.',2,3);
+insert into invoices values (3,'2022-04-05','Thank you for your business. Please pay the amount due within 30 days.',3,2);
+insert into invoices values (4,'2022-04-10','Please make a payment of $500 to clear the remaining balance.',4,4);
+insert into invoices values (5,'2022-05-01','There is an issue with your account. Please contact us to resolve it before making a payment.',5,10);
+insert into invoices values (6,'2022-05-15','The customer disputes the amount due. We are investigating the issue.',1,6);
+insert into invoices values (7,'2022-06-01','The invoice has been canceled due to a mistake in the billing amount.',2,6);
+insert into invoices values (8,'2022-06-15','A credit note has been issued to your account for the overpayment made in the previous invoice.',3,8);
+insert into invoices values (9,'2022-07-01','The invoice has been fully refunded due to customer dissatisfaction.',4,9);
+insert into invoices values (10,'2022-07-15','A new invoice has been sent for the next billing cycle. Please review and make a payment within 30 days.',5,2);

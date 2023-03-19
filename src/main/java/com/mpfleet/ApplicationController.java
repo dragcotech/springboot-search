@@ -31,11 +31,6 @@ public class ApplicationController {
         return "/fleet/index";
     }
 
-    @GetMapping("/payroll") // PAYROLL
-    public String payroll(){
-        return "/payroll/index";
-    }
-
     @GetMapping("/tickets") // TICKETS
     public String tickets(){
         return "/tickets/index";
