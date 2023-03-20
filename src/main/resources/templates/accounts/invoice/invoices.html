@@ -9,7 +9,7 @@
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>Invoices</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/accounts">Accounts Home</a></li>
-                    <li><i class="fa fa-square-o"></i>Invoices</li>
+                    <li><i class="fa fa-bars"></i>Invoices</li>
                 </ol>
             </div>
         </div>
@@ -35,11 +35,11 @@
                             <th><i class="icon_calendar"></i> Invoice Date</th>
                             <th><i class="icon_check"></i> Invoice Status</th>
                             <th><i class="icon_profile"></i> Client</th>
-                            <th><i class="icon_pin_alt"></i> Remarks</th>
+                            <th><i class="icon_tag"></i> Remarks</th>
                             <th><i class="icon_cogs"></i> Details/Edit/Delete</th>
                         </tr>
                         <tr th:each="invoice:${invoices}">
-                            <td><i class="fa fa-table"></i></td>
+                            <td><i class="fa fa-bookmark"></i></td>
                             <td th:text="${invoice.invoiceDate}"></td>
                             <td th:text="${invoice.getInvoiceStatus().getDescription()}"></td>
                             <td th:text="${invoice.getClient().getName()}"></td>

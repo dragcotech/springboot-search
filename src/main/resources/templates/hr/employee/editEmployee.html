@@ -13,7 +13,7 @@
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/hr">HR Home</a></li>
                     <li><i class="fa fa-bars"></i><a href="/employees">All Employees</a></li>
-                    <li><i class="fa fa-square-o"></i>Employee Edit</li>
+                    <li><i class="fa fa-bars"></i>Employee Edit</li>
                 </ol>
             </div>
         </div>
@@ -120,14 +120,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Date of Birth</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" th:field="${employee.dateOfBirth}"
+                                        <input type="date" class="form-control" th:value="${employee.dateOfBirth}"
                                                name="dateOfBirth" placeholder="Date of Birth">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Hire Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" th:field="${employee.hireDate}"
+                                        <input type="date" class="form-control" th:value="${employee.hireDate}"
                                                name="hireDate" placeholder="Hire Date">
                                     </div>
                                 </div>

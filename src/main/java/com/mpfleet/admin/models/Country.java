@@ -3,6 +3,7 @@ package com.mpfleet.admin.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.mpfleet.commons.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name = "countries")
-public class Country extends BaseEntity{
+public class Country extends BaseEntity {
 
 	private String code;
 	private String name;

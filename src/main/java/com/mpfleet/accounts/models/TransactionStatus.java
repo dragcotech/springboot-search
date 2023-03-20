@@ -2,6 +2,7 @@ package com.mpfleet.accounts.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.mpfleet.commons.CommonObject;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;

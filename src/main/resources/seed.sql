@@ -235,3 +235,24 @@ insert into invoices values (7,'2022-06-01','The invoice has been canceled due t
 insert into invoices values (8,'2022-06-15','A credit note has been issued to your account for the overpayment made in the previous invoice.',3,8);
 insert into invoices values (9,'2022-07-01','The invoice has been fully refunded due to customer dissatisfaction.',4,9);
 insert into invoices values (10,'2022-07-15','A new invoice has been sent for the next billing cycle. Please review and make a payment within 30 days.',5,2);
+
+insert into ticket_statuses values (1, 'Open', 'The ticket has been submitted and is awaiting review or assignment to a support agent.');
+insert into ticket_statuses values (2, 'In progress', 'A support agent has started working on the ticket and is actively working to resolve the issue.');
+insert into ticket_statuses values (3, 'On hold', 'The ticket has been put on hold temporarily, usually because the support agent needs additional information or is waiting for a response from the customer.');
+insert into ticket_statuses values (4, 'Pending', 'The support agent has completed work on the ticket and is waiting for confirmation from the customer that the issue has been resolved.');
+insert into ticket_statuses values (5, 'Closed', 'The ticket has been successfully resolved and closed by the support agent.');
+insert into ticket_statuses values (6, 'Reopened', 'A customer has reopened a ticket that was previously closed because the issue has resurfaced or was not fully resolved.');
+insert into ticket_statuses values (7, 'Escalated', 'The ticket has been escalated to a higher level of support, usually because it is particularly complex or requires specialized knowledge.');
+insert into ticket_statuses values (8, 'In review', 'The support team is reviewing the ticket to ensure that it was handled properly and to identify areas for improvement.');
+insert into ticket_statuses values (9, 'Awaiting Feedback', 'The support agent has provided a solution or response to the customer and is waiting for feedback on whether the solution worked or not.');
+insert into ticket_statuses values (10, 'Abandoned', 'The ticket was submitted but no action was taken by either the customer or the support team, and it has since become inactive.');
+
+insert into tickets values (1,'2022-01-02','The engine of the vehicle has stopped functioning properly, and the driver noticed a loss of power and unusual noises.','2022-05-01','The issue was due to a faulty engine component, which was replaced under warranty.','Engine malfunction',1, 1, 1);
+insert into tickets values (2,'2022-01-07','The supplier of parts for the vehicle has delayed the delivery of the required parts, which is delaying the repair work.','2022-06-01','The supplier was contacted and the issue was resolved by prioritizing the delivery of the required parts.','Delayed parts delivery', 2, 2, 2);
+insert into tickets values (3,'2022-02-05','The driver of the vehicle experienced a brake failure while driving and was unable to stop the vehicle.','2022-07-01','The driver of the vehicle experienced a brake failure while driving and was unable to stop the vehicle.','Brake failure', 3, 3, 3);
+insert into tickets values (4,'2022-02-08','The GPS system installed in the vehicle is not functioning properly and is providing incorrect location information.','2022-08-01','The GPS system installed in the vehicle is not functioning properly and is providing incorrect location information.','GPS system malfunction',4,4,4);
+insert into tickets values (5,'2022-03-05','The air conditioning system of the vehicle is not responding to the driver''s input and is not cooling the vehicle.','2022-09-01','The air conditioning system of the vehicle is not responding to the driver''s input and is not cooling the vehicle.','Unresponsive air conditioning',5,5,5);
+insert into tickets values (6,'2022-03-10','The manufacturer has issued a recall for a specific vehicle model due to a safety issue.','2022-10-01','The manufacturer has issued a recall for a specific vehicle model due to a safety issue.','Vehicle recall',6,5,6);
+insert into tickets values (7,'2022-03-16','The supplier has delivered the wrong part for the vehicle, which is causing a delay in repair work.','2022-11-01','The supplier has delivered the wrong part for the vehicle, which is causing a delay in repair work.','Incorrect order',7,4,7);
+insert into tickets values (8,'2022-03-20','The driver of the vehicle was involved in a collision and requires repairs to the vehicle.','2022-12-01','The supplier was contacted and the correct part was delivered, resolving the issue.','Vehicle collision',8,3,8);
+insert into tickets values (9,'2022-05-05','The driver of the vehicle noticed that the brakes are unresponsive and require additional force to apply.',' 2023-01-01','The repairs were completed and the vehicle was returned to the driver.','Unresponsive brakes',7,2,9);

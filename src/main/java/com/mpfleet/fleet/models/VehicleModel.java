@@ -1,13 +1,18 @@
 package com.mpfleet.fleet.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.mpfleet.commons.CommonObject;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name = "vehicle_model")
 public class VehicleModel extends CommonObject {

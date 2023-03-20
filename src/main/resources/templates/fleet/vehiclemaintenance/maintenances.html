@@ -8,8 +8,8 @@
             <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>Vehicle Maintenances</h3>
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-bars"></i><a href="/fleet">Fleet Home</a></li>
-                    <li><i class="fa fa-square-o"></i>Vehicle Maintenances</li>
+                    <li><i class="fa fa-home"></i><a href="/fleet">Fleet Home</a></li>
+                    <li><i class="fa fa-bars"></i>Vehicle Maintenances</li>
                 </ol>
             </div>
         </div>
@@ -32,10 +32,10 @@
                         <tbody>
                         <tr>
                             <th></th>
-                            <th><i class="icon_table"></i> Id</th>
-                            <th><i class="icon_table"></i> Vehicle</th>
-                            <th><i class="icon_table"></i> Start Date</th>
-                            <th><i class="icon_table"></i> Remarks</th>
+                            <th><i class="glyphicon-bookmark"></i> Id</th>
+                            <th><i class="icon_paperclip"></i> Vehicle</th>
+                            <th><i class="icon_calendar"></i> Start Date</th>
+                            <th><i class="icon_tag"></i> Remarks</th>
                             <th><i class="icon_cogs"></i> Details/Edit/Delete</th>
                         </tr>
                         <tr th:each="maintenance:${maintenances}">

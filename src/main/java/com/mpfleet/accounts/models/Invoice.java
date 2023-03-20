@@ -3,6 +3,7 @@ package com.mpfleet.accounts.models;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mpfleet.admin.models.Client;
+import com.mpfleet.commons.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -17,7 +18,7 @@ import java.util.Objects;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name = "invoices")
-public class Invoice extends BaseEntity{
+public class Invoice extends BaseEntity {
 
 	private LocalDate invoiceDate;
 	private String remarks;

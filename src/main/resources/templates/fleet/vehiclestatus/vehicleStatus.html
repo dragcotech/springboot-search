@@ -10,7 +10,7 @@
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>Vehicle Statuses</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/fleet">Fleet Home</a></li>
-                    <li><i class="fa fa-home"></i>Vehicle Statuses</li>
+                    <li><i class="fa fa-bars"></i>Vehicle Statuses</li>
                 </ol>
             </div>
         </div>
@@ -35,12 +35,12 @@
                     <tbody>
                     <tr>
                         <th></th>
-                        <th><i class="icon_profile"></i>Status</th>
-                        <th><i class="icon_calendar"></i>Details</th>
-                        <th><i class="icon_cogs"></i>Action</th>
+                        <th><i class="icon_paperclip"></i> Vehicle Status</th>
+                        <th><i class="icon_tag"></i> Vehicle Status Details</th>
+                        <th><i class="icon_cogs"></i> Delete</th>
                     </tr>
                     <tr th:each="vehicleStatus:${vehicleStatuses}">
-                        <td><i class="fa fa-table"></i></td>
+                        <td><i class="fa fa-bookmark"></i></td>
                         <td th:text="${vehicleStatus.description}"></td>
                         <td th:text="${vehicleStatus.details}"></td>
                         <td>

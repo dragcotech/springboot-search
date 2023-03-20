@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mpfleet.admin.models.Client;
 import com.mpfleet.admin.models.Contact;
 import com.mpfleet.admin.models.Supplier;
+import com.mpfleet.commons.BaseEntity;
 import com.mpfleet.hr.models.Employee;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

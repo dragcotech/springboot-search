@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i>View Ticket Details</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/tickets">Ticket Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/alltickets">All Tickets</a></li>
+                    <li><i class="fa fa-bars"></i>View Ticket Details</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container" style="width: 70%">
+            <form class="form-horizontal" th:action="@{/alltickets}" method="post">
+                <div class="row justify-content-center white-bg">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            View Ticket Details
+                        </header>
+                        <br>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Id</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" th:value="${ticket.id}" name="id"
+                                               readonly placeholder="Id">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Subject</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control"
+                                               th:value="${ticket.subject}" name="subject"
+                                               readonly placeholder="Subject">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Details</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" th:value="${ticket.details}"
+                                               name="details" readonly placeholder="details">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="ddlTickecStatus"
+                                           class="col-sm-4 col-form-label">Ticket Status</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlTickecStatus" name="ticketStatus" readonly="">
+                                            <option th:value="${null}">-SELECT-</option>
+                                            <option th:each="status : ${ticketStatuses}"
+                                                    th:selected="${status.id} == ${ticket.getTicketStatus().getId()}?True:False"
+                                                    th:value="${status.id}"
+                                                    th:text="${status.description}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Open Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control" readonly th:value="${ticket.openDate}"
+                                               name="openDate" placeholder="Open Date">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Close Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control" readonly th:value="${ticket.closeDate}"
+                                               name="closeDate" placeholder="Close Date">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="ddlRaisedByEdit" class="col-sm-4 col-form-label">Raised By</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlRaisedByEdit" readonly name="raisedBy">
+                                            <option th:value="${null}">-SELECT-</option>
+                                            <option th:each="client : ${clients}"
+                                                    th:selected="${client.id} == ${ticket.getRaisedBy().getId()}?True:False"
+                                                    th:value="${client.id}"
+                                                    th:text="${client.name}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="ddlAssignedToEdit" class="col-sm-4 col-form-label">Assigned To</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlAssignedToEdit" readonly name="assignedTo">
+                                            <option th:value="${null}">-SELECT-</option>
+                                            <option th:each="employee : ${employees}"
+                                                    th:selected="${employee.id} == ${ticket.getAssignedTo().getId()}?True:False"
+                                                    th:value="${employee.id}"
+                                                    th:text="${employee.username}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Remarks</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" readonly th:value="${ticket.remarks}" name="remarks"
+                                               placeholder="Remarks">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <div class="row white-bg">
+                    <div class="panel-body">
+                        <a th:href="@{'/ticket/edit/'+${ticket.id}}" class="btn btn-primary">
+                            Edit this record
+                        </a>
+                        <a href="/alltickets" class="btn  btn-warning">
+                            Exit
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

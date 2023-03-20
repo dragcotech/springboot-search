@@ -1,15 +1,18 @@
-package com.mpfleet.fleet.models;
+package com.mpfleet.commons;
 
 import jakarta.persistence.MappedSuperclass;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
 public abstract class CommonObject extends BaseEntity {
+
     private String description;
     private String details;
 }

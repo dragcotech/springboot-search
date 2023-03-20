@@ -1,5 +1,6 @@
 package com.mpfleet.admin.models;
 
+import com.mpfleet.commons.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "suppliers")
-public class Supplier extends BaseEntity{
+public class Supplier extends BaseEntity {
 
 	private String name;
 	private String address;

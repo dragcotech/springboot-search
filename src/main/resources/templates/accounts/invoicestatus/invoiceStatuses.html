@@ -9,8 +9,8 @@
             <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa fa-bars"></i> Invoice Statuses</h3>
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-bars"></i><a href="/accounts">Accounts Home</a></li>
-                    <li><i class="fa fa-square-o"></i>Invoice Statuses</li>
+                    <li><i class="fa fa-home"></i><a href="/accounts">Accounts Home</a></li>
+                    <li><i class="fa fa-bars"></i>Invoice Statuses</li>
                 </ol>
             </div>
         </div>
@@ -36,12 +36,12 @@
                         <tbody>
                         <tr>
                             <th></th>
-                            <th><i class="icon_profile"></i> Invoice Status</th>
-                            <th><i class="icon_calendar"></i> Details</th>
+                            <th><i class="icon_paperclip"></i> Invoice Status</th>
+                            <th><i class="icon_tag"></i> Details</th>
                             <th><i class="icon_cogs"></i> Delete</th>
                         </tr>
                         <tr th:each="invoiceStatus:${invoiceStatuses}">
-                            <td><i class="fa fa-table"></i></td>
+                            <td><i class="fa fa-bookmark"></i></td>
                             <td th:text="${invoiceStatus.description}"></td>
                             <td th:text="${invoiceStatus.details}"></td>
                             <td>

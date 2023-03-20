@@ -1,4 +1,4 @@
-package com.mpfleet.accounts.models;
+package com.mpfleet.commons;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

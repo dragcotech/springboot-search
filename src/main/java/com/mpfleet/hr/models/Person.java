@@ -1,11 +1,12 @@
 package com.mpfleet.hr.models;
 
-import com.mpfleet.admin.models.BaseEntity;
 import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.models.State;
+import com.mpfleet.commons.BaseEntity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @MappedSuperclass
 public abstract class Person extends BaseEntity {
 

@@ -9,9 +9,9 @@
       <div class="col-lg-12">
         <h3 class="page-header"><i class="fa fa fa-bars"></i>ADMIN</h3>
         <ol class="breadcrumb">
-          <li><i class="fa fa-bars"></i><a href="/admin">Admin Home</a></li>
+          <li><i class="fa fa-home"></i><a href="/admin">Admin Home</a></li>
           <li><i class="fa fa-bars"></i><a href="/contacts">All Contacts</a></li>
-          <li><i class="fa fa-home"></i>View Contact Record</li>
+          <li><i class="fa fa-bars"></i>View Contact Record</li>
         </ol>
       </div>
     </div>
@@ -27,43 +27,43 @@
                 <div class="form-group row">
                   <label for="txtIdAdd" class="col-form-label col-sm-4">Id</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.id}"  class="form-control" id="txtIdAdd" disabled>
+                    <input type="text" th:value="${contact.id}"  class="form-control" id="txtIdAdd" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="txtFirstnameAdd" class="col-form-label col-sm-4">First name</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.firstname}"  class="form-control" id="txtFirstnameAdd" name="firstname" disabled>
+                    <input type="text" th:value="${contact.firstname}"  class="form-control" id="txtFirstnameAdd" name="firstname" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="txtLastNameAdd" class="col-form-label col-sm-4">Last name</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.lastname}"  class="form-control" id="txtLastNameAdd" name="lastname" disabled>
+                    <input type="text" th:value="${contact.lastname}"  class="form-control" id="txtLastNameAdd" name="lastname" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="txtEmailAdd" class="col-form-label col-sm-4">Email</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.email}"  class="form-control" id="txtEmailAdd" name="email" disabled>
+                    <input type="text" th:value="${contact.email}"  class="form-control" id="txtEmailAdd" name="email" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="txtMobileAdd" class="col-form-label col-sm-4">Mobile</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.mobile}"  class="form-control" id="txtMobileAdd" name="mobile" disabled>
+                    <input type="text" th:value="${contact.mobile}"  class="form-control" id="txtMobileAdd" name="mobile" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="txtPhoneAdd" class="col-form-label col-sm-4">Phone</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.phone}"  class="form-control" id="txtPhoneAdd" name="phone" disabled>
+                    <input type="text" th:value="${contact.phone}"  class="form-control" id="txtPhoneAdd" name="phone" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="txtRemarksAdd" class="col-form-label col-sm-4">Remarks</label>
                   <div class="col-sm-6">
-                    <input type="text" th:value="${contact.remarks}"  class="form-control" id="txtRemarksAdd" name="remarks" disabled>
+                    <input type="text" th:value="${contact.remarks}"  class="form-control" id="txtRemarksAdd" name="remarks" readonly>
                   </div>
                 </div>
               </div>

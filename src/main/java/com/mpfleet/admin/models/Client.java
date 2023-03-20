@@ -1,5 +1,6 @@
 package com.mpfleet.admin.models;
 
+import com.mpfleet.commons.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "clients")
-public class Client extends BaseEntity{
+public class Client extends BaseEntity {
 
 	private String name;
 	private String address;

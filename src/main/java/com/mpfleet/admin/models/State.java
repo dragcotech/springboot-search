@@ -1,5 +1,6 @@
 package com.mpfleet.admin.models;
 
+import com.mpfleet.commons.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -14,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "states")
-public class State extends BaseEntity{
+public class State extends BaseEntity {
 
 	private String capital;
     private String code;

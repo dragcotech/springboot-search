@@ -8,8 +8,8 @@
         <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa fa-bars"></i>Employee Types</h3>
             <ol class="breadcrumb">
-                <li><i class="fa fa-bars"></i><a href="/hr">HR Home</a></li>
-                <li><i class="fa fa-home"></i>Employee Types</li>
+                <li><i class="fa fa-home"></i><a href="/hr">HR Home</a></li>
+                <li><i class="fa fa-bars"></i>Employee Types</li>
             </ol>
         </div>
     </div>
@@ -35,12 +35,12 @@
                     <tbody>
                     <tr>
                         <th></th>
-                        <th><i class="icon_profile"></i> Type</th>
-                        <th><i class="icon_calendar"></i> Details</th>
+                        <th><i class="icon_paperclip"></i> Employee Type</th>
+                        <th><i class="icon_tag"></i> Employee Type Details</th>
                         <th><i class="icon_cogs"></i> Delete</th>
                     </tr>
                     <tr th:each="employeeType:${employeeTypes}">
-                        <td><i class="fa fa-table"></i></td>
+                        <td><i class="fa fa-bookmark"></i></td>
                         <td th:text="${employeeType.description}"></td>
                         <td th:text="${employeeType.details}"></td>
                         <td>
