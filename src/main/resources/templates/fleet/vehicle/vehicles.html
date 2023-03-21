@@ -17,9 +17,21 @@
             <div class="col-lg-12">
                 <section class="panel" style="margin-bottom: 0px;">
                     <div class="panel-body">
-                        <a th:href="@{/addvehicle}" class="btn btn-primary">
-                            Add New Vehicle Record
-                        </a>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="/addvehicle" class="btn btn-primary">
+                                    Add New Vehicle Record
+                                </a>
+                            </div>
+                            <form th:action="@{/vehicles}">
+                                <div class="col-lg-3">
+                                    <input type="text" name="keyword" class="form-control" placeholder="Search for a specific vehicle">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="submit"  class="btn btn-send form-control">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </section>
 

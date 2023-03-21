@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class TicketController {
 	
@@ -35,8 +37,12 @@ public class TicketController {
 
 
 	@GetMapping("/alltickets")
-	public String findAll(Model model){		
-		addModelAttributes(model);
+	public String findAll(Model model, String keyword){
+		List<Ticket> tickets;
+
+		tickets = keyword == null? ticketService.findAll():ticketService.findByKeyword(keyword);
+		model.addAttribute("tickets", tickets);
+
 		return "/tickets/ticket/tickets";
 	}
 

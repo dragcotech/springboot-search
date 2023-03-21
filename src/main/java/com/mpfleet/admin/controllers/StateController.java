@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class StateController {
 
@@ -27,8 +29,12 @@ public class StateController {
     }
 
     @GetMapping("/states")
-    public String getAll(Model model){ // ALL STATES
-        addModelAttribute(model);
+    public String getAll(Model model, String keyword){ // ALL STATES
+        List<State> states;
+
+        states = keyword == null? stateService.findAll():stateService.findByKeyword(keyword);
+
+        model.addAttribute("states", states);
         return "admin/state/allStates";
     }
 

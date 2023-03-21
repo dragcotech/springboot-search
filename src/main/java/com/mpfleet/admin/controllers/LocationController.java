@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class LocationController {
     private final LocationService locationService;
@@ -29,8 +31,12 @@ public class LocationController {
     }
 
     @GetMapping("/locations")
-    public String findAll(Model model){
-        addModelAttributes(model);
+    public String findAll(Model model, String keyword){
+        List<Location> locations;
+
+        locations = keyword == null? locationService.findAll():locationService.findByKeyword(keyword);
+        model.addAttribute("locations", locations);
+
         return "admin/location/allLocations";
     }
 

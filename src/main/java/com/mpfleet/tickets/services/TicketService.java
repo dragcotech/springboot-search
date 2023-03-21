@@ -33,4 +33,8 @@ public class TicketService {
 	public void save(Ticket invoice) {
 		ticketRepository.save(invoice);
 	}
+
+	public List<Ticket> findByKeyword(String keyword){
+		return ticketRepository.findByKeyword(keyword);
+	}
 }

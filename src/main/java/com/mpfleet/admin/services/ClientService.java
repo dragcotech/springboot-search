@@ -32,4 +32,8 @@ public class ClientService {
     public void save(Client client) {
         clientRepository.save(client);
     }
+
+    public List<Client> findByKeyword(String keyword){
+        return clientRepository.findByKeyword(keyword);
+    }
 }

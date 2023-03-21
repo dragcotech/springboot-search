@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class EmployeeController {
@@ -41,8 +42,12 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/employees")
-	public String findAll(Model model){
-		addModelAttributes(model);
+	public String findAll(Model model, String keyword){
+		List<Employee> employees;
+
+		employees = keyword == null? employeeService.findAll():employeeService.findByKeyword(keyword);
+		model.addAttribute("employees", employees);
+
 		return "/hr/employee/employees";
 	}	
 

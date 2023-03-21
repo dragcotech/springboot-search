@@ -32,4 +32,8 @@ public class InvoiceService {
 	public void save(Invoice invoice) {
 		invoiceRepository.save(invoice);
 	}
+
+	public List<Invoice> findByKeyword(String keyword){
+		return invoiceRepository.findByKeyword(keyword);
+	}
 }

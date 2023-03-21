@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class SupplierController {
 
@@ -30,8 +32,12 @@ public class SupplierController {
     }
 
     @GetMapping("/suppliers")
-    public String findAll(Model model){
-        addModelAttributes(model);
+    public String findAll(Model model, String keyword){
+        List<Supplier> suppliers;
+
+        suppliers = keyword == null? supplierService.findAll():supplierService.findByKeyword(keyword);
+        model.addAttribute("suppliers", suppliers);
+
         return "admin/supplier/allSuppliers";
     }
 

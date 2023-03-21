@@ -17,9 +17,21 @@
             <div class="col-lg-12">
                 <section class="panel" style="margin-bottom: 0px;">
                     <div class="panel-body">
-                        <a href="/addtransaction" class="btn btn-primary">
-                            Add New Transaction Record
-                        </a>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="/addtransaction" class="btn btn-primary">
+                                    Add New Transaction Record
+                                </a>
+                            </div>
+                            <form th:action="@{/transactions}">
+                                <div class="col-lg-3">
+                                    <input type="text" name="keyword" class="form-control" placeholder="Search for a specific transaction">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="submit"  class="btn btn-send form-control">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </section>
                 <section class="panel">
@@ -34,7 +46,7 @@
                             <th><i class="fa fa-money"></i> Amount</th>
                             <th><i class="icon_tag"></i> Purpose</th>
                             <th><i class="icon_calendar"></i> Date</th>
-                            <th><i class="icon_cogs"></i> Action</th>
+                            <th><i class="icon_cogs"></i> Details/Edit/Delete</th>
                         </tr>
                         <tr th:each="transaction:${transactions}">
                             <td th:text="${transaction.id}"></td>
@@ -43,12 +55,12 @@
                             <td th:text="${transaction.transactionDate}"></td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-primary"
-                                       th:href="@{'/transactions/edit/'+${transaction.id}}">
-                                        <i class="icon_pencil-edit"></i></a>
                                     <a class="btn btn-success"
                                        th:href="@{'/transactions/details/'+${transaction.id}}">
                                         <i class="icon_document_alt"></i></a>
+                                    <a class="btn btn-primary"
+                                       th:href="@{'/transactions/edit/'+${transaction.id}}">
+                                        <i class="icon_pencil-edit"></i></a>
                                     <a class="btn btn-danger"
                                        onclick="return confirm('Are you sure you want to delete the transaction?')"
                                        th:href="@{'/transactions/delete/'+${transaction.id}}">

@@ -32,4 +32,8 @@ public class VehicleService {
 	public void save(Vehicle vehicle) {
 		vehicleRepository.save(vehicle);
 	}
+
+	public List<Vehicle> findByKeyword(String keyword){
+		return vehicleRepository.findByKeyword(keyword);
+	}
 }

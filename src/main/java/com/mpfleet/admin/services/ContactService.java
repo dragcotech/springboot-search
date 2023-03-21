@@ -33,4 +33,7 @@ public class ContactService {
         contactRepository.save(contact);
     }
 
+    public List<Contact> findByKeyword(String keyword){
+        return contactRepository.findByKeyword(keyword);
+    }
 }

@@ -32,4 +32,8 @@ public class SupplierService {
     public void save(Supplier supplier) {
         supplierRepository.save(supplier);
     }
+
+    public List<Supplier> findByKeyword(String keyword){
+        return supplierRepository.findByKeyword(keyword);
+    }
 }

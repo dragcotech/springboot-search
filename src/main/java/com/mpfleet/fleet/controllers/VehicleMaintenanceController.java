@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class VehicleMaintenanceController {
 
@@ -31,8 +33,11 @@ public class VehicleMaintenanceController {
 	}
 
 	@GetMapping("/vehiclemaintenances")
-	public String findAll(Model model){		
-		addModelAttributes(model);
+	public String findAll(Model model, String keyword){
+		List<VehicleMaintenance> maintenances;
+
+		maintenances = keyword == null? vehicleMaintenanceService.findAll():vehicleMaintenanceService.findByKeyword(keyword);
+		model.addAttribute("maintenances", maintenances);
 		return "/fleet/vehiclemaintenance/maintenances";
 	}
 

@@ -32,4 +32,8 @@ public class StateService {
     public State getById(Long id) {
         return stateRepository.findById(id).orElse(null);
     }
+
+    public List<State> findByKeyword(String keyword){
+        return stateRepository.findByKeyword(keyword);
+    }
 }

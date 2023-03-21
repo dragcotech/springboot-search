@@ -32,4 +32,7 @@ public class TransactionService {
         transactionRepository.save(transaction);
     }
 
+    public List<Transaction> findByKeyword(String keyword){
+        return transactionRepository.findByKeyword(keyword);
+    }
 }

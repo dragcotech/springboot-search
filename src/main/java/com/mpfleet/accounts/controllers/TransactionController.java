@@ -50,8 +50,10 @@ public class TransactionController {
     }
 
     @GetMapping("/transactions")
-    public String getAll(Model model){
-        List<Transaction> transactions = transactionService.findAll();
+    public String getAll(Model model, String keyword){
+        List<Transaction> transactions;
+
+        transactions = keyword == null? transactionService.findAll(): transactionService.findByKeyword(keyword);
         model.addAttribute("transactions", transactions);
         addModelAttributes(model);
         return "/accounts/transaction/transactions";

@@ -20,8 +20,11 @@ public class ContactController {
     }
 
     @GetMapping("/contacts")
-    public String getAll(Model model){
-        List<Contact> contacts =   contactService.findAll();
+    public String getAll(Model model, String keyword){
+        List<Contact> contacts;
+
+        contacts = keyword == null? contactService.findAll():contactService.findByKeyword(keyword);
+
         model.addAttribute("contacts", contacts);
         return "/admin/contact/allContacts";
     }

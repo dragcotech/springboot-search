@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class ClientController {
 
@@ -30,8 +32,12 @@ public class ClientController {
     }
 
     @GetMapping("/clients")
-    public String findAll(Model model){
-        addModelAttributes(model);
+    public String findAll(Model model, String keyword){
+        List<Client> clients;
+
+        clients = keyword == null? clientService.findAll():clientService.findByKeyword(keyword);
+
+        model.addAttribute("clients", clients);
         return "/admin/client/allClients";
     }
 

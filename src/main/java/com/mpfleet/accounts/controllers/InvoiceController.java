@@ -33,8 +33,11 @@ public class InvoiceController {
 
 
 	@GetMapping("/invoices")
-	public String getAll(Model model){
-		List<Invoice> invoices = invoiceService.findAll();
+	public String getAll(Model model, String keyword){
+		List<Invoice> invoices;
+
+		invoices = keyword == null? invoiceService.findAll():invoiceService.findByKeyword(keyword);
+
 		model.addAttribute("invoices", invoices);
 		addModelAttributes(model);
 		return "/accounts/invoice/invoices";

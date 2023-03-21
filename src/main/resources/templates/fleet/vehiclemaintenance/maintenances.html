@@ -18,9 +18,21 @@
                 <section class="panel" style="margin-bottom: 0px;">
 
                     <div class="panel-body">
-                        <a href="/addmaintenances" class="btn btn-primary">
-                            Add New Maintenance Record
-                        </a>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="/addmaintenances" class="btn btn-primary">
+                                    Add New Vehicle Maintenance Record
+                                </a>
+                            </div>
+                            <form th:action="@{/vehiclemaintenances}">
+                                <div class="col-lg-3">
+                                    <input type="text" name="keyword" class="form-control" placeholder="Search for a specific maintenance">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="submit"  class="btn btn-send form-control">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </section>
                 <section class="panel">

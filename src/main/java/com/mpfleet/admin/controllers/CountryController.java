@@ -20,9 +20,11 @@ public class CountryController {
     }
 
     @GetMapping("/countries")
-    public String getAll(Model model){ // MAIN
+    public String getAll(Model model, String keyword){ // MAIN
 
-        List<Country> countries = countryService.findAll();
+        List<Country> countries;
+
+        countries = keyword == null? countryService.findAll():countryService.findByKeyword(keyword);
         model.addAttribute("countries", countries);
 
         return "admin/country/allCountries";
