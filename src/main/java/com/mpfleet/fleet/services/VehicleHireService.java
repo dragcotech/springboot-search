@@ -3,6 +3,9 @@ package com.mpfleet.fleet.services;
 import com.mpfleet.fleet.models.VehicleHire;
 import com.mpfleet.fleet.repositories.VehicleHireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +22,12 @@ public class VehicleHireService {
 
 	public List<VehicleHire> findAll(){
 		return vehicleHireRepository.findAll();
-	}	
+	}
+
+	public Page<VehicleHire> findPage(int pageNumber){
+		Pageable pageable = PageRequest.of(pageNumber -1, 10);
+		return vehicleHireRepository.findAll(pageable);
+	}
 
 	public VehicleHire findById(Long id) {
 		return vehicleHireRepository.findById(id).orElse(null);

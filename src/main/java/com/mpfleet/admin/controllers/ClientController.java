@@ -5,6 +5,7 @@ import com.mpfleet.admin.services.ClientService;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,13 +33,25 @@ public class ClientController {
     }
 
     @GetMapping("/clients")
-    public String findAll(Model model, String keyword){
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
+
+    @GetMapping("/clients/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<Client> page = clientService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
         List<Client> clients;
+        clients = keyword == null? clientService.findPage(currentPage).getContent():clientService.findByKeyword(keyword);
 
-        clients = keyword == null? clientService.findAll():clientService.findByKeyword(keyword);
-
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("clients", clients);
-        return "/admin/client/allClients";
+
+        return "admin/client/allClients";
     }
 
     @GetMapping("/addclient")

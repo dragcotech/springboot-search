@@ -14,6 +14,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
             "OR t.transactionStatus.description LIKE %?1% OR t.transactionType.description LIKE %?1%" +
             "OR t.contact.email LIKE %?1% OR t.contact.firstname LIKE %?1% OR t.contact.lastname LIKE %?1%" +
             "OR t.supplier.name LIKE %?1% OR t.supplier.email LIKE %?1% OR t.supplier.website LIKE %?1%" +
-            "OR t.approvedBy.fullName LIKE %?1% OR t.approvedBy.firstName LIKE %?1% OR t.approvedBy.email LIKE %?1%")
+            "OR t.approvedBy.fullName LIKE %?1% OR t.approvedBy.firstName LIKE %?1% OR t.approvedBy.email LIKE %?1%" +
+            "OR t.purpose LIKE %?1%")
     List<Transaction> findByKeyword(String keyword);
 }

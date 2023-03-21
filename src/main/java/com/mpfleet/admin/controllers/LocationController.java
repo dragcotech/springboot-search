@@ -5,6 +5,7 @@ import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.LocationService;
 import com.mpfleet.admin.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,10 +32,22 @@ public class LocationController {
     }
 
     @GetMapping("/locations")
-    public String findAll(Model model, String keyword){
-        List<Location> locations;
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
 
-        locations = keyword == null? locationService.findAll():locationService.findByKeyword(keyword);
+    @GetMapping("/locations/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<Location> page = locationService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
+        List<Location> locations;
+        locations = keyword == null? locationService.findPage(currentPage).getContent():locationService.findByKeyword(keyword);
+
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("locations", locations);
 
         return "admin/location/allLocations";
@@ -53,7 +66,7 @@ public class LocationController {
     }
 
     @GetMapping("/detailslocation/{id}")
-    public String detailsLocation(@PathVariable Long id, Model model){ // DETAILS COUNTRY
+    public String detailsLocation(@PathVariable Long id, Model model){
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
         addModelAttributes(model);
@@ -61,7 +74,7 @@ public class LocationController {
     }
 
     @GetMapping("/editlocation/{id}")
-    public String editLocation(@PathVariable Long id, Model model){ // EDIT COUNTRY
+    public String editLocation(@PathVariable Long id, Model model){
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
         addModelAttributes(model);

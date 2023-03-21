@@ -6,6 +6,7 @@ import com.mpfleet.tickets.models.Ticket;
 import com.mpfleet.tickets.services.TicketService;
 import com.mpfleet.tickets.services.TicketStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,13 +38,25 @@ public class TicketController {
 
 
 	@GetMapping("/alltickets")
-	public String findAll(Model model, String keyword){
-		List<Ticket> tickets;
+	public String getAllPages(Model model, String keyword){
+		return getOnePage(model, 1, keyword);
+	}
 
-		tickets = keyword == null? ticketService.findAll():ticketService.findByKeyword(keyword);
+	@GetMapping("/alltickets/page/{pageNumber}")
+	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+		Page<Ticket> page = ticketService.findPage(currentPage);
+		int totalPages = page.getTotalPages();
+		long totalItems = page.getTotalElements();
+		page.getContent();
+		List<Ticket> tickets;
+		tickets = keyword == null? ticketService.findPage(currentPage).getContent():ticketService.findByKeyword(keyword);
+
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("totalItems", totalItems);
 		model.addAttribute("tickets", tickets);
 
-		return "/tickets/ticket/tickets";
+		return "tickets/ticket/tickets";
 	}
 
 	@GetMapping("/addticket")

@@ -5,6 +5,7 @@ import com.mpfleet.fleet.models.VehicleMovement;
 import com.mpfleet.fleet.services.VehicleMovementService;
 import com.mpfleet.fleet.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,13 +33,25 @@ public class VehicleMovementController {
 
 
 	@GetMapping("/vehiclemovements")
-	public String findAll(Model model, String keyword){
+	public String getAllPages(Model model, String keyword){
+		return getOnePage(model, 1, keyword);
+	}
+
+	@GetMapping("/vehiclemovements/page/{pageNumber}")
+	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+		Page<VehicleMovement> page = vehicleMovementService.findPage(currentPage);
+		int totalPages = page.getTotalPages();
+		long totalItems = page.getTotalElements();
+		page.getContent();
 		List<VehicleMovement> movements;
+		movements = keyword == null? vehicleMovementService.findPage(currentPage).getContent():vehicleMovementService.findByKeyword(keyword);
 
-		movements = keyword == null? vehicleMovementService.findAll():vehicleMovementService.findByKeyword(keyword);
-
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("totalItems", totalItems);
 		model.addAttribute("movements", movements);
-		return "/fleet/vehiclemovement/movements";
+
+		return "fleet/vehiclemovement/movements";
 	}
 
 	@GetMapping("/addmovement")

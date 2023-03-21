@@ -6,6 +6,7 @@ import com.mpfleet.fleet.models.VehicleHire;
 import com.mpfleet.fleet.services.VehicleHireService;
 import com.mpfleet.fleet.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,12 +36,25 @@ public class VehicleHireController {
 	}
 
 	@GetMapping("/vehiclehires")
-	public String findAll(Model model, String keyword){
-		List<VehicleHire> hires;
+	public String getAllPages(Model model, String keyword){
+		return getOnePage(model, 1, keyword);
+	}
 
-		hires = keyword == null? vehicleHireService.findAll():vehicleHireService.findByKeyword(keyword);
+	@GetMapping("/vehiclehires/page/{pageNumber}")
+	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+		Page<VehicleHire> page = vehicleHireService.findPage(currentPage);
+		int totalPages = page.getTotalPages();
+		long totalItems = page.getTotalElements();
+		page.getContent();
+		List<VehicleHire> hires;
+		hires = keyword == null? vehicleHireService.findPage(currentPage).getContent():vehicleHireService.findByKeyword(keyword);
+
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("totalItems", totalItems);
 		model.addAttribute("hires", hires);
-		return "/fleet/vehiclehire/hires";
+
+		return "fleet/vehiclehire/hires";
 	}
 
 	@GetMapping("/addhire")

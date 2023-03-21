@@ -5,6 +5,7 @@ import com.mpfleet.admin.models.State;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,12 +30,24 @@ public class StateController {
     }
 
     @GetMapping("/states")
-    public String getAll(Model model, String keyword){ // ALL STATES
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
+
+    @GetMapping("/states/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<State> page = stateService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
         List<State> states;
+        states = keyword == null? stateService.findPage(currentPage).getContent():stateService.findByKeyword(keyword);
 
-        states = keyword == null? stateService.findAll():stateService.findByKeyword(keyword);
-
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("states", states);
+
         return "admin/state/allStates";
     }
 

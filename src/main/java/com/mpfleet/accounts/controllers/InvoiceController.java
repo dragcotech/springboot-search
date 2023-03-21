@@ -5,6 +5,7 @@ import com.mpfleet.accounts.services.InvoiceService;
 import com.mpfleet.accounts.services.InvoiceStatusService;
 import com.mpfleet.admin.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,14 +34,25 @@ public class InvoiceController {
 
 
 	@GetMapping("/invoices")
-	public String getAll(Model model, String keyword){
+	public String getAllPages(Model model, String keyword){
+		return getOnePage(model, 1, keyword);
+	}
+
+	@GetMapping("/invoices/page/{pageNumber}")
+	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+		Page<Invoice> page = invoiceService.findPage(currentPage);
+		int totalPages = page.getTotalPages();
+		long totalItems = page.getTotalElements();
+		page.getContent();
 		List<Invoice> invoices;
+		invoices = keyword == null? invoiceService.findPage(currentPage).getContent():invoiceService.findByKeyword(keyword);
 
-		invoices = keyword == null? invoiceService.findAll():invoiceService.findByKeyword(keyword);
-
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("totalItems", totalItems);
 		model.addAttribute("invoices", invoices);
-		addModelAttributes(model);
-		return "/accounts/invoice/invoices";
+
+		return "accounts/invoice/invoices";
 	}
 
 	@GetMapping("/addinvoice")

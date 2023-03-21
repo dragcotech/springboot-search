@@ -3,6 +3,7 @@ package com.mpfleet.admin.controllers;
 import com.mpfleet.admin.models.Contact;
 import com.mpfleet.admin.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +21,25 @@ public class ContactController {
     }
 
     @GetMapping("/contacts")
-    public String getAll(Model model, String keyword){
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
+
+    @GetMapping("/contacts/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<Contact> page = contactService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
         List<Contact> contacts;
+        contacts = keyword == null? contactService.findPage(currentPage).getContent():contactService.findByKeyword(keyword);
 
-        contacts = keyword == null? contactService.findAll():contactService.findByKeyword(keyword);
-
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("contacts", contacts);
-        return "/admin/contact/allContacts";
+
+        return "admin/contact/allContacts";
     }
 
 

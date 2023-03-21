@@ -3,6 +3,9 @@ package com.mpfleet.admin.services;
 import com.mpfleet.admin.models.Supplier;
 import com.mpfleet.admin.repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,11 @@ public class SupplierService {
 
     public List<Supplier> findAll(){
         return supplierRepository.findAll();
+    }
+
+    public Page<Supplier> findPage(int pageNumber){
+        Pageable pageable = PageRequest.of(pageNumber -1, 10);
+        return supplierRepository.findAll(pageable);
     }
 
     public Supplier findById(Long id) {

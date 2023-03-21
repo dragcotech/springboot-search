@@ -5,6 +5,7 @@ import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.StateService;
 import com.mpfleet.admin.services.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,10 +33,22 @@ public class SupplierController {
     }
 
     @GetMapping("/suppliers")
-    public String findAll(Model model, String keyword){
-        List<Supplier> suppliers;
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
 
-        suppliers = keyword == null? supplierService.findAll():supplierService.findByKeyword(keyword);
+    @GetMapping("/suppliers/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<Supplier> page = supplierService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
+        List<Supplier> suppliers;
+        suppliers = keyword == null? supplierService.findPage(currentPage).getContent():supplierService.findByKeyword(keyword);
+
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("suppliers", suppliers);
 
         return "admin/supplier/allSuppliers";

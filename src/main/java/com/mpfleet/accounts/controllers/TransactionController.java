@@ -9,6 +9,7 @@ import com.mpfleet.admin.services.ContactService;
 import com.mpfleet.admin.services.SupplierService;
 import com.mpfleet.hr.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -50,13 +51,25 @@ public class TransactionController {
     }
 
     @GetMapping("/transactions")
-    public String getAll(Model model, String keyword){
-        List<Transaction> transactions;
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
 
-        transactions = keyword == null? transactionService.findAll(): transactionService.findByKeyword(keyword);
+    @GetMapping("/transactions/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<Transaction> page = transactionService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
+        List<Transaction> transactions;
+        transactions = keyword == null? transactionService.findPage(currentPage).getContent():transactionService.findByKeyword(keyword);
+
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("transactions", transactions);
-        addModelAttributes(model);
-        return "/accounts/transaction/transactions";
+
+        return "accounts/transaction/transactions";
     }
 
     @GetMapping("/addtransaction")

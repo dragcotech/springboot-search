@@ -58,7 +58,7 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlStateAdd" name="state">
                       <option th:value="${null}">-SELECT-</option>
-                      <option th:each="st : ${state}"
+                      <option th:each="st : ${states}"
                               th:value="${st.id}"
                               th:text="${st.capital}">
                       </option>

@@ -3,6 +3,9 @@ package com.mpfleet.admin.services;
 import com.mpfleet.admin.models.State;
 import com.mpfleet.admin.repositories.StateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,11 @@ public class StateService {
 
     public List<State> findAll(){
         return this.stateRepository.findAll();
+    }
+
+    public Page<State> findPage(int pageNumber){
+        Pageable pageable = PageRequest.of(pageNumber -1, 10);
+        return stateRepository.findAll(pageable);
     }
 
     public void save(State country){

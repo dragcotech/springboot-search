@@ -7,6 +7,7 @@ import com.mpfleet.hr.services.EmployeeService;
 import com.mpfleet.hr.services.EmployeeTypeService;
 import com.mpfleet.hr.services.JobTitleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -42,14 +43,26 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/employees")
-	public String findAll(Model model, String keyword){
-		List<Employee> employees;
+	public String getAllPages(Model model, String keyword){
+		return getOnePage(model, 1, keyword);
+	}
 
-		employees = keyword == null? employeeService.findAll():employeeService.findByKeyword(keyword);
+	@GetMapping("/employees/page/{pageNumber}")
+	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+		Page<Employee> page = employeeService.findPage(currentPage);
+		int totalPages = page.getTotalPages();
+		long totalItems = page.getTotalElements();
+		page.getContent();
+		List<Employee> employees;
+		employees = keyword == null? employeeService.findPage(currentPage).getContent():employeeService.findByKeyword(keyword);
+
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("totalItems", totalItems);
 		model.addAttribute("employees", employees);
 
-		return "/hr/employee/employees";
-	}	
+		return "hr/employee/employees";
+	}
 
 	@GetMapping("/addemployee")
 	public String addEmployee(Model model){

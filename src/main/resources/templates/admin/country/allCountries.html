@@ -30,7 +30,7 @@
                             <input type="text" name="keyword" class="form-control" placeholder="Search for a specific country">
                         </div>
                         <div class="col-lg-3">
-                            <input type="submit"  class="btn btn-send form-control">
+                            <input name="Search" type="submit"  class="btn btn-send form-control">
                         </div>
                         </form>
                     </div>
@@ -75,6 +75,43 @@
                     </tr>
                     </tbody>
                 </table>
+                <footer style="font-size: medium" class="panel-footer">
+                    Total Items [[${totalItems}]] : Page [[${currentPage}]] of [[${totalPages}]]
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item" >
+                                <a th:if="${currentPage > 1}"
+                                   th:href="@{/countries/page/1}">First</a>
+                                <span th:unless="${currentPage > 1}">First</span>
+                            </li>
+
+                            <li class="page-item">
+                                <a th:if="${currentPage > 1}"
+                                   th:href="@{'/countries/page/' + ${currentPage - 1}}">Previous</a>
+                                <span th:unless="${currentPage > 1}">Previous</span>
+                            </li>
+
+                            <li class="page-item" >
+                                <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                    <a th:href="@{'/countries/page/' + ${i}}">[[${i}]]</a>&nbsp; &nbsp;
+                                </span>
+                            </li>
+
+                            <li class="page-item">
+                                <a th:if="${currentPage < totalPages}"
+                                   th:href="@{'/countries/page/' + ${currentPage + 1}}">Next</a>
+                                <span th:unless="${currentPage < totalPages}">Next</span>
+                            </li>
+
+                            <li class="page-item">
+                                <a th:if="${currentPage < totalPages}"
+                                   th:href="@{'/countries/page/' + ${totalPages}}">Last</a>
+                                <span th:unless="${currentPage < totalPages}">Last</span>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </footer>
             </section> <!-- TABLE COUNTRY -->
         </div>
     </div>

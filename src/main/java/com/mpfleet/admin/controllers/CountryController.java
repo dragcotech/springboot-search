@@ -3,6 +3,7 @@ package com.mpfleet.admin.controllers;
 import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +21,22 @@ public class CountryController {
     }
 
     @GetMapping("/countries")
-    public String getAll(Model model, String keyword){ // MAIN
+    public String getAllPages(Model model, String keyword){
+        return getOnePage(model, 1, keyword);
+    }
 
+    @GetMapping("/countries/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
+        Page<Country> page = countryService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        page.getContent();
         List<Country> countries;
+        countries = keyword == null? countryService.findPage(currentPage).getContent():countryService.findByKeyword(keyword);
 
-        countries = keyword == null? countryService.findAll():countryService.findByKeyword(keyword);
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("countries", countries);
 
         return "admin/country/allCountries";

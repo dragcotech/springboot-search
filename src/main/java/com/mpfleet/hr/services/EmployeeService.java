@@ -3,6 +3,9 @@ package com.mpfleet.hr.services;
 import com.mpfleet.hr.models.Employee;
 import com.mpfleet.hr.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +22,12 @@ public class EmployeeService {
 
 	public List<Employee> findAll(){
 		return employeeRepository.findAll();
-	}	
+	}
+
+	public Page<Employee> findPage(int pageNumber){
+		Pageable pageable = PageRequest.of(pageNumber -1, 10);
+		return employeeRepository.findAll(pageable);
+	}
 
 	public Employee findById(Long id) {
 		return employeeRepository.findById(id).orElse(null);
