@@ -135,6 +135,30 @@
                                                           class="form-control" name="remarks" readonly></textarea>
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Created by</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" readonly th:value="${transaction.createdBy}" name="createdBy" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Create Date</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" readonly th:value="${transaction.createDate}" name="createDate" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Last Modified By</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" readonly th:value="${transaction.lastModifiedBy}" name="lastModifiedBy" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Last Modified Date</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" readonly th:value="${transaction.lastModifiedDate}" name="lastModifiedDate" >
+                                            </div>
+                                        </div>
                                     </section>
                                 </div>
                             </div>

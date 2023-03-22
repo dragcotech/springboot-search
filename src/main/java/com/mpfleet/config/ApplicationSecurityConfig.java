@@ -1,4 +1,4 @@
-package com.mpfleet.security.config;
+package com.mpfleet.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

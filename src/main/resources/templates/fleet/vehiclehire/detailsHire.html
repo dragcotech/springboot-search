@@ -109,6 +109,30 @@
                                         <textarea class="form-control" th:field="${hire.remarks}" name="remarks" placeholder="Remarks" rows="3" readonly></textarea>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Created by</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${hire.createdBy}" name="createdBy" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Create Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${hire.createDate}" name="createDate" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Last Modified By</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${hire.lastModifiedBy}" name="lastModifiedBy" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Last Modified Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${hire.lastModifiedDate}" name="lastModifiedDate" >
+                                    </div>
+                                </div>
                             </section>
                         </div>
                     </section>

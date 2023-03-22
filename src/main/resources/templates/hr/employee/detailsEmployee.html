@@ -205,6 +205,30 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Created by</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${employee.createdBy}" name="createdBy" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Create Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${employee.createDate}" name="createDate" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Last Modified By</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${employee.lastModifiedBy}" name="lastModifiedBy" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Last Modified Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" readonly th:value="${employee.lastModifiedDate}" name="lastModifiedDate" >
+                                    </div>
+                                </div>
                             </section>
                         </div>
                     </section>
