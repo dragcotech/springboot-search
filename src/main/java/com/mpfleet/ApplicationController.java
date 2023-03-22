@@ -35,4 +35,9 @@ public class ApplicationController {
     public String tickets(){
         return "/tickets/index";
     }
+
+    @GetMapping("/security") // TICKETS
+    public String security(){
+        return "/security/index";
+    }
 }

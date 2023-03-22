@@ -133,14 +133,14 @@ insert into job_title values (8, 'Customer Service Representative', 'Interacts w
 insert into job_title values (9, 'Graphic Designer', 'Creates visual designs and layouts for print and digital media.');
 insert into job_title values (10, 'Environmental Engineer', 'Designs and implements solutions to environmental problems, such as air pollution, water pollution, and waste management');
 
-insert into employees values (1,'zhk. Lyulin 6','1999-09-14','parunev@gmail.com','Martin','MALE','MNP','Parunev', 'Single','0888554433', 'Glavata','0888445533','none','9909146340','Mr.','2023-03-13','parunev', 1, 1, 1, 1);
-insert into employees values (2,'123 Main Street','1980-01-01','jdoe@email.com','John','MALE','JD','Doe','Married','555-1234','The goat','555-5678','none','123-45-6789','Mr.','2020-01-01','jdoe', 2, 2, 2, 2);
-insert into employees values (3,'456 Elm Avenue','1985-02-02','asmith@email.com','Amy','FEMALE','AS','Smith','Single','555-2345','The sheep','555-6789','none','234-56-7890','Ms.','2021-02-02','asmith', 3, 3, 3, 3);
-insert into employees values (4,'789 Oak Road','1990-03-03','rjones@email.com','Ryan','MALE','RJ','Jones','Married','555-3456','The lion','555-7890','none','345-67-8901','Mr.','2022-03-03','rjones', 4, 4, 4, 4);
-insert into employees values (5,'321 Pine Street','1995-04-04','tlee@email.com','Tiffany','FEMALE','TL','Lee','Single','555-4567','The pig','555-8901','none','456-78-9012','Ms.','2023-01-01','tlee', 5, 5, 5, 5);
-insert into employees values (6,'654 Maple Drive','2000-05-05','knguyen@email.com','Kevin','MALE','KN','Nguyen','Married','555-5678','The lizard','555-9012','none','567-89-0123','Mr.','2019-02-02','knguyen', 6, 6, 6, 6);
-insert into employees values (7,'987 Birch Lane','1999-06-06','cchang@email.com','Christine','FEMALE','CC','Chang','Single','555-6789','The boss','555-0123','none','678-90-1234','Ms.','2018-03-03','cchang', 7, 7, 7, 7);
-insert into employees values (8,'246 Oakwood Drive','1998-07-07','dsmith@email.com','David','MALE','DS','Smith','Married','555-7890','The baby','555-1234','none','789-01-2345','Mr.','2019-04-04','dsmith', 8, 8, 8, 8);
+insert into employees values (1,'zhk. Lyulin 6','1999-09-14','parunev@gmail.com','Martin','MALE','MNP','Parunev', 'Single','0888554433', 'Glavata','0888445533','none','9909146340.','Mr.','2022-01-01','parunev',1,1,1,1);
+insert into employees values (2,'123 Main Street','1980-01-01','jdoe@email.com','John','MALE','JD','Doe','Married','555-1234','The goat','555-5678','none','123-45-6789.','Mr','2022-02-02','jdoe',2,2,2,2);
+insert into employees values (3,'456 Elm Avenue','1985-02-02','asmith@email.com','Amy','FEMALE','AS','Smith','Single','555-2345','The sheep','555-6789','none','256-34-7890.','Ms.','2022-03-03','asmith',3,3,3,3);
+insert into employees values (4,'789 Oak Road','1990-03-03','rjones@email.com','Ryan','MALE','RJ','Jones','Married','555-3456','The lion','555-7890','none','345-67-8901.','Mr','2022-04-04','rjones',4,4,4,4);
+insert into employees values (5,'321 Pine Street','1995-04-04','tlee@email.com','Tiffany','FEMALE','TL','Lee','Single','555-4567','The pig','555-8901','none','456-78-9012','Ms.','2022-05-05','tlee',5,5,5,5);
+insert into employees values (6,'654 Maple Drive','2000-05-05','knguyen@email.com','Kevin','MALE','KN','Nguyen','Married','555-5678','The lizard','555-9012','none','567-89-0123','Mr','2022-06-06','knguyen' ,6,6,6,6);
+insert into employees values (7,'987 Birch Lane','1999-06-06','cchang@email.com','Christine','FEMALE','CC','Chang','Single','555-6789','The boss','555-0123','none','678-90-1234','Ms.','2022-07-07','change',7,7,7,7);
+insert into employees values (8,'246 Oakwood Drive','1998-07-07','dsmith@email.com','David','MALE','DS','Smith','Married','555-7890','The baby','555-1234','none','678-90-2230.','Mr','2022-08-08','dsmith',8,8,8,8);
 
 insert into vehicles values (1,'2022-01-05','Used for transporting employees', '16 gallons', 'Toyota Corolla', '3,340lbs', '203hp @ 6,600rpm', '2022-02-15', '234567', 1, 1, 1, 1, 1, 1);
 insert into vehicles values (2,'2022-02-10', 'Used mostly by employees to travel around', '14 gallons', 'Honda Civic', '3,000lbs', '160hp @ 6,000rpm', '2022-03-10', '234568', 2, 2, 3, 2, 1, 4);
