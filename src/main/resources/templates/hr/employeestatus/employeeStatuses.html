@@ -18,7 +18,7 @@
                 <form class="form-inline" role="form" th:action="@{/hr/employeestatuses}" method="post">
                     <div class="form-group">
                         <label class="sr-only">Employee Status</label>
-                        <input type="text" id="txtDescription" name="description" class="form-control" placeholder="Employee Status">
+                        <input type="text" required minlength="3" id="txtDescription" name="description" class="form-control" placeholder="Employee Status">
                     </div>
                     <div class="form-group">
                         <label class="sr-only">Details</label>

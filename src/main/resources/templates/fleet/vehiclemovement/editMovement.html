@@ -33,7 +33,7 @@
                                     <div class="form-group row">
                                         <label for="ddlVehicleAdd" class="col-form-label col-sm-4">Vehicle</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control" id="ddlVehicleAdd" name="vehicle">
+                                            <select class="form-control" required id="ddlVehicleAdd" name="vehicle">
                                                 <option th:value="${null}">-SELECT-</option>
                                                 <option th:each="vehicle : ${vehicles}"
                                                         th:selected="${vehicle.id}==${movement.getVehicle().getId()}?True:False"
@@ -46,7 +46,7 @@
                                     <div class="form-group row">
                                         <label for="ddlLocation1Add" class="col-form-label col-sm-4">Departed from</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control" id="ddlLocation1Add" name="firstLocation">
+                                            <select class="form-control" required id="ddlLocation1Add" name="firstLocation">
                                                 <option th:value="${null}">-SELECT-</option>
                                                 <option th:each="location : ${firstLocation}"
                                                         th:selected = "${location.id} == ${movement.getFirstLocation().getId()}? True:False"
@@ -59,7 +59,7 @@
                                     <div class="form-group row">
                                         <label for="firstDate" class="col-form-label col-sm-4">Departure Date</label>
                                         <div class="col-sm-6">
-                                            <input type="date" th:value="${movement.firstDate}" class="form-control" id="firstDate" name="firstDate">
+                                            <input type="date" required th:value="${movement.firstDate}" class="form-control" id="firstDate" name="firstDate">
                                         </div>
                                     </div>
                                 </section>
@@ -69,7 +69,7 @@
                                     <div class="form-group row">
                                         <label for="ddlLocation2Add" class="col-form-label col-sm-4">Arrived at</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control" id="ddlLocation2Add" name="secondLocation">
+                                            <select class="form-control" required id="ddlLocation2Add" name="secondLocation">
                                                 <option th:value="${null}">-SELECT-</option>
                                                 <option th:each="location : ${secondLocation}"
                                                         th:selected="${location.id}==${movement.getSecondLocation().getId()}?True:False"
@@ -82,7 +82,7 @@
                                     <div class="form-group row">
                                         <label for="secondDate" class="col-form-label col-sm-4">Arrival date</label>
                                         <div class="col-sm-6">
-                                            <input type="date" th:value="${movement.secondDate}" class="form-control" id="secondDate" name="secondDate">
+                                            <input type="date" required th:value="${movement.secondDate}" class="form-control" id="secondDate" name="secondDate">
                                         </div>
                                     </div>
                                     <div class="form-group row">

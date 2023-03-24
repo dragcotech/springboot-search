@@ -21,12 +21,12 @@
                     <form class="form-inline" role="form" th:action="@{/security/roles}" method="post">
                         <div class="form-group">
                             <label class="sr-only">Role</label>
-                            <input type="text" id="txtDescription" name="description" placeholder="Role"
+                            <input type="text" id="txtDescription" required minlength="3" maxlength="10" name="description" placeholder="Role"
                                    class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="sr-only">Details</label>
-                            <input type="text" id="txtDetails" size="70" placeholder="Details" name="Details"
+                            <input type="text" id="txtDetails" size="70" required minlength="3" maxlength="10" placeholder="Details" name="Details"
                                    class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>

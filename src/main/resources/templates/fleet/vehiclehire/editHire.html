@@ -34,7 +34,7 @@
                                 <div class="form-group row">
                                     <label for="ddlVehicleAdd" class="col-sm-4 col-form-label">Vehicle</label>
                                     <div class="col-sm-6">
-                                        <select id="ddlVehicleAdd" name="vehicle" class="form-control">
+                                        <select id="ddlVehicleAdd" required name="vehicle" class="form-control">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicle : ${vehicles}"
                                                     th:selected="${vehicle.id}==${hire.getVehicle().getId()}?True:False"
@@ -47,7 +47,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Client</label>
                                     <div class="col-sm-6">
-                                        <select name="client" class="form-control">
+                                        <select name="client" required class="form-control">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="client : ${clients}"
                                                     th:selected="${client.id}==${hire.getClient().getId()}?True:False"
@@ -60,14 +60,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Date Out</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" th:value="${hire.dateOut}"
+                                        <input type="date" required class="form-control" th:value="${hire.dateOut}"
                                                name="dateOut" placeholder="Date Out">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Time Out</label>
                                     <div class="col-sm-6">
-                                        <input type="time" class="form-control" th:value="${hire.timeOut}"
+                                        <input type="time" required class="form-control" th:value="${hire.timeOut}"
                                                name="timeOut" placeholder="Time Out">
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                 <div class="form-group row">
                                     <label for="ddlLocationAdd" class="col-sm-4 col-form-label">Destination</label>
                                     <div class="col-sm-6">
-                                        <select id="ddlLocationAdd" name="location" class="form-control">
+                                        <select id="ddlLocationAdd" required name="location" class="form-control">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="location : ${locations}"
                                                     th:selected="${location.id}==${hire.getLocation().getId()}?True:False"
@@ -91,21 +91,21 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Date In</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" th:value="${hire.dateIn}" name="dateIn"
+                                        <input type="date" required class="form-control" th:value="${hire.dateIn}" name="dateIn"
                                                placeholder="Date In">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Time In</label>
                                     <div class="col-sm-6">
-                                        <input type="time" class="form-control" th:value="${hire.timeIn}" name="timeIn"
+                                        <input type="time" required class="form-control" th:value="${hire.timeIn}" name="timeIn"
                                                placeholder="Time In">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Price</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" th:value="${hire.price}" name="price"
+                                        <input type="number" required class="form-control" th:value="${hire.price}" name="price"
                                                placeholder="Price">
                                     </div>
                                 </div>

@@ -28,7 +28,7 @@
                                 <div class="form-group row">
                                     <label for="ddlTitleEdit" class="col-sm-4 col-form-label">Title</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlTitleEdit" name="title">
+                                        <select class="form-control" required id="ddlTitleEdit" name="title">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option value="Mr.">Mr.</option>
                                             <option value="Ms.">Ms.</option>
@@ -38,28 +38,28 @@
                                 <div class="form-group row">
                                     <label for="txtInitialsEdit" class="col-sm-4 col-form-label">Initials</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="txtInitialsEdit" name="initials"
+                                        <input type="text" class="form-control" required minlength="3" maxlength="10" id="txtInitialsEdit" name="initials"
                                                placeholder="Initials">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtSSNEdit" class="col-sm-4 col-form-label">Social Security No.</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="txtSSNEdit"
+                                        <input type="text" class="form-control" required minlength="3" id="txtSSNEdit"
                                                name="socialSecurityNumber" placeholder="Social Security Number">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtFirstnameEdit" class="col-sm-4 col-form-label">First name</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="txtFirstnameEdit" name="firstName"
+                                        <input type="text" class="form-control" required minlength="3" maxlength="20" id="txtFirstnameEdit" name="firstName"
                                                placeholder="Firstname">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtLastnameEdit" class="col-sm-4 col-form-label">Last name</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="txtLastnameEdit" name="lastName"
+                                        <input type="text" class="form-control" required minlength="3" maxlength="20" id="txtLastnameEdit" name="lastName"
                                                placeholder="Lastname">
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="form-group row">
                                     <label for="ddlGenderEdit" class="col-sm-4 col-form-label">Gender</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlGenderEdit" name="gender">
+                                        <select class="form-control" required id="ddlGenderEdit" name="gender">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option value="MALE">MALE</option>
                                             <option value="FEMALE">FEMALE</option>
@@ -84,7 +84,7 @@
                                     <label for="ddlNationalityEdit"
                                            class="col-sm-4 col-form-label">Nationality</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlNationalityEdit" name="country">
+                                        <select class="form-control" required id="ddlNationalityEdit" name="country">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="country : ${countries}"
                                                     th:value="${country.id}"
@@ -96,14 +96,14 @@
                                 <div class="form-group row">
                                     <label for="txtAddressEdit" class="col-sm-4 col-form-label">Address</label>
                                     <div class="col-sm-6">
-                                        <textarea class="form-control" id="txtAddressEdit" name="address"
+                                        <textarea class="form-control" required id="txtAddressEdit" name="address"
                                                   placeholder="Address" rows="2"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="ddlEmployeeTypeEdit" class="col-sm-4 col-form-label">Employee Type</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlEmployeeTypeEdit" name="employeeType">
+                                        <select class="form-control" required id="ddlEmployeeTypeEdit" name="employeeType">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="employeeType : ${employeeTypes}"
                                                     th:value="${employeeType.id}"
@@ -119,21 +119,21 @@
                                 <div class="form-group row">
                                     <label for="txtDateOfBirthEdit" class="col-sm-4 col-form-label">Date of Birth</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="txtDateOfBirthEdit"
+                                        <input type="date" required class="form-control" id="txtDateOfBirthEdit"
                                                name="DateOfBirth" placeholder="Date of Birth">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtHireDateEdit" class="col-sm-4 col-form-label">Hire Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="txtHireDateEdit" name="hireDate"
+                                        <input type="date" required class="form-control" id="txtHireDateEdit" name="hireDate"
                                                placeholder="Hire Date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="ddlStateEdit" class="col-sm-4 col-form-label">State</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlStateEdit" name="state">
+                                        <select class="form-control" required id="ddlStateEdit" name="state">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="state : ${states}"
                                                     th:value="${state.id}"
@@ -145,7 +145,7 @@
                                 <div class="form-group row">
                                     <label for="txtPhoneEdit" class="col-sm-4 col-form-label">Phone</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="txtPhoneEdit" name="phone"
+                                        <input type="text" required class="form-control" id="txtPhoneEdit" name="phone"
                                                placeholder="Phone">
                                     </div>
                                 </div>
@@ -163,20 +163,21 @@
                                             <option th:value="${null}">-SELECT-</option>
                                             <option value="Married">Married</option>
                                             <option value="Single">Single</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtEmailEdit" class="col-sm-4 col-form-label">Email</label>
                                     <div class="col-sm-6">
-                                        <input type="email" class="form-control" id="txtEmailEdit" name="email"
+                                        <input type="email" required class="form-control" id="txtEmailEdit" name="email"
                                                placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="ddlJobTitleEdit" class="col-sm-4 col-form-label">Job Title</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlJobTitleEdit" name="jobTitle">
+                                        <select class="form-control" required id="ddlJobTitleEdit" name="jobTitle">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="jobTitle : ${jobTitles}"
                                                     th:value="${jobTitle.id}"
@@ -188,7 +189,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Username</label>
                                     <div class="col-sm-6">
-                                        <input class="form-control" name="username" placeholder="Username">
+                                        <input class="form-control" required name="username" placeholder="Username">
                                     </div>
                                 </div>
                             </section>

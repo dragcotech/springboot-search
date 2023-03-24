@@ -38,13 +38,13 @@
                 <div class="form-group row">
                   <label for="detailsAdd" class="col-form-label col-sm-4">Address</label>
                   <div class="col-sm-6">
-                    <textarea type="text" class="form-control" id="addressAdd" name="address"></textarea>
+                    <textarea type="text" class="form-control" id="addressAdd" name="address" required minlength="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="ddlCountryAdd" class="col-form-label col-sm-4">Country</label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlCountryAdd" name="country">
+                    <select class="form-control" required id="ddlCountryAdd" name="country">
                       <option th:value="${null}">-SELECT-</option>
                       <option th:each="country : ${countries}"
                               th:value="${country.id}"
@@ -56,7 +56,7 @@
                 <div class="form-group row">
                   <label for="ddlStateAdd" class="col-form-label col-sm-4">State</label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlStateAdd" name="state">
+                    <select class="form-control" required id="ddlStateAdd" name="state">
                       <option th:value="${null}">-SELECT-</option>
                       <option th:each="st : ${states}"
                               th:value="${st.id}"

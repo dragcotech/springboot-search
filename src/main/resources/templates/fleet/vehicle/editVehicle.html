@@ -34,7 +34,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Vehicle Type</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="vehicleType">
+                                        <select class="form-control" required name="vehicleType">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicleType : ${vehicleTypes}"
                                                     th:selected="${vehicleType.id} == ${vehicle.getVehicleType().getId()}? True: False"
@@ -47,19 +47,19 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Vehicle Name</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" th:value="${vehicle.name}" name="name" placeholder="Vehicle name">
+                                        <input type="text" required class="form-control" th:value="${vehicle.name}" name="name" placeholder="Vehicle name">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Vehicle Number</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" th:value="${vehicle.vehicleNumber}" name="vehicleNumber" placeholder="Vehicle number">
+                                        <input type="number" required class="form-control" th:value="${vehicle.vehicleNumber}" name="vehicleNumber" placeholder="Vehicle number">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Registration Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" th:value="${vehicle.registrationDate}" name="registrationDate" placeholder="Registration date">
+                                        <input type="date" required class="form-control" th:value="${vehicle.registrationDate}" name="registrationDate" placeholder="Registration date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -71,13 +71,13 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Acquisition Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" th:value="${vehicle.acquisitionDate}" name="acquisitionDate" placeholder="Acquisition date">
+                                        <input type="date" required class="form-control" th:value="${vehicle.acquisitionDate}" name="acquisitionDate" placeholder="Acquisition date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="ddlVehicleMakeAdd" class="col-sm-4 col-form-label">Vehicle Make</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlVehicleMakeAdd" name="vehicleMake">
+                                        <select class="form-control" required id="ddlVehicleMakeAdd" name="vehicleMake">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicleMake : ${vehicleMakes}"
                                                     th:selected="${vehicleMake.id} == ${vehicle.getVehicleMake().getId()} ? True: False"
@@ -90,7 +90,7 @@
                                 <div class="form-group row">
                                     <label for="ddlVehicleModelAdd" class="col-sm-4 col-form-label">Vehicle Model</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlVehicleModelAdd" name="vehicleModel">
+                                        <select class="form-control" required id="ddlVehicleModelAdd" name="vehicleModel">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicleModel : ${vehicleModels}"
                                                     th:selected="${vehicleModel.id} == ${vehicle.getVehicleModel().getId()} ? True : False"
@@ -107,25 +107,25 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Power</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" th:value="${vehicle.power}" name="power" placeholder="Power">
+                                        <input type="number" required class="form-control" th:value="${vehicle.power}" name="power" placeholder="Power">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Fuel Capacity</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" th:value="${vehicle.fuelCapacity}" name="fuelCapacity" placeholder="Fuel Capacity">
+                                        <input type="number" required class="form-control" th:value="${vehicle.fuelCapacity}" name="fuelCapacity" placeholder="Fuel Capacity">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Net Weight</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" th:value="${vehicle.netWeight}" name="netWeight" placeholder="Net Weight">
+                                        <input type="number" required class="form-control" th:value="${vehicle.netWeight}" name="netWeight" placeholder="Net Weight">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="ddlEmployeeAdd" class="col-sm-4 col-form-label">In Charge</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlEmployeeAdd" name="inCharge">
+                                        <select class="form-control" required id="ddlEmployeeAdd" name="inCharge">
                                             <option th:value="${null}" disabled>-SELECT-</option>
                                             <option th:each="employee : ${employees}"
                                                     th:selected="${employee.id} == ${vehicle.getInCharge().getId()} ? True: False"
@@ -138,7 +138,7 @@
                                 <div class="form-group row">
                                     <label for="ddlCurrentStatusAdd" class="col-sm-4 col-form-label">Current Status</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlCurrentStatusAdd" name="vehicleStatus">
+                                        <select class="form-control" required id="ddlCurrentStatusAdd" name="vehicleStatus">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicleStatus : ${vehicleStatuses}"
                                                     th:selected="${vehicleStatus.id} == ${vehicle.getVehicleStatus().getId()} ? True: False"
@@ -151,7 +151,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Current Location</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlCurrentLocationAdd" name="currentLocation">
+                                        <select class="form-control" required id="ddlCurrentLocationAdd" name="currentLocation">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="location : ${locations}"
                                                     th:selected="${location.id} == ${vehicle.getCurrentLocation().getId()} ? True: False"

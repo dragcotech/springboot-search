@@ -33,25 +33,25 @@
                                 <div class="form-group">
                                     <label for="remarksAdd" class="col-form-label col-sm-4">Subject</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="subjectAdd" name="subject">
+                                        <input type="text" required class="form-control" id="subjectAdd" name="subject">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="remarksAdd" class="col-form-label col-sm-4">Details</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="detailsAdd" name="details">
+                                        <input type="text" required class="form-control" id="detailsAdd" name="details">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="openDateAdd" class="col-form-label col-sm-4">Open Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="openDateAdd" name="openDate">
+                                        <input type="date" required class="form-control" id="openDateAdd" name="openDate">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="closeDateAdd" class="col-form-label col-sm-4">Close Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="closeDateAdd" name="closeDate">
+                                        <input type="date" required class="form-control" id="closeDateAdd" name="closeDate">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="ddlTicketStatusAdd" class="col-form-label col-sm-4">Ticket Status</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlTicketStatusAdd" name="ticketStatus">
+                                        <select class="form-control" required id="ddlTicketStatusAdd" name="ticketStatus">
                                             <option>-SELECT-</option>
                                             <option th:each="ticketStatus : ${ticketStatuses}"
                                                     th:value="${ticketStatus.id}"
@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <label for="ddlRaisedByAdd" class="col-form-label col-sm-4">Raised By</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlRaisedByAdd" name="raisedBy">
+                                        <select class="form-control" required id="ddlRaisedByAdd" name="raisedBy">
                                             <option>-SELECT-</option>
                                             <option th:each="client : ${clients}"
                                                     th:value="${client.id}"
@@ -87,7 +87,7 @@
                                 <div class="form-group">
                                     <label for="ddlRaisedByAdd" class="col-form-label col-sm-4">Assigned To</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlAssignedToAdd" name="assignedTo">
+                                        <select class="form-control" required id="ddlAssignedToAdd" name="assignedTo">
                                             <option>-SELECT-</option>
                                             <option th:each="employee : ${employees}"
                                                     th:value="${employee.id}"

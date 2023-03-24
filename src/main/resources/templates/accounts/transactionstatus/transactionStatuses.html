@@ -19,11 +19,11 @@
                     <form class="form-inline" role="form" th:action="@{/accounts/transactionstatuses}" method="post">
                         <div class="form-group">
                             <label class="sr-only">Transaction Status</label>
-                            <input type="text" id="txtDescription" name="description" class="form-control" placeholder="Transaction Status">
+                            <input type="text" required minlength="3" id="txtDescription" name="description" class="form-control" placeholder="Transaction Status">
                         </div>
                         <div class="form-group">
                             <label class="sr-only">Details</label>
-                            <input type="text" id="txtDetails" name="details" class="form-control" placeholder="Details">
+                            <input type="text" required id="txtDetails" name="details" class="form-control" placeholder="Details">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                         <button type="reset" class="btn btn-warning">Clear</button>

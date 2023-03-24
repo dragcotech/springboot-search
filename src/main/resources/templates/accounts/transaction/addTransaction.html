@@ -28,25 +28,25 @@
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Amount</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="amount">
+                                                <input type="number" required min="1" class="form-control" name="amount">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Purpose</label>
                                             <div class="col-sm-6">
-                                                <textarea type="text" class="form-control" name="purpose"></textarea>
+                                                <textarea type="text" required class="form-control" name="purpose"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Date</label>
                                             <div class="col-sm-6">
-                                                <input type="date" class="form-control" name="transactionDate">
+                                                <input type="date" required class="form-control" name="transactionDate">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4">Transaction Status</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control" name="transactionStatus">
+                                                <select class="form-control" required name="transactionStatus">
                                                     <option th:value="${null}">-SELECT-</option>
                                                     <option th:each="transactionStatus : ${transactionStatuses}"
                                                             th:value="${transactionStatus.id}"
@@ -58,7 +58,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4">Transaction Type</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control" name="transactionType">
+                                                <select class="form-control" required name="transactionType">
                                                     <option th:value="${null}">-SELECT-</option>
                                                     <option th:each="transactionType : ${transactionTypes}"
                                                             th:value="${transactionType.id}"
@@ -74,7 +74,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4">Contact</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control" name="contact">
+                                                <select class="form-control" required name="contact">
                                                     <option th:value="${null}">-SELECT-</option>
                                                     <option th:each="contact : ${contacts}"
                                                             th:value="${contact.id}"
@@ -86,7 +86,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4">Supplier</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control" name="supplier">
+                                                <select class="form-control" required name="supplier">
                                                     <option th:value="${null}">-SELECT-</option>
                                                     <option th:each="supplier : ${suppliers}"
                                                             th:value="${supplier.id}"
@@ -98,7 +98,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4">Client </label>
                                             <div class="col-sm-6">
-                                                <select class="form-control" name="client">
+                                                <select class="form-control" required name="client">
                                                     <option th:value="${null}">-SELECT-</option>
                                                     <option th:each="client : ${clients}"
                                                             th:value="${client.id}"
@@ -110,7 +110,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4">Approved By</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control" name="approvedBy">
+                                                <select class="form-control" required name="approvedBy">
                                                     <option th:value="${null}">-SELECT-</option>
                                                     <option th:each="employee : ${employees}"
                                                             th:value="${employee.id}"

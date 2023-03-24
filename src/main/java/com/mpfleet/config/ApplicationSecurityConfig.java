@@ -37,7 +37,6 @@ public class ApplicationSecurityConfig {
                 .requestMatchers("/accounts/**").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "ACCOUNTS_ADMIN")
                 .requestMatchers("/ticket/**", "/tickets").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "TICKET_ADMINS")
                 .requestMatchers("/admin/**").hasAnyAuthority("SUPER_ADMIN", "ADMIN")
-                .requestMatchers("/fleet","/hr", "/accounts", "/tickets", "/admin").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -33,7 +33,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-4">Vehicle</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlVehicleAdd" name="vehicle">
+                                        <select class="form-control" required id="ddlVehicleAdd" name="vehicle">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicle : ${vehicles}"
                                                     th:value="${vehicle.id}"
@@ -45,13 +45,13 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-4">Start Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="startDate" name="startDate">
+                                        <input type="date" required class="form-control" id="startDate" name="startDate">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-4">End Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="endDate" name="endDate">
+                                        <input type="date" required class="form-control" id="endDate" name="endDate">
                                     </div>
                                 </div>
                             </section>
@@ -61,7 +61,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-4">Supplier</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" id="ddlSupplierAdd" name="supplier">
+                                        <select class="form-control" required id="ddlSupplierAdd" name="supplier">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="supplier : ${suppliers}"
                                                     th:value="${supplier.id}"
@@ -79,7 +79,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-4">Price</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="price">
+                                        <input type="number" required class="form-control" name="price">
                                     </div>
                                 </div>
                             </section>

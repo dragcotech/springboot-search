@@ -90,12 +90,4 @@ public class EmployeeController {
 		employeeService.delete(id);
 		return "redirect:/hr/employees";
 	}
-
-	@RequestMapping(value="/hr/employee/profile")
-	public String profile(Model model, Principal principal) {
-		String un = principal.getName();
-		addModelAttributes(model);
-		model.addAttribute("employee", employeeService.findByUsername(un));
-		return "assets/profile";
-	}
 }

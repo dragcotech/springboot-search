@@ -27,7 +27,7 @@
                                 <div class="form-group row">
                                     <label for="ddlVehicleAdd" class="col-sm-4 col-form-label">Vehicle</label>
                                     <div class="col-sm-6">
-                                        <select id="ddlVehicleAdd" name="vehicle" class="form-control">
+                                        <select id="ddlVehicleAdd" required name="vehicle" class="form-control">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="vehicle : ${vehicles}"
                                                     th:value="${vehicle.id}"
@@ -39,7 +39,7 @@
                                 <div class="form-group row">
                                     <label for="ddlClientAdd" class="col-sm-4 col-form-label">Client</label>
                                     <div class="col-sm-6">
-                                        <select id="ddlClientAdd" name="client" class="form-control">
+                                        <select id="ddlClientAdd" required name="client" class="form-control">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="client : ${clients}"
                                                     th:value="${client.id}"
@@ -51,13 +51,13 @@
                                 <div class="form-group row">
                                     <label for="dateOutAdd" class="col-sm-4 col-form-label">Date Out</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="dateOutAdd" name="dateOut" placeholder="Date Out">
+                                        <input type="date" required class="form-control" id="dateOutAdd" name="dateOut" placeholder="Date Out">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="timeOutAdd" class="col-sm-4 col-form-label">Time Out</label>
                                     <div class="col-sm-6">
-                                        <input type="time" class="form-control" id="timeOutAdd" name="timeOut" placeholder="Time Out">
+                                        <input type="time" required class="form-control" id="timeOutAdd" name="timeOut" placeholder="Time Out">
                                     </div>
                                 </div>
                             </section>
@@ -67,7 +67,7 @@
                                 <div class="form-group row">
                                     <label for="ddlLocationAdd" class="col-sm-4 col-form-label">Destination</label>
                                     <div class="col-sm-6">
-                                        <select id="ddlLocationAdd" name="location" class="form-control">
+                                        <select id="ddlLocationAdd" required name="location" class="form-control">
                                             <option th:value="${null}">-SELECT-</option>
                                             <option th:each="location : ${locations}"
                                                     th:value="${location.id}"
@@ -79,19 +79,19 @@
                                 <div class="form-group row">
                                     <label for="dateInAdd" class="col-sm-4 col-form-label">Date In</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" id="dateInAdd" name="dateIn" placeholder="Date In">
+                                        <input type="date" required class="form-control" id="dateInAdd" name="dateIn" placeholder="Date In">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="timeInAdd" class="col-sm-4 col-form-label">Time In</label>
                                     <div class="col-sm-6">
-                                        <input type="time" class="form-control" id="timeInAdd" name="timeIn" placeholder="Time In">
+                                        <input type="time" required class="form-control" id="timeInAdd" name="timeIn" placeholder="Time In">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="priceAdd" class="col-sm-4 col-form-label">Price</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="priceAdd" name="price" placeholder="Price">
+                                        <input type="number" required class="form-control" id="priceAdd" name="price" placeholder="Price">
                                     </div>
                                 </div>
                                 <div class="form-group row">

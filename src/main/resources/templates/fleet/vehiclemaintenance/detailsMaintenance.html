@@ -80,7 +80,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-4">Price</label>
                                     <div class="col-sm-6">
-                                        <input type="text" th:value="${maintenance.price}" class="form-control" name="price" readonly>
+                                        <input type="number" th:value="${maintenance.price + '$'}" class="form-control" name="price" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
