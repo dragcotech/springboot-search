@@ -20,12 +20,12 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/countries")
+    @GetMapping("/admin/countries")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/countries/page/{pageNumber}")
+    @GetMapping("/admin/countries/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Country> page = countryService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -42,46 +42,46 @@ public class CountryController {
         return "admin/country/allCountries";
     }
 
-    @GetMapping("/addcountry")
+    @GetMapping("/admin/addcountry")
     public String addCountry(){ // ADD COUNTRY
         return "admin/country/addCountry";
     }
 
-    @GetMapping("/editcountry/{id}")
+    @GetMapping("/admin/editcountry/{id}")
     public String editCountry(@PathVariable Long id, Model model){ // EDIT COUNTRY
         Country country = countryService.getById(id);
         model.addAttribute("country", country);
         return "admin/country/editCountry";
     }
 
-    @GetMapping("/detailscountry/{id}")
+    @GetMapping("/admin/detailscountry/{id}")
     public String detailsCountry(@PathVariable Long id, Model model){ // DETAILS COUNTRY
         Country country = countryService.getById(id);
         model.addAttribute("country", country);
         return "admin/country/detailsCountry";
     }
 
-    @PostMapping("/countries")
+    @PostMapping("/admin/countries")
     public String save(Country country){ // SAVE COUNTRY AND REDIRECT TO TABLE
         countryService.save(country);
-        return "redirect:/countries";
+        return "redirect:/admin/countries";
     }
 
-    @GetMapping("/countries/{id}")
+    @GetMapping("/admin/countries/{id}")
     @ResponseBody
     public Country getCountry(@PathVariable Long id){ // GET COUNTRY BY ID
         return countryService.getById(id);
     }
 
-    @RequestMapping(value = "/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @RequestMapping(value = "/admin/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
     public String delete(@PathVariable Long id){ // DELETE COUNTRY AND REDIRECT TO TABLE
         countryService.delete(id);
-        return "redirect:/countries";
+        return "redirect:/admin/countries";
     }
 
-    @RequestMapping(value = "/countries/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
+    @RequestMapping(value = "/admin/countries/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
     public String update(Country country){ // UPDATE THE OBJECT AND PUT IT BACK IN THE DATABASE
         countryService.save(country);
-        return "redirect:/countries";
+        return "redirect:/admin/countries";
     }
 }

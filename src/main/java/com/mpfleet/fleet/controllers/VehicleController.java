@@ -47,12 +47,12 @@ public class VehicleController {
 		model.addAttribute("vehicleStatuses", vehicleStatusService.findAll());
 	}
 
-	@GetMapping("/vehicles")
+	@GetMapping("/fleet/vehicles")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/vehicles/page/{pageNumber}")
+	@GetMapping("/fleet/vehicles/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Vehicle> page = vehicleService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -69,13 +69,13 @@ public class VehicleController {
 		return "fleet/vehicle/vehicles";
 	}
 
-	@GetMapping("/addvehicle")
+	@GetMapping("/fleet/addvehicle")
 	public String addVehicle(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehicle/addVehicle";
 	}
 
-	@GetMapping("/vehicle/{op}/{id}")
+	@GetMapping("/fleet/vehicle/{op}/{id}")
 	public String editVehicle(@PathVariable Long id, @PathVariable String op, Model model){
 		Vehicle vehicle = vehicleService.findById(id);
 		model.addAttribute("vehicle", vehicle);
@@ -83,15 +83,15 @@ public class VehicleController {
 		return "/fleet/vehicle/"+ op + "Vehicle";
 	}
 
-	@PostMapping("/vehicles")
+	@PostMapping("/fleet/vehicles")
 	public String addNew(Vehicle vehicle) {
 		vehicleService.save(vehicle);
-		return "redirect:/vehicles";
+		return "redirect:/fleet/vehicles";
 	}	
 
-	@RequestMapping(value="/vehicle/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/fleet/vehicle/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		vehicleService.delete(id);
-		return "redirect:/vehicles";
+		return "redirect:/fleet/vehicles";
 	}
 }

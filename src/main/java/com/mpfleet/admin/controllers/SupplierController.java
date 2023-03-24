@@ -32,12 +32,12 @@ public class SupplierController {
         model.addAttribute("states", stateService.findAll());
     }
 
-    @GetMapping("/suppliers")
+    @GetMapping("/admin/suppliers")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/suppliers/page/{pageNumber}")
+    @GetMapping("/admin/suppliers/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Supplier> page = supplierService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -54,19 +54,19 @@ public class SupplierController {
         return "admin/supplier/allSuppliers";
     }
 
-    @GetMapping("/addsupplier")
+    @GetMapping("/admin/addsupplier")
     public String addSupplier(Model model){
         addModelAttributes(model);
         return "admin/supplier/addSupplier";
     }
 
-    @PostMapping("/suppliers")
+    @PostMapping("/admin/suppliers")
     public String save(Supplier supplier) {
         supplierService.save(supplier);
-        return "redirect:/suppliers";
+        return "redirect:/admin/suppliers";
     }
 
-    @GetMapping("/supplier/{op}/{id}")
+    @GetMapping("/admin/supplier/{op}/{id}")
     public String editSupplier(@PathVariable Long id, @PathVariable String op, Model model){
         Supplier supplier = supplierService.findById(id);
         model.addAttribute("supplier", supplier);
@@ -74,9 +74,9 @@ public class SupplierController {
         return "/admin/supplier/"+ op + "Supplier";
     }
 
-    @RequestMapping(value="/suppliers/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/admin/suppliers/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteById(@PathVariable Long id) {
         supplierService.deleteById(id);
-        return "redirect:/suppliers";
+        return "redirect:/admin/suppliers";
     }
 }

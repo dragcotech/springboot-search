@@ -50,12 +50,12 @@ public class TransactionController {
         model.addAttribute("employees", employeeService.findAll());
     }
 
-    @GetMapping("/transactions")
+    @GetMapping("/accounts/transactions")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/transactions/page/{pageNumber}")
+    @GetMapping("/accounts/transactions/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Transaction> page = transactionService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -72,13 +72,13 @@ public class TransactionController {
         return "accounts/transaction/transactions";
     }
 
-    @GetMapping("/addtransaction")
+    @GetMapping("/accounts/addtransaction")
     public String addTransaction(Model model){
         addModelAttributes(model);
         return "/accounts/transaction/addTransaction";
     }
 
-    @GetMapping("/transactions/{op}/{id}")
+    @GetMapping("/accounts/transactions/{op}/{id}")
     public String editTransaction(@PathVariable Long id, @PathVariable String op, Model model){
         Transaction transaction = transactionService.findById(id);
         model.addAttribute("transaction", transaction);
@@ -86,15 +86,15 @@ public class TransactionController {
         return "/accounts/transaction/"+ op + "Transaction";
     }
 
-    @PostMapping("/transactions")
+    @PostMapping("/accounts/transactions")
     public String save(Transaction transaction){
         transactionService.save(transaction);
-        return "redirect:/transactions";
+        return "redirect:/accounts/transactions";
     }
 
-    @RequestMapping(value = "/transactions/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @RequestMapping(value = "/accounts/transactions/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
     public String delete(@PathVariable Long id){
         transactionService.delete(id);
-        return "redirect:/transactions";
+        return "redirect:/accounts/transactions";
     }
 }

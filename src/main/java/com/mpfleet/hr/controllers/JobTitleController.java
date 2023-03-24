@@ -19,7 +19,7 @@ public class JobTitleController {
         this.jobTitleService = jobTitleService;
     }
 
-    @GetMapping("/jobtitles")
+    @GetMapping("/hr/jobtitles")
     public String parameters(Model model){
         List<JobTitle> jobTitles = jobTitleService.findAll();
         model.addAttribute("jobTitles", jobTitles);
@@ -27,21 +27,21 @@ public class JobTitleController {
     }
 
 
-    @GetMapping("/jobtitles/{id}")
+    @GetMapping("/hr/jobtitles/{id}")
     @ResponseBody
     public JobTitle getById(@PathVariable Long id){
         return jobTitleService.findById(id).orElse(null);
     }
 
-    @PostMapping("/jobtitles")
+    @PostMapping("/hr/jobtitles")
     public String save(JobTitle jobTitle){
         jobTitleService.save(jobTitle);
-        return "redirect:/jobtitles";
+        return "redirect:/hr/jobtitles";
     }
 
-    @RequestMapping(value="/jobtitles/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/hr/jobtitles/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(@PathVariable Long id) {
         jobTitleService.delete(id);
-        return "redirect:/jobtitles";
+        return "redirect:/hr/jobtitles";
     }
 }

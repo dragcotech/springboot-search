@@ -1,6 +1,7 @@
 package com.mpfleet.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -27,9 +28,16 @@ public class ApplicationSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login", "/resources/**", "/css/**", "/fonts/**", "/img/**").permitAll()
-                .requestMatchers("/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
-                .requestMatchers("/users/addNew").permitAll()
+                .requestMatchers( "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers("/login","/register","/users/addNew").permitAll()
+                .requestMatchers("/security/**").hasAuthority("SUPER_ADMIN")
+                .requestMatchers("/hr/**").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "HR_ADMIN")
+                .requestMatchers("/fleet/**").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "FLEET_ADMIN")
+                .requestMatchers("/accounts/**").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "ACCOUNTS_ADMIN")
+                .requestMatchers("/ticket/**", "/tickets").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "TICKET_ADMINS")
+                .requestMatchers("/admin/**").hasAnyAuthority("SUPER_ADMIN", "ADMIN")
+                .requestMatchers("/fleet","/hr", "/accounts", "/tickets", "/admin").hasAnyAuthority("SUPER_ADMIN", "ADMIN", "USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -40,6 +48,8 @@ public class ApplicationSecurityConfig {
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied")
         ;
 
         return http.build();

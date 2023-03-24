@@ -19,11 +19,11 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <a href="/addtransaction" class="btn btn-primary">
+                                <a href="/accounts/addtransaction" class="btn btn-primary">
                                     Add New Transaction Record
                                 </a>
                             </div>
-                            <form th:action="@{/transactions}">
+                            <form th:action="@{/accounts/transactions}">
                                 <div class="col-lg-3">
                                     <input type="text" name="keyword" class="form-control" placeholder="Search for a specific transaction">
                                 </div>
@@ -56,14 +56,14 @@
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-success"
-                                       th:href="@{'/transactions/details/'+${transaction.id}}">
+                                       th:href="@{'/accounts/transactions/details/'+${transaction.id}}">
                                         <i class="icon_document_alt"></i></a>
                                     <a class="btn btn-primary"
-                                       th:href="@{'/transactions/edit/'+${transaction.id}}">
+                                       th:href="@{'/accounts/transactions/edit/'+${transaction.id}}">
                                         <i class="icon_pencil-edit"></i></a>
                                     <a class="btn btn-danger"
                                        onclick="return confirm('Are you sure you want to delete the transaction?')"
-                                       th:href="@{'/transactions/delete/'+${transaction.id}}">
+                                       th:href="@{'/accounts/transactions/delete/'+${transaction.id}}">
                                         <i class="icon_close_alt2"></i>
                                     </a>
                                 </div>
@@ -77,31 +77,31 @@
                             <ul class="pagination">
                                 <li class="page-item" >
                                     <a th:if="${currentPage > 1}"
-                                       th:href="@{/transactions/page/1}">First</a>
+                                       th:href="@{/accounts/transactions/page/1}">First</a>
                                     <span th:unless="${currentPage > 1}">First</span>
                                 </li>
 
                                 <li class="page-item">
                                     <a th:if="${currentPage > 1}"
-                                       th:href="@{'/transactions/page/' + ${currentPage - 1}}">Previous</a>
+                                       th:href="@{'/accounts/transactions/page/' + ${currentPage - 1}}">Previous</a>
                                     <span th:unless="${currentPage > 1}">Previous</span>
                                 </li>
 
                                 <li class="page-item" >
                                 <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-                                    <a th:href="@{'/transactions/page/' + ${i}}">[[${i}]]</a>&nbsp; &nbsp;
+                                    <a th:href="@{'/accounts/transactions/page/' + ${i}}">[[${i}]]</a>&nbsp; &nbsp;
                                 </span>
                                 </li>
 
                                 <li class="page-item">
                                     <a th:if="${currentPage < totalPages}"
-                                       th:href="@{'/transactions/page/' + ${currentPage + 1}}">Next</a>
+                                       th:href="@{'/accounts/transactions/page/' + ${currentPage + 1}}">Next</a>
                                     <span th:unless="${currentPage < totalPages}">Next</span>
                                 </li>
 
                                 <li class="page-item">
                                     <a th:if="${currentPage < totalPages}"
-                                       th:href="@{'/transactions/page/' + ${totalPages}}">Last</a>
+                                       th:href="@{'/accounts/transactions/page/' + ${totalPages}}">Last</a>
                                     <span th:unless="${currentPage < totalPages}">Last</span>
                                 </li>
                             </ul>

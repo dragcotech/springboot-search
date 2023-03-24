@@ -20,13 +20,13 @@ public class VehicleStatusController {
 	}
 
 
-	@GetMapping("/vehiclestatus")
+	@GetMapping("/fleet/vehiclestatus")
 	public String findAll(Model model){		
 		model.addAttribute("vehicleStatuses", vehicleStatusService.findAll());
 		return "/fleet/vehiclestatus/vehicleStatus";
 	}	
 	
-	@RequestMapping("/vehiclestatus/{id}")
+	@RequestMapping("/fleet/vehiclestatus/{id}")
 	@ResponseBody
 	public Optional<VehicleStatus> findById(@PathVariable Long id)
 	{
@@ -34,15 +34,15 @@ public class VehicleStatusController {
 	}
 	
 
-	@PostMapping(value="/vehiclestatus")
+	@PostMapping(value="/fleet/vehiclestatus")
 	public String addNew(VehicleStatus vehicleStatus) {
 		vehicleStatusService.save(vehicleStatus);
-		return "redirect:/vehiclestatus";
+		return "redirect:/fleet/vehiclestatus";
 	}	
 
-	@RequestMapping(value="/vehiclestatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/fleet/vehiclestatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		vehicleStatusService.delete(id);
-		return "redirect:/vehiclestatus";
+		return "redirect:/fleet/vehiclestatus";
 	}
 }

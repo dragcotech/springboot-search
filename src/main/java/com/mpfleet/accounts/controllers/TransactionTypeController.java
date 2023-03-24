@@ -18,28 +18,28 @@ public class TransactionTypeController {
         this.transactionTypeService = transactionTypeService;
     }
 
-    @GetMapping("/transactiontypes")
+    @GetMapping("/accounts/transactiontypes")
     public String parameters(Model model){
         List<TransactionType> transactionTypes = transactionTypeService.findAll();
         model.addAttribute("transactionTypes", transactionTypes);
         return "/accounts/transactiontype/transactionTypes";
     }
 
-    @GetMapping("/transactiontype/{id}")
+    @GetMapping("/accounts/transactiontype/{id}")
     @ResponseBody
     public TransactionType getById(@PathVariable Long id){
         return transactionTypeService.findById(id).orElse(null);
     }
 
-    @PostMapping("/transactiontypes")
+    @PostMapping("/accounts/transactiontypes")
     public String addNew(TransactionType transactionType) {
         transactionTypeService.save(transactionType);
-        return "redirect:/transactiontypes";
+        return "redirect:/accounts/transactiontypes";
     }
 
-    @RequestMapping(value="/transactiontype/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/accounts/transactiontype/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(@PathVariable Long id) {
         transactionTypeService.delete(id);
-        return "redirect:/transactiontypes";
+        return "redirect:/accounts/transactiontypes";
     }
 }

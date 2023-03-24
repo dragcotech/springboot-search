@@ -22,28 +22,28 @@ public class EmployeeTypeController {
 		this.employeeTypeService = employeeTypeService;
 	}
 
-	@GetMapping("/employeetypes")
+	@GetMapping("/hr/employeetypes")
 	public String parameters(Model model){
 		List<EmployeeType> employeeTypes = employeeTypeRepository.findAll();
 		model.addAttribute("employeeTypes", employeeTypes);
 		return "hr/employeetypes/employeeTypes";
 	}
 
-	@GetMapping("/employeetypes/{id}")
+	@GetMapping("/hr/employeetypes/{id}")
 	@ResponseBody
 	public EmployeeType getById(@PathVariable Long id){
 		return employeeTypeService.findById(id).orElse(null);
 	}
 
-	@PostMapping("/employeetypes")
+	@PostMapping("/hr/employeetypes")
 	public String save(EmployeeType employeeType){
 		employeeTypeService.save(employeeType);
-		return "redirect:/employeetypes";
+		return "redirect:/hr/employeetypes";
 	}
 
-	@RequestMapping(value="/employeetypes/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/hr/employeetypes/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		employeeTypeService.delete(id);
-		return "redirect:/employeetypes";
+		return "redirect:/hr/employeetypes";
 	}
 }

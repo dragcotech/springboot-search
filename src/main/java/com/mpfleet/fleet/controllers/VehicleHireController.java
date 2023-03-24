@@ -35,12 +35,12 @@ public class VehicleHireController {
 		model.addAttribute("vehicles", vehicleService.findAll());
 	}
 
-	@GetMapping("/vehiclehires")
+	@GetMapping("/fleet/vehiclehires")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/vehiclehires/page/{pageNumber}")
+	@GetMapping("/fleet/vehiclehires/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<VehicleHire> page = vehicleHireService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -57,13 +57,13 @@ public class VehicleHireController {
 		return "fleet/vehiclehire/hires";
 	}
 
-	@GetMapping("/addhire")
+	@GetMapping("/fleet/addhire")
 	public String addHire(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehiclehire/addHire";
 	}
 
-	@GetMapping("/hire/{op}/{id}")
+	@GetMapping("/fleet/hire/{op}/{id}")
 	public String editHire(Model model, @PathVariable Long id, @PathVariable String op){
 		VehicleHire hire = vehicleHireService.findById(id);
 		model.addAttribute("hire", hire);
@@ -72,16 +72,16 @@ public class VehicleHireController {
 	}
 
 
-	@PostMapping("/vehiclehires")
+	@PostMapping("/fleet/vehiclehires")
 	public String addNew(VehicleHire vehicleHire) {
 		vehicleHireService.save(vehicleHire);
-		return "redirect:/vehiclehires";
+		return "redirect:/fleet/vehiclehires";
 	}
 	
-	@RequestMapping(value="/hire/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/fleet/hire/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		vehicleHireService.delete(id);
-		return "redirect:/vehiclehires";
+		return "redirect:/fleet/vehiclehires";
 	}
 
 }

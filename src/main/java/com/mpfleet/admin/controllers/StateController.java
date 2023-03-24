@@ -29,12 +29,12 @@ public class StateController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/states")
+    @GetMapping("/admin/states")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/states/page/{pageNumber}")
+    @GetMapping("/admin/states/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<State> page = stateService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -51,13 +51,13 @@ public class StateController {
         return "admin/state/allStates";
     }
 
-    @GetMapping("/addstate")
+    @GetMapping("/admin/addstate")
     public String addCountry(Model model){ // ADD STATE
         addModelAttribute(model);
         return "admin/state/addState";
     }
 
-    @GetMapping("/editstate/{id}")
+    @GetMapping("/admin/editstate/{id}")
     public String editCountry(@PathVariable Long id, Model model){ // EDIT STATE
         State state = stateService.getById(id);
         Country country = countryService.getById(id);
@@ -66,7 +66,7 @@ public class StateController {
         return "admin/state/editState";
     }
 
-    @GetMapping("/detailsstate/{id}")
+    @GetMapping("/admin/detailsstate/{id}")
     public String detailsCountry(@PathVariable Long id, Model model){ // DETAILS STATE
         State state = stateService.getById(id);
         Country country = countryService.getById(id);
@@ -75,21 +75,21 @@ public class StateController {
         return "admin/state/detailsState";
     }
 
-    @PostMapping("/states")
+    @PostMapping("/admin/states")
     public String save(State state){ // SAVE STATE AND REDIRECT TO TABLE
         stateService.save(state);
-        return "redirect:/states";
+        return "redirect:/admin/states";
     }
 
-    @RequestMapping(value = "/states/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @RequestMapping(value = "/admin/states/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
     public String delete(@PathVariable Long id){ // DELETE STATE AND REDIRECT TO TABLE
         stateService.delete(id);
-        return "redirect:/states";
+        return "redirect:/admin/states";
     }
 
-    @RequestMapping(value = "/states/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
+    @RequestMapping(value = "/admin/states/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
     public String update(State state){ // UPDATE THE STATE AND PUT IT BACK IN THE DATABASE
         stateService.save(state);
-        return "redirect:/states";
+        return "redirect:/admin/states";
     }
 }

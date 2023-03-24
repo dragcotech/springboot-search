@@ -19,27 +19,27 @@ public class TicketStatusController {
 		this.ticketStatusService = ticketStatusService;
 	}
 
-	@GetMapping("/ticketstatuses")
+	@GetMapping("/ticket/ticketstatuses")
 	public String findAll(Model model){		
 		model.addAttribute("ticketStatuses", ticketStatusService.findAll());
 		return "/tickets/ticketstatus/ticketStatuses";
 	}	
 	
-	@RequestMapping("/ticketstatus/{id}")
+	@RequestMapping("/ticket/ticketstatus/{id}")
 	@ResponseBody
 	public Optional<TicketStatus> findById(@PathVariable Long id) {
 		return ticketStatusService.findById(id);
 	}
 
-	@PostMapping(value="/ticketstatuses")
+	@PostMapping(value="/ticket/ticketstatuses")
 	public String addNew(TicketStatus ticketStatus) {
 		ticketStatusService.save(ticketStatus);
-		return "redirect:/ticketstatuses";
+		return "redirect:/ticket/ticketstatuses";
 	}
 	
-	@RequestMapping(value="/ticketstatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/ticket/ticketstatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		ticketStatusService.delete(id);
-		return "redirect:/ticketstatuses";
+		return "redirect:/ticket/ticketstatuses";
 	}
 }

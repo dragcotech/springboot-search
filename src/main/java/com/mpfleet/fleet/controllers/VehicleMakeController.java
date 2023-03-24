@@ -19,27 +19,27 @@ public class VehicleMakeController {
 		this.vehicleMakeService = vehicleMakeService;
 	}
 
-	@GetMapping("/vehiclemakes")
+	@GetMapping("/fleet/vehiclemakes")
 	public String findAll(Model model){		
 		model.addAttribute("vehicleMakes", vehicleMakeService.findAll());
 		return "/fleet/vehiclemake/vehicleMakes";
 	}	
 	
-	@RequestMapping("/vehiclemakes/{id}")
+	@RequestMapping("/fleet/vehiclemakes/{id}")
 	@ResponseBody
 	public Optional<VehicleMake> findById(@PathVariable Long id) {
 		return vehicleMakeService.findById(id);
 	}
 
-	@PostMapping(value="/vehiclemakes")
+	@PostMapping(value="/fleet/vehiclemakes")
 	public String addNew(VehicleMake vehicleMake) {
 		vehicleMakeService.save(vehicleMake);
-		return "redirect:/vehiclemakes";
+		return "redirect:/fleet/vehiclemakes";
 	}
 	
-	@RequestMapping(value="vehiclemakes/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/fleet/vehiclemakes/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		vehicleMakeService.delete(id);
-		return "redirect:/vehiclemakes";
+		return "redirect:/fleet/vehiclemakes";
 	}
 }

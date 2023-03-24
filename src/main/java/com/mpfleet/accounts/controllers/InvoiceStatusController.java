@@ -19,28 +19,28 @@ public class InvoiceStatusController {
 		this.invoiceStatusService = invoiceStatusService;
 	}
 
-	@GetMapping("/invoicestatuses")
+	@GetMapping("/accounts/invoicestatuses")
 	public String findAll(Model model){		
 		model.addAttribute("invoiceStatuses", invoiceStatusService.findAll());
 		return "/accounts/invoicestatus/invoiceStatuses";
 	}	
 	
-	@RequestMapping("/invoicestatus/{id}")
+	@RequestMapping("/accounts/invoicestatus/{id}")
 	@ResponseBody
 	public Optional<InvoiceStatus> findById(@PathVariable Long id) {
 		return invoiceStatusService.findById(id);
 	}
 
 
-	@PostMapping(value="/invoicestatuses")
+	@PostMapping(value="/accounts/invoicestatuses")
 	public String addNew(InvoiceStatus invoiceStatus) {
 		invoiceStatusService.save(invoiceStatus);
-		return "redirect:/invoicestatuses";
+		return "redirect:/accounts/invoicestatuses";
 	}	
 
-	@RequestMapping(value="/invoicestatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/accounts/invoicestatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		invoiceStatusService.delete(id);
-		return "redirect:/invoicestatuses";
+		return "redirect:/accounts/invoicestatuses";
 	}
 }

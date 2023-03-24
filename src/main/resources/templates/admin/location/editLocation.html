@@ -9,14 +9,14 @@
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>ADMIN</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/admin">Admin home</a></li>
-                    <li><i class="fa fa-bars"></i><a href="/admin">All Locations</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/admin/locations">All Locations</a></li>
                     <li><i class="fa fa-bars"></i>Edit Location Record</li>
                 </ol>
             </div>
         </div>
         <div class="container" style="width: 70%">
             <div class="row justify-content-center" >
-                <form class="form-horizontal" th:action="@{/locations}" method="post">
+                <form class="form-horizontal" th:action="@{/admin/locations}" method="post">
                     <section class="panel">
                         <header class="panel-heading">
                             Edit Location Record
@@ -81,7 +81,7 @@
                             <button type="submit" class="btn btn-primary">
                                 Save
                             </button>
-                            <a href="/locations" class="btn  btn-warning">
+                            <a href="/admin/locations" class="btn  btn-warning">
                                 Exit
                             </a>
                         </div>

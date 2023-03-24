@@ -264,6 +264,3 @@ insert into roles values (4,'2023-03-22','admin','admin','2023-03-22','HR_ADMIN'
 insert into roles values (5,'2023-03-22','admin','admin','2023-03-22','FLEET_ADMIN','Access to Fleet Module and it''s features');
 insert into roles values (6,'2023-03-22','admin','admin','2023-03-22','ACCOUNTS_ADMIN','Access to Account Module and it''s features');
 insert into roles values (7,'2023-03-22','admin','admin','2023-03-22','TICKETS_ADMIN','Access to Ticket Module and it''s features');
-
-insert into users values (1,'2023-03-22','admin','admin','2023-03-22', 'Admin', 'Admin', '$2a$12$pjbHUhEADQYHhetbZJhBYeM9Sqp8cKPOTS78CZK8El.KEKw6yg75C','admin');
-insert into user_role values (1,3);

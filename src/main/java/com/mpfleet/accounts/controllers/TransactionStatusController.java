@@ -19,7 +19,7 @@ public class TransactionStatusController {
         this.transactionStatusService = transactionStatusService;
     }
 
-    @GetMapping("/transactionstatuses")
+    @GetMapping("/accounts/transactionstatuses")
     public String parameters(Model model){
         List<TransactionStatus> transactionStatuses = transactionStatusService.findAll();
         model.addAttribute("transactionStatuses", transactionStatuses);
@@ -27,21 +27,21 @@ public class TransactionStatusController {
     }
 
 
-    @GetMapping("/transactionstatus/{id}")
+    @GetMapping("/accounts/transactionstatus/{id}")
     @ResponseBody
     public TransactionStatus getById(@PathVariable Long id){
         return transactionStatusService.findById(id).orElse(null);
     }
 
-    @PostMapping("/transactionstatuses")
+    @PostMapping("/accounts/transactionstatuses")
     public String save(TransactionStatus transactionStatus){
         transactionStatusService.save(transactionStatus);
-        return "redirect:/transactionstatuses";
+        return "redirect:/accounts/transactionstatuses";
     }
 
-    @RequestMapping(value="/transactionstatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/accounts/transactionstatus/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(@PathVariable Long id) {
         transactionStatusService.delete(id);
-        return "redirect:/transactionstatuses";
+        return "redirect:/accounts/transactionstatuses";
     }
 }

@@ -15,7 +15,7 @@
     <div class="container">
         <section class="panel">
             <div class="panel-heading" style="padding: 10px">
-                <form class="form-inline" role="form" th:action="@{/ticketstatuses}" method="post">
+                <form class="form-inline" role="form" th:action="@{/ticket/ticketstatuses}" method="post">
                     <div class="form-group">
                         <label class="sr-only">Ticket Status</label>
                         <input type="text" id="txtDescription" name="description" class="form-control" placeholder="Ticket Status">
@@ -45,7 +45,7 @@
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-danger" onclick="return confirm('Are you sure you want delete this ticket status?')"
-                                   th:href="@{'/ticketstatus/delete/'+${ticketStatus.id}}">
+                                   th:href="@{'/ticket/ticketstatus/delete/'+${ticketStatus.id}}">
                                     <i class="icon_close_alt2"></i></a>
                             </div>
                         </td>

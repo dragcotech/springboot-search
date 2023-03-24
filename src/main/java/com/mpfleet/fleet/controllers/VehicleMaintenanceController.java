@@ -33,12 +33,12 @@ public class VehicleMaintenanceController {
 		model.addAttribute("maintenances", vehicleMaintenanceService.findAll());
 	}
 
-	@GetMapping("/vehiclemaintenances")
+	@GetMapping("/fleet/vehiclemaintenances")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/vehiclemaintenances/page/{pageNumber}")
+	@GetMapping("/fleet/vehiclemaintenances/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<VehicleMaintenance> page = vehicleMaintenanceService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -55,13 +55,13 @@ public class VehicleMaintenanceController {
 		return "fleet/vehiclemaintenance/maintenances";
 	}
 
-	@GetMapping("/addmaintenances")
+	@GetMapping("/fleet/addmaintenances")
 	public String addMaintenance(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehiclemaintenance/addMaintenance";
 	}
 
-	@GetMapping("/maintenance/{op}/{id}")
+	@GetMapping("/fleet/maintenance/{op}/{id}")
 	public String editMaintenance(Model model, @PathVariable Long id, @PathVariable String op){
 		VehicleMaintenance maintenance = vehicleMaintenanceService.findById(id);
 		model.addAttribute("maintenance", maintenance);
@@ -69,15 +69,15 @@ public class VehicleMaintenanceController {
 		return "/fleet/vehiclemaintenance/"+op+"Maintenance";
 	}
 
-	@PostMapping("/vehiclemaintenances")
+	@PostMapping("/fleet/vehiclemaintenances")
 	public String addNew(VehicleMaintenance vehicleMaintenance) {
 		vehicleMaintenanceService.save(vehicleMaintenance);
-		return "redirect:/vehiclemaintenances";
+		return "redirect:/fleet/vehiclemaintenances";
 	}
 	
-	@RequestMapping(value="/maintenance/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/fleet/maintenance/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		vehicleMaintenanceService.delete(id);
-		return "redirect:/vehiclemaintenances";
+		return "redirect:/fleet/vehiclemaintenances";
 	}
 }

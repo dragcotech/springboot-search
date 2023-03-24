@@ -20,29 +20,29 @@ public class EmployeeStatusController {
         this.employeeStatusService = employeeStatusService;
     }
 
-    @GetMapping("/employeestatuses")
+    @GetMapping("/hr/employeestatuses")
     public String parameters(Model model){
         List<EmployeeStatus> employeeStatuses = employeeStatusService.findAll();
         model.addAttribute("employeeStatuses", employeeStatuses);
         return "hr/employeestatus/employeeStatuses";
     }
 
-    @GetMapping("/employeestatuses/{id}")
+    @GetMapping("/hr/employeestatuses/{id}")
     @ResponseBody
     public EmployeeStatus getById(@PathVariable Long id){
         return employeeStatusService.findById(id).orElse(null);
     }
 
-    @PostMapping("/employeestatuses")
+    @PostMapping("/hr/employeestatuses")
     public String save(EmployeeStatus employeeStatus){
         employeeStatusService.save(employeeStatus);
-        return "redirect:/employeestatuses";
+        return "redirect:/hr/employeestatuses";
     }
 
-    @RequestMapping(value="/employeestatuses/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/hr/employeestatuses/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(@PathVariable Long id) {
         employeeStatusService.delete(id);
-        return "redirect:/employeestatuses";
+        return "redirect:/hr/employeestatuses";
     }
     
 }

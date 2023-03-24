@@ -32,12 +32,12 @@ public class ClientController {
         model.addAttribute("states", stateService.findAll());
     }
 
-    @GetMapping("/clients")
+    @GetMapping("/admin/clients")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/clients/page/{pageNumber}")
+    @GetMapping("/admin/clients/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Client> page = clientService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -54,14 +54,14 @@ public class ClientController {
         return "admin/client/allClients";
     }
 
-    @GetMapping("/addclient")
+    @GetMapping("/admin/addclient")
     public String addClient(Model model){
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("states", stateService.findAll());
         return "/admin/client/addClient";
     }
 
-    @GetMapping("/client/{op}/{id}")
+    @GetMapping("/admin/client/{op}/{id}")
     public String editClient(@PathVariable Long id, @PathVariable String op, Model model){
         Client client = clientService.findById(id);
         model.addAttribute("client", client);
@@ -69,15 +69,15 @@ public class ClientController {
         return "/admin/client/"+ op + "Client";
     }
 
-    @PostMapping("/clients")
+    @PostMapping("/admin/clients")
     public String save(Client client) {
         clientService.save(client);
-        return "redirect:/clients";
+        return "redirect:/admin/clients";
     }
 
-    @RequestMapping(value="/clients/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/admin/clients/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteById(@PathVariable Long id) {
         clientService.deleteById(id);
-        return "redirect:/clients";
+        return "redirect:/admin/clients";
     }
 }

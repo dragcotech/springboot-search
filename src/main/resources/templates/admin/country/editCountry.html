@@ -10,7 +10,7 @@
                 <h3 class="page-header"><i class="fa fa-laptop"></i>ADMIN</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/admin">Admin Home</a></li>
-                    <li><i class="fa fa-bars"></i><a href="/countries">All Countries</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/admin/countries">All Countries</a></li>
                     <li><i class="fa fa-bars"></i>Edit Country Record</li>
                 </ol>
             </div>
@@ -19,7 +19,7 @@
 
     <div class="container" style="width: 70%">
     <div class="row">
-        <form class="form-horizontal" th:action="@{'/countries/update/' +  ${country.id}}" method="put">
+        <form class="form-horizontal" th:action="@{'/admin/countries/update/' +  ${country.id}}" method="put">
 
         <div class="col-lg-12">
 
@@ -65,7 +65,7 @@
             <section class="panel">
                 <div class="panel-body">
                     <button type="submit" class="btn btn-success">Save</button>
-                    <a href="/countries" class="btn btn-warning">Exit</a>
+                    <a href="/admin/countries" class="btn btn-warning">Exit</a>
                 </div>
             </section> <!-- SAVE/EXIT -->
         </div>

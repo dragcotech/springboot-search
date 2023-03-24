@@ -10,13 +10,13 @@
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>Vehicle Edit</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/fleet">Fleet Home</a></li>
-                    <li><i class="fa fa-bars"></i><a href="/vehicles">All Vehicles</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/fleet/vehicles">All Vehicles</a></li>
                     <li><i class="fa fa-bars"></i>Edit Vehicle Record</li>
                 </ol>
             </div>
         </div>
         <div class="container" style="width: 70%">
-            <form class="form-horizontal" th:action="@{/vehicles}" method="post">
+            <form class="form-horizontal" th:action="@{/fleet/vehicles}" method="post">
                 <div class="row justify-content-center white-bg">
                     <section class="panel">
                         <header class="panel-heading">
@@ -171,7 +171,7 @@
                         <button type="submit" class="btn btn-primary">
                             Save
                         </button>
-                        <a href="/vehicles" class="btn  btn-warning">
+                        <a href="/fleet/vehicles" class="btn  btn-warning">
                             Exit
                         </a>
                     </div>

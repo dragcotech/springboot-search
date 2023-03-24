@@ -10,13 +10,13 @@
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>View Ticket Details</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="/tickets">Ticket Home</a></li>
-                    <li><i class="fa fa-bars"></i><a href="/alltickets">All Tickets</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/ticket/alltickets">All Tickets</a></li>
                     <li><i class="fa fa-bars"></i>View Ticket Details</li>
                 </ol>
             </div>
         </div>
         <div class="container" style="width: 70%">
-            <form class="form-horizontal" th:action="@{/alltickets}" method="post">
+            <form class="form-horizontal" th:action="@{/ticket/alltickets}" method="post">
                 <div class="row justify-content-center white-bg">
                     <section class="panel">
                         <header class="panel-heading">
@@ -143,10 +143,10 @@
                 <br>
                 <div class="row white-bg">
                     <div class="panel-body">
-                        <a th:href="@{'/ticket/edit/'+${ticket.id}}" class="btn btn-primary">
+                        <a th:href="@{'/ticket/ticket/edit/'+${ticket.id}}" class="btn btn-primary">
                             Edit this record
                         </a>
-                        <a href="/alltickets" class="btn  btn-warning">
+                        <a href="/ticket/alltickets" class="btn  btn-warning">
                             Exit
                         </a>
                     </div>

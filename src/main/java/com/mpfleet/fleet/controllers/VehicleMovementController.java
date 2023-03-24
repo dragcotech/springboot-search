@@ -32,12 +32,12 @@ public class VehicleMovementController {
 	}
 
 
-	@GetMapping("/vehiclemovements")
+	@GetMapping("/fleet/vehiclemovements")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/vehiclemovements/page/{pageNumber}")
+	@GetMapping("/fleet/vehiclemovements/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<VehicleMovement> page = vehicleMovementService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -54,13 +54,13 @@ public class VehicleMovementController {
 		return "fleet/vehiclemovement/movements";
 	}
 
-	@GetMapping("/addmovement")
+	@GetMapping("/fleet/addmovement")
 	public String addMovement(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehiclemovement/addMovement";
 	}
 
-	@GetMapping("/movement/{op}/{id}")
+	@GetMapping("/fleet/movement/{op}/{id}")
 	public String editMovement(Model model, @PathVariable Long id, @PathVariable String op){
 		VehicleMovement movement = vehicleMovementService.findById(id);
 		model.addAttribute("movement", movement);
@@ -69,15 +69,15 @@ public class VehicleMovementController {
 	}
 
 
-	@PostMapping("/vehiclemovements")
+	@PostMapping("/fleet/vehiclemovements")
 	public String addNew(VehicleMovement vehicleMovement) {
 		vehicleMovementService.save(vehicleMovement);
-		return "redirect:/vehiclemovements";
+		return "redirect:/fleet/vehiclemovements";
 	}
 	
-	@RequestMapping(value="/movements/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/fleet/movements/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		vehicleMovementService.delete(id);
-		return "redirect:/vehiclemovements";
+		return "redirect:/fleet/vehiclemovements";
 	}
 }

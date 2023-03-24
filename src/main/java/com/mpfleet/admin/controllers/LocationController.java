@@ -31,12 +31,12 @@ public class LocationController {
         model.addAttribute("states", stateService.findAll());
     }
 
-    @GetMapping("/locations")
+    @GetMapping("/admin/locations")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/locations/page/{pageNumber}")
+    @GetMapping("/admin/locations/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Location> page = locationService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -53,19 +53,19 @@ public class LocationController {
         return "admin/location/allLocations";
     }
 
-    @GetMapping("/addlocation")
+    @GetMapping("/admin/addlocation")
     public String addLocation(Model model){
         addModelAttributes(model);
         return "admin/location/addLocation";
     }
 
-    @PostMapping("/locations")
+    @PostMapping("/admin/locations")
     public String save(Location location) {
         locationService.save(location);
-        return "redirect:/locations";
+        return "redirect:/admin/locations";
     }
 
-    @GetMapping("/detailslocation/{id}")
+    @GetMapping("/admin/detailslocation/{id}")
     public String detailsLocation(@PathVariable Long id, Model model){
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
@@ -73,7 +73,7 @@ public class LocationController {
         return "admin/location/detailsLocation";
     }
 
-    @GetMapping("/editlocation/{id}")
+    @GetMapping("/admin/editlocation/{id}")
     public String editLocation(@PathVariable Long id, Model model){
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
@@ -81,9 +81,9 @@ public class LocationController {
         return "admin/location/editLocation";
     }
 
-    @RequestMapping(value="/deletelocation/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/admin/deletelocation/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteById(@PathVariable Long id) {
         locationService.deleteById(id);
-        return "redirect:/locations";
+        return "redirect:/admin/locations";
     }
 }

@@ -42,12 +42,12 @@ public class EmployeeController {
 		model.addAttribute("employeeTypes", employeeTypeService.findAll());
 	}
 
-	@GetMapping("/employees")
+	@GetMapping("/hr/employees")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/employees/page/{pageNumber}")
+	@GetMapping("/hr/employees/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Employee> page = employeeService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -64,14 +64,14 @@ public class EmployeeController {
 		return "hr/employee/employees";
 	}
 
-	@GetMapping("/addemployee")
+	@GetMapping("/hr/addemployee")
 	public String addEmployee(Model model){
 		addModelAttributes(model);
 		return "hr/employee/addEmployee";
 	}
 
 
-	@GetMapping("/employee/{op}/{id}")
+	@GetMapping("/hr/employee/{op}/{id}")
 	public String editEmployee(@PathVariable Long id, @PathVariable String op, Model model){
 		Employee employee = employeeService.findById(id);
 		model.addAttribute("employee", employee);
@@ -79,19 +79,19 @@ public class EmployeeController {
 		return "/hr/employee/"+ op + "Employee";
 	}
 
-	@PostMapping("/employees")
+	@PostMapping("/hr/employees")
 	public String addNew(Employee employee) {
 		employeeService.save(employee);
-		return "redirect:/employees";
+		return "redirect:/hr/employees";
 	}	
 
-	@RequestMapping(value="/employee/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/hr/employee/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		employeeService.delete(id);
-		return "redirect:/employees";
+		return "redirect:/hr/employees";
 	}
 
-	@RequestMapping(value="/employee/profile")
+	@RequestMapping(value="/hr/employee/profile")
 	public String profile(Model model, Principal principal) {
 		String un = principal.getName();
 		addModelAttributes(model);

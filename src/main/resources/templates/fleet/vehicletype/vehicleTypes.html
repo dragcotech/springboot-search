@@ -17,7 +17,7 @@
         <div class="container">
             <section class="panel border-top">
                 <div class="panel-heading" style="padding: 10px">
-                    <form class="form-inline" role="form" th:action="@{/vehicletypes}"  method="post" >
+                    <form class="form-inline" role="form" th:action="@{/fleet/vehicletypes}"  method="post" >
                         <div class="form-group">
                             <label class="sr-only">Vehicle Type</label>
                             <input type="text" id="txtDescription" name="description" class="form-control" placeholder="Vehicle Type">
@@ -47,7 +47,7 @@
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-danger" onclick="return confirm('Are you sure you want delete?')"
-                                       th:href="@{'/vehicletype/delete/'+${vehicleType.id}}">
+                                       th:href="@{'/fleet/vehicletype/delete/'+${vehicleType.id}}">
                                         <i class="icon_close_alt2"></i></a>
                                 </div>
                             </td>

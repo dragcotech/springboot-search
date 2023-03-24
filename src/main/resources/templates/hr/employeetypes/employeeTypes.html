@@ -16,7 +16,7 @@
     <div class="container">
         <section class="panel">
             <div class="panel-heading" style="padding: 10px">
-                <form class="form-inline" role="form" th:action="@{/employeetypes}" method="post">
+                <form class="form-inline" role="form" th:action="@{/hr/employeetypes}" method="post">
                     <div class="form-group">
                         <label class="sr-only">Employee Type</label>
                         <input type="text" id="txtDescription" name="description" class="form-control" placeholder="Employee Type">
@@ -46,7 +46,7 @@
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-danger" onclick="return confirm('Are you sure you want delete this employee type?')"
-                                   th:href="@{'/employeetypes/delete/'+${employeeType.id}}">
+                                   th:href="@{'/hr/employeetypes/delete/'+${employeeType.id}}">
                                     <i class="icon_close_alt2"></i></a>
                             </div>
                         </td>

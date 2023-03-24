@@ -11,4 +11,9 @@ public class BeanConfig {
     public AuditorAware<String> auditorAware(){
         return new SpringSecurityAuditorAware();
     }
+
+    @Bean
+    public SqlFileRunner sqlFileRunner(){
+        return new SqlFileRunner();
+    }
 }

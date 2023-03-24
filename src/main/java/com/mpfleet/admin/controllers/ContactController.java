@@ -20,12 +20,12 @@ public class ContactController {
         this.contactService = contactService;
     }
 
-    @GetMapping("/contacts")
+    @GetMapping("/admin/contacts")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
-    @GetMapping("/contacts/page/{pageNumber}")
+    @GetMapping("/admin/contacts/page/{pageNumber}")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Contact> page = contactService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -43,34 +43,34 @@ public class ContactController {
     }
 
 
-    @GetMapping("/contact/{id}")
+    @GetMapping("/admin/contact/{id}")
     @ResponseBody
     public Contact getContact(@PathVariable Long id){
         return contactService.findById(id);
     }
 
-    @GetMapping("/addcontact")
+    @GetMapping("/admin/addcontact")
     public String addContact(){
         return "/admin/contact/addContact";
     }
 
     //edit / details
-    @GetMapping("/contact/{op}/{id}")
+    @GetMapping("/admin/contact/{op}/{id}")
     public String editContact(@PathVariable Long id, @PathVariable String op, Model model){
         Contact contact = contactService.findById(id);
         model.addAttribute("contact", contact);
         return "/admin/contact/" + op + "Contact";
     }
 
-    @PostMapping("/contacts")
+    @PostMapping("/admin/contacts")
     public String save(Contact contact){
         contactService.save(contact);
-        return "redirect:/contacts";
+        return "redirect:/admin/contacts";
     }
 
-    @RequestMapping(value = "/contacts/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @RequestMapping(value = "/admin/contacts/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
     public String delete(@PathVariable Long id){
         contactService.delete(id);
-        return "redirect:/contacts";
+        return "redirect:/admin/contacts";
     }
 }

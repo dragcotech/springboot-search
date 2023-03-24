@@ -37,12 +37,12 @@ public class TicketController {
 	}
 
 
-	@GetMapping("/alltickets")
+	@GetMapping("/ticket/alltickets")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/alltickets/page/{pageNumber}")
+	@GetMapping("/ticket/alltickets/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Ticket> page = ticketService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -59,19 +59,19 @@ public class TicketController {
 		return "tickets/ticket/tickets";
 	}
 
-	@GetMapping("/addticket")
+	@GetMapping("/ticket/addticket")
 	public String addTicket(Model model){
 		addModelAttributes(model);
 		return "/tickets/ticket/addTicket";
 	}
 	
-	@RequestMapping("/tickets/findById")
+	@RequestMapping("/ticket/tickets/findById")
 	@ResponseBody
 	public Ticket findById(Long id) {
 		return ticketService.findById(id);
 	}
 
-	@GetMapping("/ticket/{op}/{id}")
+	@GetMapping("/ticket/ticket/{op}/{id}")
 	public String editTicket(@PathVariable Long id, @PathVariable String op, Model model){
 		Ticket ticket = ticketService.findById(id);
 		model.addAttribute("ticket", ticket);
@@ -79,15 +79,15 @@ public class TicketController {
 		return "/tickets/ticket/"+ op + "Ticket";
 	}
 
-	@PostMapping("/alltickets")
+	@PostMapping("/ticket/alltickets")
 	public String save(Ticket ticket){
 		ticketService.save(ticket);
-		return "redirect:/alltickets";
+		return "redirect:/ticket/alltickets";
 	}
 	
-	@RequestMapping(value="/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@RequestMapping(value="/ticket/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Long id) {
 		ticketService.delete(id);
-		return "redirect:/alltickets";
+		return "redirect:/ticket/alltickets";
 	}
 }

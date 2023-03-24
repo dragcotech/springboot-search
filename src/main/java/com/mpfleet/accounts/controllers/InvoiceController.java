@@ -33,12 +33,12 @@ public class InvoiceController {
 	}
 
 
-	@GetMapping("/invoices")
+	@GetMapping("/accounts/invoices")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
-	@GetMapping("/invoices/page/{pageNumber}")
+	@GetMapping("/accounts/invoices/page/{pageNumber}")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Invoice> page = invoiceService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -55,13 +55,13 @@ public class InvoiceController {
 		return "accounts/invoice/invoices";
 	}
 
-	@GetMapping("/addinvoice")
+	@GetMapping("/accounts/addinvoice")
 	public String addInvoice(Model model){
 		addModelAttributes(model);
 		return "accounts/invoice/addInvoice";
 	}
 
-	@GetMapping("/invoice/{op}/{id}")
+	@GetMapping("/accounts/invoice/{op}/{id}")
 	public String editInvoice(@PathVariable Long id, @PathVariable String op, Model model){
 		Invoice invoice = invoiceService.findById(id);
 		model.addAttribute("invoice", invoice);
@@ -69,15 +69,15 @@ public class InvoiceController {
 		return "/accounts/invoice/"+ op + "Invoice";
 	}
 
-	@PostMapping("/invoices")
+	@PostMapping("/accounts/invoices")
 	public String save(Invoice invoice){
 		invoiceService.save(invoice);
-		return "redirect:/invoices";
+		return "redirect:/accounts/invoices";
 	}
 
-	@RequestMapping(value = "/invoices/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+	@RequestMapping(value = "/accounts/invoices/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
 	public  String delete(@PathVariable Long id){
 		invoiceService.delete(id);
-		return "redirect:/invoices";
+		return "redirect:/accounts/invoices";
 	}
 }

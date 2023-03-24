@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa fa-bars"></i> Vehicle Maintenance Details</h3>
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="/vehiclemaintenances">Vehicle Maintenances</a></li>
+                    <li><i class="fa fa-home"></i><a href="/fleet/vehiclemaintenances">Vehicle Maintenances</a></li>
                     <li><i class="fa fa-bars"></i>Vehicle Maintenance Details</li>
                 </ol>
             </div>
@@ -115,11 +115,11 @@
                 <div class="row">
                     <section class="panel">
                         <div class="panel-body">
-                            <a th:href="@{'/maintenance/edit/'+${maintenance.id}}" type="submit"
+                            <a th:href="@{'/fleet/maintenance/edit/'+${maintenance.id}}" type="submit"
                                class="btn btn-primary">
                                 Edit this record
                             </a>
-                            <a href="/vehiclemaintenances" class="btn  btn-warning">
+                            <a href="/fleet/vehiclemaintenances" class="btn  btn-warning">
                                 Exit
                             </a>
                         </div>
