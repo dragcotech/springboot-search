@@ -10,18 +10,18 @@ The back-end system includes a database that stores information about each vehic
 , fuel consumption, maintenance history, and more. The front-end interface is a web application 
 that allows users to view and interact with the data in real-time.
 
+Overall, a fleet management application can help businesses optimize their fleet operations, reduce costs, and improve safety and efficiency.
+
 >###### Some common features: ######
 
-Vehicle tracking: This feature allows businesses to monitor the location 
+:bookmark:Vehicle tracking: This feature allows businesses to monitor the location 
 of each vehicle in their fleet in real-time, using GPS tracking technology.
 
-Fuel management: This feature helps businesses optimize their fuel consumption by monitoring fuel usage,
+:bookmark:Fuel management: This feature helps businesses optimize their fuel consumption by monitoring fuel usage,
 identifying inefficient driving habits, and providing data on fuel costs.
 
-Maintenance scheduling: This feature helps businesses keep their vehicles in good working condition 
+:bookmark:Maintenance scheduling: This feature helps businesses keep their vehicles in good working condition 
 by scheduling regular maintenance and repairs based on factors such as mileage, engine hours, and more.
 
-Driver behavior analysis: This feature helps businesses monitor the driving behavior of their employees, 
+:bookmark:Driver behavior analysis: This feature helps businesses monitor the driving behavior of their employees, 
 identify unsafe or inefficient driving habits, and provide coaching to help drivers improve their skills.
-
-###### Overall, a fleet management application can help businesses optimize their fleet operations, reduce costs, and improve safety and efficiency.
