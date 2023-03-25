@@ -2,6 +2,7 @@ package com.mpfleet.admin.controllers;
 
 import com.mpfleet.admin.models.Contact;
 import com.mpfleet.admin.services.ContactService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,13 @@ public class ContactController {
     }
 
     @GetMapping("/admin/contacts")
+    @PageTitle("Contacts")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/admin/contacts/page/{pageNumber}")
+    @PageTitle("Contacts")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Contact> page = contactService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -50,12 +53,14 @@ public class ContactController {
     }
 
     @GetMapping("/admin/addcontact")
+    @PageTitle("Add Contact")
     public String addContact(){
         return "/admin/contact/addContact";
     }
 
     //edit / details
     @GetMapping("/admin/contact/{op}/{id}")
+    @PageTitle("Edit/Details Contact")
     public String editContact(@PathVariable Long id, @PathVariable String op, Model model){
         Contact contact = contactService.findById(id);
         model.addAttribute("contact", contact);

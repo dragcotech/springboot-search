@@ -1,5 +1,6 @@
 package com.mpfleet.security.controllers;
 
+import com.mpfleet.interceptor.annotations.PageTitle;
 import com.mpfleet.security.models.Role;
 import com.mpfleet.security.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class RoleController {
     }
 
     @GetMapping("/security/roles")
+    @PageTitle("Roles")
     public String parameters(Model model) {
         List<Role> roles = roleService.findAll();
         model.addAttribute("roles", roles);

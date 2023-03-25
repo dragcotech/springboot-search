@@ -2,6 +2,7 @@ package com.mpfleet.accounts.controllers;
 
 import com.mpfleet.accounts.models.TransactionStatus;
 import com.mpfleet.accounts.services.TransactionStatusService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class TransactionStatusController {
     }
 
     @GetMapping("/accounts/transactionstatuses")
+    @PageTitle("Transaction Statuses")
     public String parameters(Model model){
         List<TransactionStatus> transactionStatuses = transactionStatusService.findAll();
         model.addAttribute("transactionStatuses", transactionStatuses);

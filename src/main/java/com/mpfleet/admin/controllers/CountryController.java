@@ -2,6 +2,7 @@ package com.mpfleet.admin.controllers;
 
 import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.services.CountryService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,13 @@ public class CountryController {
     }
 
     @GetMapping("/admin/countries")
+    @PageTitle("Countries")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/admin/countries/page/{pageNumber}")
+    @PageTitle("Countries")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Country> page = countryService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -43,11 +46,13 @@ public class CountryController {
     }
 
     @GetMapping("/admin/addcountry")
+    @PageTitle("Add Country")
     public String addCountry(){ // ADD COUNTRY
         return "admin/country/addCountry";
     }
 
     @GetMapping("/admin/editcountry/{id}")
+    @PageTitle("Edit Country")
     public String editCountry(@PathVariable Long id, Model model){ // EDIT COUNTRY
         Country country = countryService.getById(id);
         model.addAttribute("country", country);
@@ -55,6 +60,7 @@ public class CountryController {
     }
 
     @GetMapping("/admin/detailscountry/{id}")
+    @PageTitle("Details Country")
     public String detailsCountry(@PathVariable Long id, Model model){ // DETAILS COUNTRY
         Country country = countryService.getById(id);
         model.addAttribute("country", country);

@@ -2,6 +2,7 @@ package com.mpfleet.fleet.controllers;
 
 import com.mpfleet.fleet.models.VehicleType;
 import com.mpfleet.fleet.services.VehicleTypeService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class VehicleTypeController {
 	}
 
 	@GetMapping("/fleet/vehicletypes")
+	@PageTitle("Vehicle Types")
 	public String findAll(Model model){
 		model.addAttribute("vehicleTypes", vehicleTypeService.findAll());
 		return "/fleet/vehicletype/vehicleTypes";

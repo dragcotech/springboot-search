@@ -1,6 +1,8 @@
 package com.mpfleet.security.controllers;
 
+import com.mpfleet.interceptor.annotations.PageTitle;
 import com.mpfleet.security.models.User;
+import com.mpfleet.security.repositories.UserRepository;
 import com.mpfleet.security.services.RoleService;
 import com.mpfleet.security.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +16,25 @@ import org.springframework.web.servlet.view.RedirectView;
 public class UserController {
     private final UserService userService;
     private final RoleService roleService;
+    private final UserRepository userRepository;
 
     @Autowired
-    public UserController(UserService userService, RoleService roleService) {
+    public UserController(UserService userService, RoleService roleService, UserRepository userRepository) {
         this.userService = userService;
         this.roleService = roleService;
+        this.userRepository = userRepository;
     }
 
 
     @GetMapping("/security/users")
+    @PageTitle("Users")
     public String getAll(Model model) {
         model.addAttribute("users", userService.findAll());
         return "/security/users";
     }
 
     @GetMapping("/security/user/{op}/{id}")
+    @PageTitle("Edit/Details User")
     public String editUser(@PathVariable Long id, @PathVariable String op, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
@@ -39,10 +45,19 @@ public class UserController {
 
     @PostMapping("/users/addNew")
     public RedirectView addNew(User user, RedirectAttributes redir) {
-        userService.save(user);
 
-        RedirectView redirectView = new RedirectView("/login", true);
-        redir.addFlashAttribute("message", "You have successfully registered!");
+        boolean exists = userRepository.existsByUsername(user.getUsername());
+        RedirectView redirectView;
+
+        if (!exists){
+            redir.addFlashAttribute("message", "You have successfully registered!");
+            redirectView = new RedirectView("/login", true);
+            userService.save(user);
+        } else {
+            redir.addFlashAttribute("message", "Username exists");
+            redirectView = new RedirectView("/register", true);
+        }
+
         return redirectView;
     }
 

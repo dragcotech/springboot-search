@@ -1,5 +1,6 @@
 package com.mpfleet.tickets.controllers;
 
+import com.mpfleet.interceptor.annotations.PageTitle;
 import com.mpfleet.tickets.models.TicketStatus;
 import com.mpfleet.tickets.services.TicketStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class TicketStatusController {
 	}
 
 	@GetMapping("/ticket/ticketstatuses")
+	@PageTitle("Ticket Statuses")
 	public String findAll(Model model){		
 		model.addAttribute("ticketStatuses", ticketStatusService.findAll());
 		return "/tickets/ticketstatus/ticketStatuses";

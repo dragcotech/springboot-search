@@ -6,6 +6,7 @@ import com.mpfleet.hr.models.Employee;
 import com.mpfleet.hr.services.EmployeeService;
 import com.mpfleet.hr.services.EmployeeTypeService;
 import com.mpfleet.hr.services.JobTitleService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -43,11 +44,13 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/hr/employees")
+	@PageTitle("Employees")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
 	@GetMapping("/hr/employees/page/{pageNumber}")
+	@PageTitle("Employees")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Employee> page = employeeService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -65,6 +68,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/hr/addemployee")
+	@PageTitle("Add Employee")
 	public String addEmployee(Model model){
 		addModelAttributes(model);
 		return "hr/employee/addEmployee";
@@ -72,6 +76,7 @@ public class EmployeeController {
 
 
 	@GetMapping("/hr/employee/{op}/{id}")
+	@PageTitle("Edit/Details Employee")
 	public String editEmployee(@PathVariable Long id, @PathVariable String op, Model model){
 		Employee employee = employeeService.findById(id);
 		model.addAttribute("employee", employee);

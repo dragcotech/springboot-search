@@ -4,6 +4,7 @@ import com.mpfleet.admin.services.SupplierService;
 import com.mpfleet.fleet.models.VehicleMaintenance;
 import com.mpfleet.fleet.services.VehicleMaintenanceService;
 import com.mpfleet.fleet.services.VehicleService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -34,11 +35,13 @@ public class VehicleMaintenanceController {
 	}
 
 	@GetMapping("/fleet/vehiclemaintenances")
+	@PageTitle("Vehicle Maintenance")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
 	@GetMapping("/fleet/vehiclemaintenances/page/{pageNumber}")
+	@PageTitle("Vehicle Maintenance")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<VehicleMaintenance> page = vehicleMaintenanceService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -56,12 +59,14 @@ public class VehicleMaintenanceController {
 	}
 
 	@GetMapping("/fleet/addmaintenances")
+	@PageTitle("Add Vehicle Maintenance")
 	public String addMaintenance(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehiclemaintenance/addMaintenance";
 	}
 
 	@GetMapping("/fleet/maintenance/{op}/{id}")
+	@PageTitle("Edit/Details Vehicle Maintenance")
 	public String editMaintenance(Model model, @PathVariable Long id, @PathVariable String op){
 		VehicleMaintenance maintenance = vehicleMaintenanceService.findById(id);
 		model.addAttribute("maintenance", maintenance);

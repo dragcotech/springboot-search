@@ -4,6 +4,7 @@ import com.mpfleet.admin.models.Country;
 import com.mpfleet.admin.models.State;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.StateService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -30,11 +31,13 @@ public class StateController {
     }
 
     @GetMapping("/admin/states")
+    @PageTitle("States")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/admin/states/page/{pageNumber}")
+    @PageTitle("States")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<State> page = stateService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -52,12 +55,14 @@ public class StateController {
     }
 
     @GetMapping("/admin/addstate")
+    @PageTitle("Add State")
     public String addCountry(Model model){ // ADD STATE
         addModelAttribute(model);
         return "admin/state/addState";
     }
 
     @GetMapping("/admin/editstate/{id}")
+    @PageTitle("Edit State")
     public String editCountry(@PathVariable Long id, Model model){ // EDIT STATE
         State state = stateService.getById(id);
         Country country = countryService.getById(id);
@@ -67,6 +72,7 @@ public class StateController {
     }
 
     @GetMapping("/admin/detailsstate/{id}")
+    @PageTitle("Details State")
     public String detailsCountry(@PathVariable Long id, Model model){ // DETAILS STATE
         State state = stateService.getById(id);
         Country country = countryService.getById(id);

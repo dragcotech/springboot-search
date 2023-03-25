@@ -2,6 +2,7 @@ package com.mpfleet.hr.controllers;
 
 import com.mpfleet.hr.models.EmployeeStatus;
 import com.mpfleet.hr.services.EmployeeStatusService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ public class EmployeeStatusController {
     }
 
     @GetMapping("/hr/employeestatuses")
+    @PageTitle("Employee Statuses")
     public String parameters(Model model){
         List<EmployeeStatus> employeeStatuses = employeeStatusService.findAll();
         model.addAttribute("employeeStatuses", employeeStatuses);

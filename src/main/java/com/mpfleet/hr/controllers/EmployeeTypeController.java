@@ -3,6 +3,7 @@ package com.mpfleet.hr.controllers;
 import com.mpfleet.hr.models.EmployeeType;
 import com.mpfleet.hr.repositories.EmployeeTypeRepository;
 import com.mpfleet.hr.services.EmployeeTypeService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class EmployeeTypeController {
 	}
 
 	@GetMapping("/hr/employeetypes")
+	@PageTitle("Employee Types")
 	public String parameters(Model model){
 		List<EmployeeType> employeeTypes = employeeTypeRepository.findAll();
 		model.addAttribute("employeeTypes", employeeTypes);

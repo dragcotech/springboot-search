@@ -8,6 +8,7 @@ import com.mpfleet.admin.services.ClientService;
 import com.mpfleet.admin.services.ContactService;
 import com.mpfleet.admin.services.SupplierService;
 import com.mpfleet.hr.services.EmployeeService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -51,11 +52,13 @@ public class TransactionController {
     }
 
     @GetMapping("/accounts/transactions")
+    @PageTitle("Transactions")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/accounts/transactions/page/{pageNumber}")
+    @PageTitle("Transactions")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Transaction> page = transactionService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -73,12 +76,14 @@ public class TransactionController {
     }
 
     @GetMapping("/accounts/addtransaction")
+    @PageTitle("Add Transactions")
     public String addTransaction(Model model){
         addModelAttributes(model);
         return "/accounts/transaction/addTransaction";
     }
 
     @GetMapping("/accounts/transactions/{op}/{id}")
+    @PageTitle("Edit/Details Transaction")
     public String editTransaction(@PathVariable Long id, @PathVariable String op, Model model){
         Transaction transaction = transactionService.findById(id);
         model.addAttribute("transaction", transaction);

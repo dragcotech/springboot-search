@@ -4,6 +4,7 @@ import com.mpfleet.admin.models.Location;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.LocationService;
 import com.mpfleet.admin.services.StateService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -32,11 +33,13 @@ public class LocationController {
     }
 
     @GetMapping("/admin/locations")
+    @PageTitle("Locations")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/admin/locations/page/{pageNumber}")
+    @PageTitle("Locations")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Location> page = locationService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -54,6 +57,7 @@ public class LocationController {
     }
 
     @GetMapping("/admin/addlocation")
+    @PageTitle("Add Location")
     public String addLocation(Model model){
         addModelAttributes(model);
         return "admin/location/addLocation";
@@ -66,6 +70,7 @@ public class LocationController {
     }
 
     @GetMapping("/admin/detailslocation/{id}")
+    @PageTitle("Details Location")
     public String detailsLocation(@PathVariable Long id, Model model){
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
@@ -74,6 +79,7 @@ public class LocationController {
     }
 
     @GetMapping("/admin/editlocation/{id}")
+    @PageTitle("Edit Location")
     public String editLocation(@PathVariable Long id, Model model){
         Location location = locationService.findById(id);
         model.addAttribute("location", location);

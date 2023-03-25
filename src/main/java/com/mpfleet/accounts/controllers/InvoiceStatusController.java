@@ -2,6 +2,7 @@ package com.mpfleet.accounts.controllers;
 
 import com.mpfleet.accounts.models.InvoiceStatus;
 import com.mpfleet.accounts.services.InvoiceStatusService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class InvoiceStatusController {
 	}
 
 	@GetMapping("/accounts/invoicestatuses")
+	@PageTitle("Invoice Statuses")
 	public String findAll(Model model){		
 		model.addAttribute("invoiceStatuses", invoiceStatusService.findAll());
 		return "/accounts/invoicestatus/invoiceStatuses";

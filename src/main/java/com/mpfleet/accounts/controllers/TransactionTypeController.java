@@ -2,6 +2,7 @@ package com.mpfleet.accounts.controllers;
 
 import com.mpfleet.accounts.models.TransactionType;
 import com.mpfleet.accounts.services.TransactionTypeService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ public class TransactionTypeController {
     }
 
     @GetMapping("/accounts/transactiontypes")
+    @PageTitle("Transaction Types")
     public String parameters(Model model){
         List<TransactionType> transactionTypes = transactionTypeService.findAll();
         model.addAttribute("transactionTypes", transactionTypes);

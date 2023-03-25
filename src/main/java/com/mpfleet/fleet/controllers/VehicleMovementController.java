@@ -4,6 +4,7 @@ import com.mpfleet.admin.services.LocationService;
 import com.mpfleet.fleet.models.VehicleMovement;
 import com.mpfleet.fleet.services.VehicleMovementService;
 import com.mpfleet.fleet.services.VehicleService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -33,11 +34,13 @@ public class VehicleMovementController {
 
 
 	@GetMapping("/fleet/vehiclemovements")
+	@PageTitle("Vehicle Movements")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
 	@GetMapping("/fleet/vehiclemovements/page/{pageNumber}")
+	@PageTitle("Vehicle Movements")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<VehicleMovement> page = vehicleMovementService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -55,12 +58,14 @@ public class VehicleMovementController {
 	}
 
 	@GetMapping("/fleet/addmovement")
+	@PageTitle("Add Vehicle Movement")
 	public String addMovement(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehiclemovement/addMovement";
 	}
 
 	@GetMapping("/fleet/movement/{op}/{id}")
+	@PageTitle("Edit/Details VehicleMovement")
 	public String editMovement(Model model, @PathVariable Long id, @PathVariable String op){
 		VehicleMovement movement = vehicleMovementService.findById(id);
 		model.addAttribute("movement", movement);

@@ -4,6 +4,7 @@ import com.mpfleet.admin.models.Client;
 import com.mpfleet.admin.services.ClientService;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.StateService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -33,11 +34,13 @@ public class ClientController {
     }
 
     @GetMapping("/admin/clients")
+    @PageTitle("Clients")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/admin/clients/page/{pageNumber}")
+    @PageTitle("Clients")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Client> page = clientService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -55,6 +58,7 @@ public class ClientController {
     }
 
     @GetMapping("/admin/addclient")
+    @PageTitle("Add Client")
     public String addClient(Model model){
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("states", stateService.findAll());
@@ -62,6 +66,7 @@ public class ClientController {
     }
 
     @GetMapping("/admin/client/{op}/{id}")
+    @PageTitle("Edit/Details Client")
     public String editClient(@PathVariable Long id, @PathVariable String op, Model model){
         Client client = clientService.findById(id);
         model.addAttribute("client", client);

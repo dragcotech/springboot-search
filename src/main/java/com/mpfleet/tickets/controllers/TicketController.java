@@ -2,6 +2,7 @@ package com.mpfleet.tickets.controllers;
 
 import com.mpfleet.admin.services.ClientService;
 import com.mpfleet.hr.services.EmployeeService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import com.mpfleet.tickets.models.Ticket;
 import com.mpfleet.tickets.services.TicketService;
 import com.mpfleet.tickets.services.TicketStatusService;
@@ -38,11 +39,13 @@ public class TicketController {
 
 
 	@GetMapping("/ticket/alltickets")
+	@PageTitle("Tickets")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
 	@GetMapping("/ticket/alltickets/page/{pageNumber}")
+	@PageTitle("Tickets")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Ticket> page = ticketService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -60,6 +63,7 @@ public class TicketController {
 	}
 
 	@GetMapping("/ticket/addticket")
+	@PageTitle("Add Ticket")
 	public String addTicket(Model model){
 		addModelAttributes(model);
 		return "/tickets/ticket/addTicket";
@@ -72,6 +76,7 @@ public class TicketController {
 	}
 
 	@GetMapping("/ticket/ticket/{op}/{id}")
+	@PageTitle("Edit/Details Ticket")
 	public String editTicket(@PathVariable Long id, @PathVariable String op, Model model){
 		Ticket ticket = ticketService.findById(id);
 		model.addAttribute("ticket", ticket);

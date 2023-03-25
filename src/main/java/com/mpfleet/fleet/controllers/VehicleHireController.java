@@ -5,6 +5,7 @@ import com.mpfleet.admin.services.LocationService;
 import com.mpfleet.fleet.models.VehicleHire;
 import com.mpfleet.fleet.services.VehicleHireService;
 import com.mpfleet.fleet.services.VehicleService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -36,11 +37,13 @@ public class VehicleHireController {
 	}
 
 	@GetMapping("/fleet/vehiclehires")
+	@PageTitle("Vehicle Hires")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
 	@GetMapping("/fleet/vehiclehires/page/{pageNumber}")
+	@PageTitle("Vehicle Hires")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<VehicleHire> page = vehicleHireService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -58,12 +61,14 @@ public class VehicleHireController {
 	}
 
 	@GetMapping("/fleet/addhire")
+	@PageTitle("Add Vehicle Hire")
 	public String addHire(Model model){
 		addModelAttributes(model);
 		return "/fleet/vehiclehire/addHire";
 	}
 
 	@GetMapping("/fleet/hire/{op}/{id}")
+	@PageTitle("Edit/Details Vehicle Hire")
 	public String editHire(Model model, @PathVariable Long id, @PathVariable String op){
 		VehicleHire hire = vehicleHireService.findById(id);
 		model.addAttribute("hire", hire);

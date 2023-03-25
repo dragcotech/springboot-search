@@ -4,6 +4,7 @@ import com.mpfleet.accounts.models.Invoice;
 import com.mpfleet.accounts.services.InvoiceService;
 import com.mpfleet.accounts.services.InvoiceStatusService;
 import com.mpfleet.admin.services.ClientService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -34,11 +35,13 @@ public class InvoiceController {
 
 
 	@GetMapping("/accounts/invoices")
+	@PageTitle("Invoices")
 	public String getAllPages(Model model, String keyword){
 		return getOnePage(model, 1, keyword);
 	}
 
 	@GetMapping("/accounts/invoices/page/{pageNumber}")
+	@PageTitle("Invoices")
 	public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
 		Page<Invoice> page = invoiceService.findPage(currentPage);
 		int totalPages = page.getTotalPages();
@@ -56,12 +59,14 @@ public class InvoiceController {
 	}
 
 	@GetMapping("/accounts/addinvoice")
+	@PageTitle("Add Invoice")
 	public String addInvoice(Model model){
 		addModelAttributes(model);
 		return "accounts/invoice/addInvoice";
 	}
 
 	@GetMapping("/accounts/invoice/{op}/{id}")
+	@PageTitle("Details/Edit Invoice")
 	public String editInvoice(@PathVariable Long id, @PathVariable String op, Model model){
 		Invoice invoice = invoiceService.findById(id);
 		model.addAttribute("invoice", invoice);

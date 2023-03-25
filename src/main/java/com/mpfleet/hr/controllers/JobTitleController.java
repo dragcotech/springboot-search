@@ -2,6 +2,7 @@ package com.mpfleet.hr.controllers;
 
 import com.mpfleet.hr.models.JobTitle;
 import com.mpfleet.hr.services.JobTitleService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class JobTitleController {
     }
 
     @GetMapping("/hr/jobtitles")
+    @PageTitle("Job Titles")
     public String parameters(Model model){
         List<JobTitle> jobTitles = jobTitleService.findAll();
         model.addAttribute("jobTitles", jobTitles);

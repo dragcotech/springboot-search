@@ -4,6 +4,7 @@ import com.mpfleet.admin.models.Supplier;
 import com.mpfleet.admin.services.CountryService;
 import com.mpfleet.admin.services.StateService;
 import com.mpfleet.admin.services.SupplierService;
+import com.mpfleet.interceptor.annotations.PageTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -33,11 +34,13 @@ public class SupplierController {
     }
 
     @GetMapping("/admin/suppliers")
+    @PageTitle("Suppliers")
     public String getAllPages(Model model, String keyword){
         return getOnePage(model, 1, keyword);
     }
 
     @GetMapping("/admin/suppliers/page/{pageNumber}")
+    @PageTitle("Suppliers")
     public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage, String keyword){
         Page<Supplier> page = supplierService.findPage(currentPage);
         int totalPages = page.getTotalPages();
@@ -55,6 +58,7 @@ public class SupplierController {
     }
 
     @GetMapping("/admin/addsupplier")
+    @PageTitle("Add Supplier")
     public String addSupplier(Model model){
         addModelAttributes(model);
         return "admin/supplier/addSupplier";
@@ -67,6 +71,7 @@ public class SupplierController {
     }
 
     @GetMapping("/admin/supplier/{op}/{id}")
+    @PageTitle("Edit Supplier")
     public String editSupplier(@PathVariable Long id, @PathVariable String op, Model model){
         Supplier supplier = supplierService.findById(id);
         model.addAttribute("supplier", supplier);
