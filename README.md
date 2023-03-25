@@ -1,0 +1,29 @@
+Monolith Structured Fleet Management Application.
+
+
+A fleet management application is a software tool designed to help businesses manage their fleet of vehicles.
+The application typically provides features such as vehicle tracking, fuel management, maintenance scheduling
+, driver behavior analysis, and more. The goal of a fleet management application is to make it easier for 
+businesses to monitor and optimize their fleet operations.
+
+In general, a fleet management application consists of a back-end system that stores data about the vehicles
+in the fleet, and a front-end interface that allows users to access that data and interact with the system.
+The back-end system typically includes a database that stores information about each vehicle, such as its location
+, fuel consumption, maintenance history, and more. The front-end interface is usually a web or mobile application 
+that allows users to view and interact with the data in real-time.
+
+Some common features of a fleet management application include:
+
+Real-time vehicle tracking: This feature allows businesses to monitor the location 
+of each vehicle in their fleet in real-time, using GPS tracking technology.
+
+Fuel management: This feature helps businesses optimize their fuel consumption by monitoring fuel usage,
+identifying inefficient driving habits, and providing data on fuel costs.
+
+Maintenance scheduling: This feature helps businesses keep their vehicles in good working condition 
+by scheduling regular maintenance and repairs based on factors such as mileage, engine hours, and more.
+
+Driver behavior analysis: This feature helps businesses monitor the driving behavior of their employees, 
+identify unsafe or inefficient driving habits, and provide coaching to help drivers improve their skills.
+
+Overall, a fleet management application can help businesses optimize their fleet operations, reduce costs, and improve safety and efficiency.
